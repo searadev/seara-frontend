@@ -1,4 +1,5 @@
 import Navbar from "components/Navbar";
+import './styles.css';
 
 const Message = () => {
     return (
@@ -7,7 +8,7 @@ const Message = () => {
         <div className="message-container">
           <div className="message-card">
             <div className="message-content-container">
-              <h1>Hello Seara</h1>;
+              <h1>Hello Seara</h1>
             </div>
           </div>          
         </div> 
