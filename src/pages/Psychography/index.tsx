@@ -1,4 +1,5 @@
 import Navbar from "components/Navbar";
+import './styles.css';
 
 const Psychography = () => {
     return (
@@ -7,7 +8,7 @@ const Psychography = () => {
         <div className="psychography-container">
           <div className="psychography-card">
             <div className="psychography-content-container">
-              <h1>Psicografias</h1>;
+              <h1>Psicografias</h1>
             </div>
           </div>          
         </div>         

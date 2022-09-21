@@ -1,4 +1,5 @@
 import Navbar from "components/Navbar";
+import './styles.css';
 
 const Class = () => {
     return (
@@ -7,7 +8,7 @@ const Class = () => {
         <div className="class-container">
           <div className="class-card">
             <div className="class-content-container">
-              <h1>Aulas</h1>;
+              <h1>Aulas</h1>
             </div>
           </div>          
         </div>        
