@@ -1,17 +1,38 @@
+import './styles.css';
+import 'bootstrap/js/src/collapse.js';
+
 const Navbar = () => {
   return (
-    <nav className="bg-primary">
-      <div>
-        <a href="link">
-          <h4>Seara de Jesus</h4>
+    <nav className="navbar navbar-expand-md navbar-dark main-nav">
+      <div className="container-fluid">
+        <a href="link" className="nav-logo-text">
+          <h4>SEARA DE JESUS</h4>
         </a>
-        <div>
-          <ul>
+        <button
+          className="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#searadev-navbar"
+          aria-controls="searadev-navbar"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+  <span className="navbar-toggler-icon"></span>
+</button>
+
+        <div className="collapse navbar-collapse" id="searadev-navbar">
+          <ul className="navbar-nav offset-md-2 main-menu">
             <li>
-              <a href="link">HOME</a>
+              <a href="link" className="active">MENSAGENS MOTIVACIONAIS</a>
             </li>
             <li>
-              <a href="link">CATÁLOGO</a>
+              <a href="link">PSICOGRAFIAS</a>
+            </li>
+            <li>
+              <a href="link">PALESTRAS</a>
+            </li>
+            <li>
+              <a href="link">AULAS</a>
             </li>
             <li>
               <a href="link">ADMIN</a>
