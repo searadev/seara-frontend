@@ -1,9 +1,9 @@
 import Navbar from "components/Navbar";
 import Admin from "pages/Admin";
-import Class from "pages/Class";
-import Lecture from "pages/Lecture";
-import Message from "pages/Message";
-import Psychography from "pages/Psychography";
+import ClassRoom from "pages/ClassesRoom";
+import Lectures from "pages/Lectures";
+import Messages from "pages/Messages";
+import Psychographies from "pages/Psychographies";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 
 
@@ -13,16 +13,16 @@ const Routes = () => (
         <Navbar />
         <Switch>
             <Route path="/" exact>
-                <Message />
+                <Messages />
             </Route>
             <Route path="/psychography">
-                <Psychography />
+                <Psychographies />
             </Route>
             <Route path="/lecture">
-                <Lecture />
+                <Lectures />
             </Route>
-            <Route path="/class">
-                <Class />
+            <Route path="/classroom">
+                <ClassRoom />
             </Route>
             <Route path="/admin">
                 <Admin />
