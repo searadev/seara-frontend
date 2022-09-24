@@ -1,28 +1,41 @@
 import LectureCard from "components/LectureCard";
+import { Lecture } from "types/lecture";
 import './styles.css';
 
-const Lecture = () => {
+const Lectures = () => {
+
+  const lecture : Lecture = {
+    "id": 1,
+    "title": "15_08_22 Rita Navarro",
+    "url": "https://www.youtube.com/watch?v=nNeS4gUeSCw&t=64s",
+    "date": "15/08/2022",
+    "medium": {
+        "id": 1,
+        "fullName": "Ananda Silva"
+    }
+}
+
     return (
         <div className="container my-4 lecture">
           <div className="row">
             <div className="col-sm-6 col-lg-4 col-xl-3">
-              <LectureCard />
+              <LectureCard lecture={lecture}/>
             </div>
             <div className="col-sm-6 col-lg-4 col-xl-3">
-              <LectureCard />
+              <LectureCard lecture={lecture}/>
             </div>
             <div className="col-sm-6 col-lg-4 col-xl-3">
-              <LectureCard />
+              <LectureCard lecture={lecture}/>
             </div>
             <div className="col-sm-6 col-lg-4 col-xl-3">
-              <LectureCard />
+              <LectureCard lecture={lecture}/>
             </div>
             <div className="col-sm-6 col-lg-4 col-xl-3">
-              <LectureCard />
+              <LectureCard lecture={lecture}/>
             </div>
           </div>          
         </div> 
     );
   };
   
-  export default Lecture;
+  export default Lectures;

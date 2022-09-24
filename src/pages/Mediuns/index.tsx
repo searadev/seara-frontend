@@ -1,6 +1,6 @@
 import './styles.css';
 
-const Medium = () => {
+const Mediuns = () => {
     return (
       <>
         <div className="medium-container">
@@ -14,4 +14,4 @@ const Medium = () => {
     );
   };
   
-  export default Medium;
+  export default Mediuns;

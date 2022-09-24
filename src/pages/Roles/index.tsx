@@ -1,6 +1,6 @@
 import './styles.css';
 
-const Role = () => {
+const Roles = () => {
     return (
       <>
         <div className="role-container">
@@ -14,4 +14,4 @@ const Role = () => {
     );
   };
   
-  export default Role;
+  export default Roles;

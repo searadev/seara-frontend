@@ -1,6 +1,6 @@
 import './styles.css';
 
-const Module = () => {
+const Modules = () => {
     return (
       <>
         <div className="module-container">
@@ -14,4 +14,4 @@ const Module = () => {
     );
   };
   
-  export default Module;
+  export default Modules;

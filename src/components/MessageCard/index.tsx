@@ -1,17 +1,22 @@
+import { Message } from 'types/message';
 import './styles.css';
 
-const MessageCard = () => {
+type Props = {
+    message: Message;
+}
+
+const MessageCard = ({ message } : Props) => {
 
     return (
         <div className="base-card message-card">
             <div className="message-top-container">
-                <p>Apóie teu irmão</p>
+                <p>{message.title}</p>
             </div>
             <div className="message-body-container">
-                <p>Apóie teu irmão em crise, atingido pela doença ou pelo desemprego. Uma cesta básica doada, todo o mês, renovará o milagre da multiplicação de pães feito por Jesus.</p>
+                <p>{message.text}</p>
             </div>
             <div className="message-botton-container">
-                <h1>Bezerra de Menezes</h1>
+                <h1>{message.fullName}</h1>
             </div>
         </div>
     );
