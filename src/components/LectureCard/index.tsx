@@ -1,14 +1,19 @@
+import { Lecture } from 'types/lecture';
 import './styles.css';
 
-const LectureCard = () => {
+type Props = {
+    lecture: Lecture;
+}
+
+const LectureCard = ({ lecture } : Props) => {
 
     return (
         <div className="base-card lecture-card">
             <div className="lecture-top-container">
-                <p>15_08_22 Rita Navarro</p>
+                <p>{lecture.title}</p>
             </div>
             <div className="lecture-body-container">
-                <p>2022-08-15</p>
+                <p>{lecture.date}</p>
             </div>            
         </div>
     );

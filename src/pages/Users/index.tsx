@@ -1,6 +1,6 @@
 import './styles.css';
 
-const User = () => {
+const Users = () => {
     return (
       <>
         <div className="user-container">
@@ -14,4 +14,4 @@ const User = () => {
     );
   };
   
-  export default User;
+  export default Users;
