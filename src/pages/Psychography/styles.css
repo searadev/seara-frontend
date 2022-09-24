@@ -1,4 +1,28 @@
-.psychography-container {
-    padding: 20px;
-    font-size: 26px;    
+.psychography {
+    padding: 40px 40px;
+    /*border: 1px solid rgb(25, 0, 255);*/
+}
+
+@media (min-width: 768px) {
+
+    .psychography {
+        padding: 40px 100px;
+    }
+
+}
+
+@media (min-width: 992px) {
+
+    .psychography {
+        padding: 38px 200px;
+    }
+
+}
+
+@media (min-width: 1200px) {
+
+    .psychography {
+        padding: 40px 290px;
+    }
+
 }

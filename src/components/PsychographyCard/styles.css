@@ -1,0 +1,24 @@
+
+.psychography-card {  
+    align-items: center;    
+    /*border: 1px solid orange;*/
+}
+
+.psychography-top-container p {
+    font-size: 15px;
+    color: #263238;
+    text-align: left;
+    
+}
+
+.psychography-body-container p {
+    font-size: 15px;
+    color: #263238;
+    text-align: left;
+}
+
+.psychography-botton-container h1 {
+    font-size: 18px;
+    color: #263238;
+    text-align: left;
+}
