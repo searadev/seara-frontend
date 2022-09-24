@@ -1,22 +1,23 @@
 .main-nav {
-    padding-left: 40px;
     min-height: 70px;
-    background-color:#b8860b;
+    background-color:#FFF;
+    border-bottom: 1px solid #E1E1E1;
+    padding: 30px 30px 30px 40px;
 }
 
 .nav-logo-text, .nav-logo-text:hover {
-    color: #FFF;
+    color: #b8860b;
 }
 
 .main-menu {
     display: flex;
     font-size: 18px;
     width: 100%;
-    justify-content:space-between;
+    justify-content:space-between;    
 }
 
 .main-menu a {
-    color: rgba(255, 255, 255, 0.5);
+    color:black;
 }
 
 .main-menu a:hover {
@@ -24,6 +25,10 @@
 }
 
 .main-menu a.active {
-    color: #FFF;
+    color:black;
     font-weight: bold;
+}
+
+.navbar-toggler {
+    background-color:  #b8860b;
 }

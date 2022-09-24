@@ -1,3 +1,4 @@
+import LectureCard from "components/LectureCard";
 import Navbar from "components/Navbar";
 import './styles.css';
 
@@ -5,13 +6,25 @@ const Lecture = () => {
     return (
       <>
         <Navbar />
-        <div className="lecture-container">
-          <div className="lecture-card">
-            <div className="lecture-content-container">
-              <h1>Palestras</h1>
+        <div className="container my-4 lecture">
+          <div className="row">
+            <div className="col-sm-6 col-lg-4 col-xl-3">
+              <LectureCard />
+            </div>
+            <div className="col-sm-6 col-lg-4 col-xl-3">
+              <LectureCard />
+            </div>
+            <div className="col-sm-6 col-lg-4 col-xl-3">
+              <LectureCard />
+            </div>
+            <div className="col-sm-6 col-lg-4 col-xl-3">
+              <LectureCard />
+            </div>
+            <div className="col-sm-6 col-lg-4 col-xl-3">
+              <LectureCard />
             </div>
           </div>          
-        </div>        
+        </div>         
       </>
     );
   };

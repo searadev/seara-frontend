@@ -1,16 +1,27 @@
 import Navbar from "components/Navbar";
+import PsychographyCard from "components/PsychographyCard";
 import './styles.css';
 
 const Psychography = () => {
     return (
       <>
         <Navbar />
-        <div className="psychography-container">
-          <div className="psychography-card">
-            <div className="psychography-content-container">
-              <h1>Psicografias</h1>
-            </div>
-          </div>          
+        <div className="container my-4 psychography">
+          <div className="row">
+            <PsychographyCard />
+          </div>
+          <div className="row">
+            <PsychographyCard />
+          </div>
+          <div className="row">
+            <PsychographyCard />
+          </div>
+          <div className="row">
+            <PsychographyCard />
+          </div>
+          <div className="row">
+            <PsychographyCard />
+          </div>
         </div>         
       </>
     );
