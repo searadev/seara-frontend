@@ -1,0 +1,19 @@
+
+.lecture-card {  
+    align-items: center;    
+    /*border: 1px solid orange;*/
+}
+
+.lecture-top-container p {
+    font-size: 15px;
+    color: #263238;
+    text-align: left;
+    font-weight: 700;
+}
+
+.lecture-body-container p {
+    font-size: 15px;
+    color: #263238;
+    text-align: left;
+    font-weight: 700;
+}

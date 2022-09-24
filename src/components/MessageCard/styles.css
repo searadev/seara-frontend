@@ -1,0 +1,24 @@
+
+.message-card {  
+    align-items: center;    
+    /*border: 1px solid orange;*/
+}
+
+.message-top-container p {
+    font-size: 15px;
+    color: #263238;
+    text-align: left;
+    
+}
+
+.message-body-container p {
+    font-size: 15px;
+    color: #263238;
+    text-align: left;
+}
+
+.message-botton-container h1 {
+    font-size: 18px;
+    color: #263238;
+    text-align: right;
+}

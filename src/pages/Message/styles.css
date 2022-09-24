@@ -1,8 +1,28 @@
-.message-container {
-    padding: 20px;
-    font-size: 18px;    
+.message {
+    padding: 40px 40px;
+    /*border: 1px solid rgb(25, 0, 255);*/
 }
 
-.message-content-container {
-    font-size: 1em;    
+@media (min-width: 768px) {
+
+    .message {
+        padding: 40px 100px;
+    }
+
+}
+
+@media (min-width: 992px) {
+
+    .message {
+        padding: 38px 200px;
+    }
+
+}
+
+@media (min-width: 1200px) {
+
+    .message {
+        padding: 40px 290px;
+    }
+
 }
