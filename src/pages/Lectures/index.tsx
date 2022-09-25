@@ -1,4 +1,5 @@
 import LectureCard from "components/LectureCard";
+import Pagination from "components/Pagination";
 import { Link } from "react-router-dom";
 import { Lecture } from "types/lecture";
 import './styles.css';
@@ -17,7 +18,10 @@ const Lectures = () => {
 }
 
     return (
-        <div className="container my-4 lecture">
+        <div className="container my-4 lecture-container">
+          <div className="row lecture-title-container">
+            <h1>Palestras</h1>
+          </div>
           <div className="row">
             <div className="col-sm-6 col-lg-4 col-xl-3">
             <Link to="/lecture/1">
@@ -44,7 +48,10 @@ const Lectures = () => {
               <LectureCard lecture={lecture}/>
             </Link>
             </div>
-          </div>          
+          </div> 
+          <div className="row">
+            <Pagination />
+          </div>         
         </div> 
     );
   };
