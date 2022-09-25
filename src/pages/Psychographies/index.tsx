@@ -1,4 +1,5 @@
 import PsychographyCard from "components/PsychographyCard";
+import { Link } from "react-router-dom";
 import { Psychography } from "types/psychography";
 import './styles.css';
 
@@ -19,19 +20,29 @@ const Psychographies = () => {
     return (
         <div className="container my-4 psychography">
           <div className="row">
-            <PsychographyCard psychography={psychography}  />
+            <Link to="/psychography/1">
+              <PsychographyCard psychography={psychography}  />
+            </Link>
           </div>
           <div className="row">
-            <PsychographyCard psychography={psychography}  />
+            <Link to="/psychography/1">
+              <PsychographyCard psychography={psychography}  />
+            </Link>
           </div>
           <div className="row">
-            <PsychographyCard psychography={psychography}  />
+            <Link to="/psychography/1">
+              <PsychographyCard psychography={psychography}  />
+            </Link>
           </div>
           <div className="row">
-            <PsychographyCard psychography={psychography}  />
+            <Link to="/psychography/1">
+              <PsychographyCard psychography={psychography}  />
+            </Link>
           </div>
           <div className="row">
-            <PsychographyCard psychography={psychography}  />
+            <Link to="/psychography/1">
+              <PsychographyCard psychography={psychography}  />
+            </Link>
           </div>
         </div>  
     );
