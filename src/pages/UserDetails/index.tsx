@@ -1,3 +1,5 @@
+import './styles.css';
+
 const UserDetails = () => {
     return (
         <h1>User Details</h1>

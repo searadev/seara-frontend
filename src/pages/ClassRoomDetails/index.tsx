@@ -1,3 +1,5 @@
+import './styles.css';
+
 const ClassRoomDetails = () => {
     return (
         <h1>Class Room Details</h1>

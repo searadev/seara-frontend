@@ -1,3 +1,5 @@
+import './styles.css';
+
 const LectureDetails = () => {
     return (
         <h1>Lecture Details</h1>
