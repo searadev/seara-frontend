@@ -1,4 +1,5 @@
 import LectureCard from "components/LectureCard";
+import { Link } from "react-router-dom";
 import { Lecture } from "types/lecture";
 import './styles.css';
 
@@ -19,19 +20,29 @@ const Lectures = () => {
         <div className="container my-4 lecture">
           <div className="row">
             <div className="col-sm-6 col-lg-4 col-xl-3">
+            <Link to="/lecture/1">
               <LectureCard lecture={lecture}/>
+            </Link>
             </div>
             <div className="col-sm-6 col-lg-4 col-xl-3">
+            <Link to="/lecture/1">
               <LectureCard lecture={lecture}/>
+            </Link>
             </div>
             <div className="col-sm-6 col-lg-4 col-xl-3">
+            <Link to="/lecture/1">
               <LectureCard lecture={lecture}/>
+            </Link>
             </div>
             <div className="col-sm-6 col-lg-4 col-xl-3">
+            <Link to="/lecture/1">
               <LectureCard lecture={lecture}/>
+            </Link>
             </div>
             <div className="col-sm-6 col-lg-4 col-xl-3">
+            <Link to="/lecture/1">
               <LectureCard lecture={lecture}/>
+            </Link>
             </div>
           </div>          
         </div> 

@@ -1,14 +1,17 @@
 import { ReactComponent as ArrowIcon } from 'assets/images/arrow.svg';
+import { Link } from 'react-router-dom';
 import './styles.css';
 
 const MessageDetails = () => {
     return (
         <div className="message-details-container">
             <div className="base-card message-details-card">
+                <Link to="/message">
                 <div className="goback-container">
                     <ArrowIcon />
                     <h2>VOLTAR</h2>
                 </div>
+                </Link>
                 <div className="message-content-container">
                     <div className="message-text-container">
                         <h2>Título</h2>

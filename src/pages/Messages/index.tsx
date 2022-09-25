@@ -1,4 +1,5 @@
 import MessageCard from "components/MessageCard";
+import { Link } from "react-router-dom";
 import { Message } from "types/message";
 
 import './styles.css';
@@ -22,19 +23,29 @@ const Messages = () => {
     return (
         <div className="container my-4 message">
           <div className="row">
-            <MessageCard message={message}/>
+            <Link to="/message/1">
+              <MessageCard message={message}/>
+            </Link>
           </div>
           <div className="row">
-            <MessageCard message={message}/>
+            <Link to="/message/1">
+              <MessageCard message={message}/>
+            </Link>
           </div>
           <div className="row">
-            <MessageCard message={message}/>
+            <Link to="/message/1">
+              <MessageCard message={message}/>
+            </Link>
           </div>
           <div className="row">
-            <MessageCard message={message}/>
+            <Link to="/message/1">
+              <MessageCard message={message}/>
+            </Link>
           </div>
           <div className="row">
-            <MessageCard message={message}/>
+            <Link to="/message/1">
+              <MessageCard message={message}/>
+            </Link>
           </div>
         </div> 
     );
