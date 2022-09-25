@@ -21,7 +21,10 @@ const Messages = () => {
     
 
     return (
-        <div className="container my-4 message">
+        <div className="container my-4 message-container">
+          <div className="row message-title-container">
+            <h1>Mensagens</h1>
+          </div>
           <div className="row">
             <Link to="/message/1">
               <MessageCard message={message}/>

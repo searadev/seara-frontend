@@ -18,7 +18,10 @@ const Psychographies = () => {
 }
 
     return (
-        <div className="container my-4 psychography">
+        <div className="container my-4 psychography-container">
+          <div className="row psychography-title-container">
+            <h1>Psicografias</h1>
+          </div>
           <div className="row">
             <Link to="/psychography/1">
               <PsychographyCard psychography={psychography}  />

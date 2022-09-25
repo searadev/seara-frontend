@@ -21,7 +21,10 @@ const Class = () => {
   }
 
     return (
-        <div className="container my-4 class">
+        <div className="container my-4 classroom-container">
+          <div className="row classroom-title-container">
+            <h1>Aulas</h1>
+          </div>
           <div className="row">
             <div className="col-sm-6 col-lg-4 col-xl-3">
             <Link to="/classroom/1">

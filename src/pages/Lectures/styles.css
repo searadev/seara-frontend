@@ -1,4 +1,21 @@
-.lecture {
-    padding: 20px;
-    font-size: 26px;    
+.lecture.container {
+    font-size: 18px;     
+}
+
+.lecture-title-container {
+    margin-bottom: 20px; 
+    align-content: center;   
+}
+
+.lecture-title-container h1 {
+    font-size: 1em;
+    letter-spacing: -0.015em;
+    color: #263238;       
+    text-align: center;
+}
+
+@media (min-width: 576px) {
+    .lecture-container {
+        font-size: 30px;    
+    }
 }

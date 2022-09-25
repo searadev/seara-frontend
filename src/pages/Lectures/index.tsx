@@ -17,7 +17,10 @@ const Lectures = () => {
 }
 
     return (
-        <div className="container my-4 lecture">
+        <div className="container my-4 lecture-container">
+          <div className="row lecture-title-container">
+            <h1>Palestras</h1>
+          </div>
           <div className="row">
             <div className="col-sm-6 col-lg-4 col-xl-3">
             <Link to="/lecture/1">

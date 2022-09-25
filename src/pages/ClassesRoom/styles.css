@@ -1,3 +1,21 @@
-.class {
-    font-size: 26px;    
+.classroom-container {
+    font-size: 18px;    
+}
+
+.classroom-title-container {
+    margin-bottom: 20px; 
+    align-content: center;   
+}
+
+.classroom-title-container h1 {
+    font-size: 1em;
+    letter-spacing: -0.015em;
+    color: #263238;       
+    text-align: center;
+}
+
+@media (min-width: 576px) {
+    .classroom-container {
+        font-size: 30px;    
+    }
 }
