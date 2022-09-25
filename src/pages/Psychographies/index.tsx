@@ -1,3 +1,4 @@
+import Pagination from "components/Pagination";
 import PsychographyCard from "components/PsychographyCard";
 import { Link } from "react-router-dom";
 import { Psychography } from "types/psychography";
@@ -46,6 +47,9 @@ const Psychographies = () => {
             <Link to="/psychography/1">
               <PsychographyCard psychography={psychography}  />
             </Link>
+          </div>
+          <div className="row">
+            <Pagination />
           </div>
         </div>  
     );

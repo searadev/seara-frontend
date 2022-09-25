@@ -1,4 +1,5 @@
 import LectureCard from "components/LectureCard";
+import Pagination from "components/Pagination";
 import { Link } from "react-router-dom";
 import { Lecture } from "types/lecture";
 import './styles.css';
@@ -47,7 +48,10 @@ const Lectures = () => {
               <LectureCard lecture={lecture}/>
             </Link>
             </div>
-          </div>          
+          </div> 
+          <div className="row">
+            <Pagination />
+          </div>         
         </div> 
     );
   };

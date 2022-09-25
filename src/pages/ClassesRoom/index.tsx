@@ -1,4 +1,5 @@
 import ClassCard from "components/ClassCard";
+import Pagination from "components/Pagination";
 import { Link } from "react-router-dom";
 import { ClassRoom } from "types/classroom";
 import './styles.css';
@@ -51,7 +52,10 @@ const Class = () => {
               <ClassCard classRoom={classRoom} />
             </Link>
             </div>            
-          </div>          
+          </div>       
+          <div className="row">
+            <Pagination />
+          </div>   
         </div>  
     );
   };
