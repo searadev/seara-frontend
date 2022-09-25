@@ -24,7 +24,7 @@ const Navbar = () => {
         <div className="collapse navbar-collapse" id="searadev-navbar">
           <ul className="navbar-nav offset-md-2 main-menu">
             <li>
-              <NavLink to="/" activeClassName="active" exact>MENSAGENS MOTIVACIONAIS</NavLink>
+              <NavLink to="/message" activeClassName="active" exact>MENSAGENS MOTIVACIONAIS</NavLink>
             </li>
             <li>
               <NavLink to="/psychography" activeClassName="active">PSICOGRAFIAS</NavLink>
