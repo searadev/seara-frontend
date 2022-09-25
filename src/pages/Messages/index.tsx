@@ -1,4 +1,5 @@
 import MessageCard from "components/MessageCard";
+import Pagination from "components/Pagination";
 import { Link } from "react-router-dom";
 import { Message } from "types/message";
 
@@ -21,11 +22,9 @@ const Messages = () => {
     
 
     return (
-        <div className="container my-4 message">
-          <div className="row">
-            <Link to="/message/1">
-              <MessageCard message={message}/>
-            </Link>
+        <div className="container my-4 message-container">
+          <div className="row message-title-container">
+            <h1>Mensagens</h1>
           </div>
           <div className="row">
             <Link to="/message/1">
@@ -46,6 +45,14 @@ const Messages = () => {
             <Link to="/message/1">
               <MessageCard message={message}/>
             </Link>
+          </div>
+          <div className="row">
+            <Link to="/message/1">
+              <MessageCard message={message}/>
+            </Link>
+          </div>
+          <div className="row">
+            <Pagination />
           </div>
         </div> 
     );
