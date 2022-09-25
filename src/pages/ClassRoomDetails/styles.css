@@ -4,11 +4,6 @@
     /*border: 1px solid red;*/
 }
 
-.classroom-content-container {
-    border: 1px solid #E1E1E1;
-    padding-bottom: 15px;
-}
-
 .classroom-details-card {
     padding: 10px;
     /*border: 1px solid green;*/
@@ -36,24 +31,10 @@
 
 }
 
-.classroom-text-container {
-    padding: 20px;
-    margin-bottom: 20px;    
+.classroom-vide-container {
+    padding: 5px;   
+    text-align: center;
     /*border: 1px solid yellow;*/
-}
-
-.classroom-text-container h2 {
-    color: #263238;
-    letter-spacing: -0.015em;
-    font-size: 0.8em;
-    margin-bottom: 20px;
-}
-
-.classroom-text-container img {
-    color: #263238;
-    letter-spacing: -0.015em;
-    font-size: 0.6em;
-    margin-bottom: 20px;
 }
 
 .classroom-data-container {
