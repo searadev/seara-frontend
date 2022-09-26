@@ -18,7 +18,7 @@ const Navbar = () => {
             <div className='collapse navbar-collapse admin-nav-content' id="admin-navbar">
                 <ul className="">
                     <li>
-                        <a href='link' className='admin-nav-item'><p>Aulas</p></a>                    
+                        <a href='link' className='admin-nav-item active'><p>Aulas</p></a>                    
                     </li>
                     <li>
                         <a href='link' className='admin-nav-item'><p>Palestras</p></a>
