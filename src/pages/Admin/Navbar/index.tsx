@@ -1,5 +1,6 @@
 import './styles.css';
 import 'bootstrap/js/src/collapse.js';
+import { NavLink } from 'react-router-dom';
 
 const Navbar = () => {
     return (
@@ -18,22 +19,34 @@ const Navbar = () => {
             <div className='collapse navbar-collapse admin-nav-content' id="admin-navbar">
                 <ul className="">
                     <li>
-                        <a href='link' className='admin-nav-item active'><p>Aulas</p></a>                    
+                        <NavLink to='/admin/classes' className='admin-nav-item'>
+                            <p>Aulas</p>
+                        </NavLink>                    
                     </li>
                     <li>
-                        <a href='link' className='admin-nav-item'><p>Palestras</p></a>
+                        <NavLink to='/admin/lectures' className='admin-nav-item'>
+                            <p>Palestras</p>
+                        </NavLink>
                     </li>
                     <li>
-                        <a href='link' className='admin-nav-item'><p>Mensagens</p></a>
+                        <NavLink to='/admin/messages' className='admin-nav-item'>
+                            <p>Mensagens</p>
+                        </NavLink>
                     </li>
                     <li>
-                        <a href='link' className='admin-nav-item'><p>Psicografias</p></a>
+                        <NavLink to='/admin/psychographies' className='admin-nav-item'>
+                            <p>Psicografias</p>
+                        </NavLink>
                     </li>
                     <li>
-                        <a href='link' className='admin-nav-item'><p>Médiuns</p></a>
+                        <NavLink to='/admin/mediuns' className='admin-nav-item'>
+                            <p>Médiuns</p>
+                        </NavLink>
                     </li>
                     <li>
-                        <a href='link' className='admin-nav-item'><p>Usuários</p></a>
+                        <NavLink to='/admin/users' className='admin-nav-item'>
+                            <p>Usuários</p>
+                        </NavLink>
                     </li>
                 </ul>
             </div>
