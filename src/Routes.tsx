@@ -8,7 +8,7 @@ import MessageDetails from "pages/MessageDetails";
 import Messages from "pages/Messages";
 import Psychographies from "pages/Psychographies";
 import PsychographyDetails from "pages/PsychographyDetails";
-import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { BrowserRouter, Redirect, Route, Switch } from "react-router-dom";
 
 
 const Routes = () => (
@@ -43,6 +43,7 @@ const Routes = () => (
             <Route path="/classroom/:classroomId">
                 <ClassRoomDetails />
             </Route>
+            <Redirect from="/admin" to="/admin/classes" exact />
             <Route path="/admin">
                 <Admin />
             </Route>
