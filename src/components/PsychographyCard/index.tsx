@@ -1,19 +1,19 @@
-import { Psychography } from 'types/psychography';
+import { PsychographyDto } from 'types/psychographyDto';
 import './styles.css';
 
 type Props = {
-    psychography: Psychography;
+    psychographyDto: PsychographyDto;
 }
 
-const PsychographyCard = ({ psychography } : Props) => {
+const PsychographyCard = ({ psychographyDto } : Props) => {
 
     return (
         <div className="base-card psychography-card">            
             <div className="psychography-body-container">
-                <p>{psychography.title}</p>
+                <p>{psychographyDto.title}</p>
             </div>
             <div className="psychography-botton-container">
-                <h1>{psychography.fullName}</h1>
+                <h1>{psychographyDto.fullName}</h1>
             </div>
         </div>
     );
