@@ -1,8 +1,22 @@
 import './styles.css';
 import { ReactComponent as ArrowIcon } from 'assets/images/arrow.svg';
 import { Link } from 'react-router-dom';
+import { ClassRoom } from 'types/classroom';
+import { useEffect, useState } from 'react';
+import axios from 'axios';
+import { BASE_URL } from 'util/requests';
 
 const ClassRoomDetails = () => {
+
+    const [classroom, setClassroom] = useState<ClassRoom>();
+
+    useEffect(() => {
+        axios.get(BASE_URL + "/classes/1")
+        .then(response => {
+            setClassroom(response.data);
+        });
+    }, []);
+
     return (
         <div className="classroom-details-container">
             <div className="base-card classroom-details-card">
@@ -14,12 +28,12 @@ const ClassRoomDetails = () => {
                 </Link>
                 <div>
                     <div className="ratio ratio-16x9 classroom-vide-container">
-                        <iframe src="https://www.youtube.com/embed/WsEv01p3GXU" title="Como inserir vídeo do YouTube no seu site HTML (Embed)"></iframe>
+                        <iframe src={classroom?.url} title={classroom?.title}></iframe>
                     </div>
                     <div className="classroom-data-container">                        
-                        <h1>11/11/11</h1>
+                        <h1>{classroom?.date}</h1>
                         <h1>-</h1>
-                        <h1>24ª Aula – Jesus; Anunciação, Nascimento, Família, Vida Dos 12 Aos 30</h1>                                         
+                        <h1>{classroom?.title}</h1>                                         
                     </div>
                 </div>                
             </div>            

@@ -1,9 +1,8 @@
 import { Medium } from "./medium"
 
-export type Psychography = {
+export type PsychographyDto = {
     id: number;
     title: string;
-    text: string;
     fullName: string;
     date: string;
     medium: Medium;
