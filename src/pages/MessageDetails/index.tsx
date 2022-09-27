@@ -1,21 +1,27 @@
 import { ReactComponent as ArrowIcon } from 'assets/images/arrow.svg';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { Message } from 'types/message';
 import { BASE_URL } from 'util/requests';
 import './styles.css';
 
+type UrlParams = {
+    messageId: string;
+}
+
 const MessageDetails = () => {
+
+    const { messageId } = useParams<UrlParams>();
 
     const [message, setMessage] = useState<Message>();
 
     useEffect(() => {
-        axios.get(BASE_URL + "/messages/1")
+        axios.get(`${BASE_URL}/messages/${messageId}`)
         .then(response => {
             setMessage(response.data);
         });
-    }, []);
+    }, [messageId]);
 
     return (
         <div className="message-details-container">
