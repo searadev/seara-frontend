@@ -1,25 +1,35 @@
+import axios from "axios";
 import ClassCard from "components/ClassCard";
 import Pagination from "components/Pagination";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { ClassRoom } from "types/classroom";
+import { AxiosParams } from "types/vendor/axios";
+import { SpringPage } from "types/vendor/spring";
+import { BASE_URL } from "util/requests";
 import './styles.css';
 
 const Class = () => {
 
-    const classRoom : ClassRoom = {
-      "id": 1,
-      "title": "24ª Aula – Jesus; Anunciação, Nascimento, Família, Vida Dos 12 Aos 30",
-      "url": "https://www.youtube.com/watch?v=pmXuNx0UptQ",
-      "date": "16/08/2022",
-      "module": {
-          "id": 1,
-          "name": "Módulo 2"
+    const [page, setPage] = useState<SpringPage<ClassRoom>>();
+      
+    useEffect(() => {
+
+    const params : AxiosParams = {
+      method: 'GET',
+      url: `${BASE_URL}/classes`,
+      params: {
+        page: 0,
+        size: 12
       },
-      "medium": {
-          "id": 1,
-          "fullName": "Ananda Silva"
-      }
-  }
+    }
+
+    axios(params)
+    .then(response => {
+      setPage(response.data);
+    });
+
+    }, []);
 
     return (
         <div className="container my-4 classroom-container">
@@ -27,31 +37,15 @@ const Class = () => {
             <h1>Aulas</h1>
           </div>
           <div className="row">
-            <div className="col-sm-6 col-lg-4 col-xl-3">
-            <Link to="/classroom/1">
-              <ClassCard classRoom={classRoom} />
-            </Link>
-            </div>
-            <div className="col-sm-6 col-lg-4 col-xl-3">
-            <Link to="/classroom/1">
-              <ClassCard classRoom={classRoom} />
-            </Link>
-            </div>
-            <div className="col-sm-6 col-lg-4 col-xl-3">
-            <Link to="/classroom/1">
-              <ClassCard classRoom={classRoom} />
-            </Link>
-            </div>
-            <div className="col-sm-6 col-lg-4 col-xl-3">
-            <Link to="/classroom/1">
-              <ClassCard classRoom={classRoom} />
-            </Link>
-            </div>
-            <div className="col-sm-6 col-lg-4 col-xl-3">
-            <Link to="/classroom/1">
-              <ClassCard classRoom={classRoom} />
-            </Link>
-            </div>            
+          {page?.content.map((classroom) => {
+            return (
+              <div className="col-sm-6 col-lg-4 col-xl-3" key={classroom.id}>
+                <Link to="/classroom/1">
+                  <ClassCard classRoom={classroom}/>
+                </Link>
+              </div>
+            );
+          })}          
           </div>       
           <div className="row">
             <Pagination />
