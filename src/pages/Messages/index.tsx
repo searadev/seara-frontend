@@ -1,4 +1,5 @@
 import axios from "axios";
+import CardLoader from "components/CardLoader";
 import MessageCard from "components/MessageCard";
 import Pagination from "components/Pagination";
 import { useEffect, useState } from "react";
@@ -13,23 +14,27 @@ import './styles.css';
 const Messages = () => {
 
     const [page, setPage] = useState<SpringPage<Message>>();
+    const [isLoading, setIsLoading] = useState(false);
     
     useEffect(() => {
 
-    const params : AxiosParams = {
-      method: 'GET',
-      url: `${BASE_URL}/messages`,
-      params: {
-        page: 0,
-        size: 12
-      },
-    }
-
-    axios(params)
-    .then(response => {
-      setPage(response.data);
-    });
-
+      const params : AxiosParams = {
+        method: 'GET',
+        url: `${BASE_URL}/messages`,
+        params: {
+          page: 0,
+          size: 12
+        },
+      }
+      
+      setIsLoading(true);
+      axios(params)
+        .then(response => {
+          setPage(response.data);
+        })
+        .finally(() => {
+          setIsLoading(false);
+        });
     }, []);
 
     return (
@@ -37,7 +42,8 @@ const Messages = () => {
           <div className="row message-title-container">
             <h1>Mensagens</h1>
           </div>
-          {page?.content.map((message) => {
+          {isLoading ? <CardLoader /> : (
+            page?.content.map((message) => {
             return (
               <div className="row" key={message.id}>
                 <Link to="/message/1">
@@ -45,7 +51,7 @@ const Messages = () => {
                 </Link>
               </div>
             );
-          })}
+          }))}
           <div className="row">
             <Pagination />
           </div>
