@@ -1,4 +1,5 @@
 import axios from "axios";
+import CardLoader from "components/CardLoader";
 import LectureCard from "components/LectureCard";
 import Pagination from "components/Pagination";
 import { useEffect, useState } from "react";
@@ -12,6 +13,7 @@ import './styles.css';
 const Lectures = () => {
 
     const [page, setPage] = useState<SpringPage<Lecture>>();
+    const [isLoading, setIsLoading] = useState(false);
         
     useEffect(() => {
 
@@ -24,11 +26,14 @@ const Lectures = () => {
       },
     }
 
-    axios(params)
-    .then(response => {
-      setPage(response.data);
-    });
-
+    setIsLoading(true);
+      axios(params)
+        .then(response => {
+          setPage(response.data);
+        })
+        .finally(() => {
+          setIsLoading(false);
+        });
     }, []);
 
     return (
@@ -37,15 +42,16 @@ const Lectures = () => {
             <h1>Palestras</h1>
           </div>
           <div className="row">
-            {page?.content.map((lecture) => {
+            {isLoading ? <CardLoader /> : (
+              page?.content.map((lecture) => {
               return (
                 <div className="col-sm-6 col-lg-4 col-xl-3" key={lecture.id}>
-                  <Link to="/classroom/1">
+                  <Link to="/lecture/1">
                     <LectureCard lecture={lecture}/>
                   </Link>
                 </div>
               );
-            })}
+            }))}
           </div> 
           <div className="row">
             <Pagination />

@@ -1,4 +1,5 @@
 import axios from "axios";
+import CardLoader from "components/CardLoader";
 import Pagination from "components/Pagination";
 import PsychographyCard from "components/PsychographyCard";
 import { useEffect, useState } from "react";
@@ -12,6 +13,7 @@ import './styles.css';
 const Psychographies = () => {
 
     const [page, setPage] = useState<SpringPage<Psychography>>();
+    const [isLoading, setIsLoading] = useState(false);
       
     useEffect(() => {
 
@@ -24,11 +26,14 @@ const Psychographies = () => {
         },
       }
 
+      setIsLoading(true);
       axios(params)
-      .then(response => {
-        setPage(response.data);
-      });
-
+        .then(response => {
+          setPage(response.data);
+        })
+        .finally(() => {
+          setIsLoading(false);
+        });
     }, []);
 
     return (
@@ -36,7 +41,8 @@ const Psychographies = () => {
           <div className="row psychography-title-container">
             <h1>Psicografias</h1>
           </div>
-          {page?.content.map((psychography) => {
+          {isLoading ? <CardLoader /> : (
+            page?.content.map((psychography) => {
             return (
               <div className="row" key={psychography.id}>
                 <Link to="/psychography/1">
@@ -44,7 +50,7 @@ const Psychographies = () => {
                 </Link>
               </div>
             );
-          })}
+          }))}
           <div className="row">
             <Pagination />
           </div>
