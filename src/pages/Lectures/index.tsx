@@ -1,21 +1,40 @@
+import axios from "axios";
+import CardLoader from "components/CardLoader";
 import LectureCard from "components/LectureCard";
 import Pagination from "components/Pagination";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { Lecture } from "types/lecture";
+import { AxiosParams } from "types/vendor/axios";
+import { SpringPage } from "types/vendor/spring";
+import { BASE_URL } from "util/requests";
 import './styles.css';
 
 const Lectures = () => {
 
-  const lecture : Lecture = {
-    "id": 1,
-    "title": "15_08_22 Rita Navarro",
-    "url": "https://www.youtube.com/watch?v=nNeS4gUeSCw&t=64s",
-    "date": "15/08/2022",
-    "medium": {
-        "id": 1,
-        "fullName": "Ananda Silva"
+    const [page, setPage] = useState<SpringPage<Lecture>>();
+    const [isLoading, setIsLoading] = useState(false);
+        
+    useEffect(() => {
+
+    const params : AxiosParams = {
+      method: 'GET',
+      url: `${BASE_URL}/lectures`,
+      params: {
+        page: 0,
+        size: 12
+      },
     }
-}
+
+    setIsLoading(true);
+      axios(params)
+        .then(response => {
+          setPage(response.data);
+        })
+        .finally(() => {
+          setIsLoading(false);
+        });
+    }, []);
 
     return (
         <div className="container my-4 lecture-container">
@@ -23,31 +42,16 @@ const Lectures = () => {
             <h1>Palestras</h1>
           </div>
           <div className="row">
-            <div className="col-sm-6 col-lg-4 col-xl-3">
-            <Link to="/lecture/1">
-              <LectureCard lecture={lecture}/>
-            </Link>
-            </div>
-            <div className="col-sm-6 col-lg-4 col-xl-3">
-            <Link to="/lecture/1">
-              <LectureCard lecture={lecture}/>
-            </Link>
-            </div>
-            <div className="col-sm-6 col-lg-4 col-xl-3">
-            <Link to="/lecture/1">
-              <LectureCard lecture={lecture}/>
-            </Link>
-            </div>
-            <div className="col-sm-6 col-lg-4 col-xl-3">
-            <Link to="/lecture/1">
-              <LectureCard lecture={lecture}/>
-            </Link>
-            </div>
-            <div className="col-sm-6 col-lg-4 col-xl-3">
-            <Link to="/lecture/1">
-              <LectureCard lecture={lecture}/>
-            </Link>
-            </div>
+            {isLoading ? <CardLoader /> : (
+              page?.content.map((lecture) => {
+              return (
+                <div className="col-sm-6 col-lg-4 col-xl-3" key={lecture.id}>
+                  <Link to="/lecture/1">
+                    <LectureCard lecture={lecture}/>
+                  </Link>
+                </div>
+              );
+            }))}
           </div> 
           <div className="row">
             <Pagination />

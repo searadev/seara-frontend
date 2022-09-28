@@ -4,20 +4,11 @@ import { NavLink } from 'react-router-dom';
 
 const Navbar = () => {
     return (
-        <nav className="navbar navbar-expand-lg navbar-dark admin-nav-container">
-            <button
-                className="navbar-toggler"
-                type="button"
-                data-bs-toggle="collapse"
-                data-bs-target="#admin-navbar"
-                aria-controls="admin-navbar"
-                aria-expanded="false"
-                aria-label="Toggle navigation"
-                >
-                <span className="navbar-toggler-icon"></span>
-            </button>            
-            <div className='collapse navbar-collapse admin-nav-content' id="admin-navbar">
-                <ul className="">
+
+        <nav className="admin-nav-container">
+                        
+            <div className='admin-nav-content'>
+                <ul>
                     <li>
                         <NavLink to='/admin/classes' className='admin-nav-item'>
                             <p>Aulas</p>
