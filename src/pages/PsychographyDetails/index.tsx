@@ -26,7 +26,7 @@ const PsychographyDetails = () => {
       .finally(() => {
         setIsLoading(false);
       });
-  }, []);
+  }, [psychographyId]);
 
   return (
     <div className="psychography-details-container">
