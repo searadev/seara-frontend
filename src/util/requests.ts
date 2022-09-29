@@ -1,2 +1,63 @@
-/*export const BASE_URL = process.env.REACT_APP_BACKEND_URL ?? 'http://192.168.5.242:8080'*/
+import axios, { AxiosRequestConfig } from 'axios';
+import qs from 'qs';
+
+type loginResponse = {
+  access_token: string;
+  token_type: string;
+  expires_in: number;
+  scope: string;
+  userFirstName: string;
+  userId: number;
+};
+
+/*export const BASE_URL =  process.env.REACT_APP_BACKEND_URL ?? 'http://192.168.5.242:8080';*/
 export const BASE_URL = process.env.REACT_APP_BACKEND_URL ?? 'https://searadev.herokuapp.com'
+
+const tokenKey = 'authData';
+const CLIENT_ID = process.env.REACT_APP_CLIENT_ID ?? 'searadev';
+const CLIENT_SECRET = process.env.REACT_APP_CLIENT_SECRET ?? 'searadev123';
+
+type LoginData = {
+  username: string;
+  password: string;
+};
+
+export const requestBackendLogin = (loginData: LoginData) => {
+  const headers = {
+    'Content-Type': 'application/x-www-form-urlencoded',
+    Authorization: 'Basic ' + window.btoa(CLIENT_ID + ':' + CLIENT_SECRET),
+  };
+
+  const data = qs.stringify({
+    ...loginData,
+    grant_type: 'password',
+  });
+
+  return axios({
+    method: 'POST',
+    baseURL: BASE_URL,
+    url: '/oauth/token',
+    data,
+    headers,
+  });
+};
+
+export const requestBackend = (config: AxiosRequestConfig) => {
+  const headers = config.withCredentials
+    ? {
+        ...config.headers,
+        Authorization: 'Bearer ' + getAuthData().access_token,
+      }
+    : config.headers;
+
+  return axios({ ...config, baseURL: BASE_URL, headers });
+};
+
+export const saveAuthData = (obj: loginResponse) => {
+  localStorage.setItem(tokenKey, JSON.stringify(obj));
+};
+
+export const getAuthData = () => {
+  const str = localStorage.getItem(tokenKey) ?? '{}';
+  return JSON.parse(str) as loginResponse;
+};
