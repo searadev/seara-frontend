@@ -1,11 +1,10 @@
-import axios from "axios";
+import axios, { AxiosRequestConfig } from "axios";
 import CardLoader from "components/CardLoader";
 import Pagination from "components/Pagination";
 import PsychographyCard from "components/PsychographyCard";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { Psychography } from "types/psychography";
-import { AxiosParams } from "types/vendor/axios";
 import { SpringPage } from "types/vendor/spring";
 import { BASE_URL } from "util/requests";
 import './styles.css';
@@ -17,9 +16,10 @@ const Psychographies = () => {
       
     useEffect(() => {
 
-      const params : AxiosParams = {
+      const params : AxiosRequestConfig = {
         method: 'GET',
-        url: `${BASE_URL}/psychographies`,
+        url: "/psychographies",
+        baseURL: BASE_URL,
         params: {
           page: 0,
           size: 12
