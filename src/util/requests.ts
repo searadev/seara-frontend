@@ -1,4 +1,4 @@
-import axios from 'axios';
+import axios, { AxiosRequestConfig } from 'axios';
 import qs from 'qs';
 
 type loginResponse = {
@@ -10,9 +10,8 @@ type loginResponse = {
   userId: number;
 };
 
-export const BASE_URL =
-  process.env.REACT_APP_BACKEND_URL ?? 'http://192.168.5.242:8080';
-/*export const BASE_URL = process.env.REACT_APP_BACKEND_URL ?? 'https://searadev.herokuapp.com'*/
+/*export const BASE_URL =  process.env.REACT_APP_BACKEND_URL ?? 'http://192.168.5.242:8080';*/
+export const BASE_URL = process.env.REACT_APP_BACKEND_URL ?? 'https://searadev.herokuapp.com'
 
 const tokenKey = 'authData';
 const CLIENT_ID = process.env.REACT_APP_CLIENT_ID ?? 'searadev';
@@ -41,6 +40,17 @@ export const requestBackendLogin = (loginData: LoginData) => {
     data,
     headers,
   });
+};
+
+export const requestBackend = (config: AxiosRequestConfig) => {
+  const headers = config.withCredentials
+    ? {
+        ...config.headers,
+        Authorization: 'Bearer ' + getAuthData().access_token,
+      }
+    : config.headers;
+
+  return axios({ ...config, baseURL: BASE_URL, headers });
 };
 
 export const saveAuthData = (obj: loginResponse) => {
