@@ -9,10 +9,11 @@ import MessageDetails from 'pages/MessageDetails';
 import Messages from 'pages/Messages';
 import Psychographies from 'pages/Psychographies';
 import PsychographyDetails from 'pages/PsychographyDetails';
-import { BrowserRouter, Redirect, Route, Switch } from 'react-router-dom';
+import { Router, Redirect, Route, Switch } from 'react-router-dom';
+import history from 'util/history';
 
 const Routes = () => (
-  <BrowserRouter>
+  <Router history={history}>
     <Navbar />
     <Switch>
       <Route path="/" exact>
@@ -51,7 +52,7 @@ const Routes = () => (
         <Admin />
       </Route>
     </Switch>
-  </BrowserRouter>
+  </Router>
 );
 
 export default Routes;
