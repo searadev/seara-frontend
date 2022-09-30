@@ -10,8 +10,8 @@ type loginResponse = {
   userId: number;
 };
 
-/*export const BASE_URL =  process.env.REACT_APP_BACKEND_URL ?? 'http://192.168.5.242:8080';*/
-export const BASE_URL = process.env.REACT_APP_BACKEND_URL ?? 'https://searadev.herokuapp.com'
+export const BASE_URL =  process.env.REACT_APP_BACKEND_URL ?? 'http://192.168.5.242:8080';
+/*export const BASE_URL = process.env.REACT_APP_BACKEND_URL ?? 'https://searadev.herokuapp.com'*/
 
 const tokenKey = 'authData';
 const CLIENT_ID = process.env.REACT_APP_CLIENT_ID ?? 'searadev';
