@@ -1,7 +1,7 @@
 import './styles.css';
 import 'bootstrap/js/src/collapse.js';
 import { NavLink } from 'react-router-dom';
-import { hasAnyRoles } from 'util/requests';
+import { hasAnyRoles } from 'util/auth';
 
 const Navbar = () => {
   return (

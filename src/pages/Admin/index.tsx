@@ -13,16 +13,16 @@ const Admin = () => {
             <Navbar />
             <div className="admin-content">
                 <Switch>
-                    <PrivateRoute path="/admin/classes" roles={['ROLE_OPERATOR']}>
+                    <PrivateRoute path="/admin/classes">
                         <h1>Aulas</h1>
                     </PrivateRoute>
-                    <PrivateRoute path="/admin/lectures" roles={['ROLE_OPERATOR']}>
+                    <PrivateRoute path="/admin/lectures">
                         <h1>Palestras</h1>
                     </PrivateRoute>
-                    <PrivateRoute path="/admin/messages" roles={['ROLE_OPERATOR']}>
+                    <PrivateRoute path="/admin/messages">
                         <h1>Mensagens</h1>
                     </PrivateRoute>
-                    <PrivateRoute path="/admin/psychographies" roles={['ROLE_OPERATOR']}>
+                    <PrivateRoute path="/admin/psychographies">
                         <h1>Psicografias</h1>
                     </PrivateRoute>
                     <PrivateRoute path="/admin/mediuns" roles={['ROLE_ADMIN']}>
