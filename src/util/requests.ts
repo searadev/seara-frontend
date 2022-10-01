@@ -21,7 +21,8 @@ type loginResponse = {
 };
 
 /*export const BASE_URL = process.env.REACT_APP_BACKEND_URL ?? 'http://192.168.5.242:8080';*/
-export const BASE_URL = process.env.REACT_APP_BACKEND_URL ?? 'https://searadev.herokuapp.com';
+export const BASE_URL =
+  process.env.REACT_APP_BACKEND_URL ?? 'https://searadev.herokuapp.com';
 
 const tokenKey = 'authData';
 const CLIENT_ID = process.env.REACT_APP_CLIENT_ID ?? 'searadev';
@@ -74,7 +75,7 @@ export const getAuthData = () => {
 
 export const removeAuthData = () => {
   localStorage.removeItem(tokenKey);
-}
+};
 
 // Add a request interceptor
 axios.interceptors.request.use(
@@ -104,16 +105,33 @@ axios.interceptors.response.use(
 );
 
 export const getTokenData = (): TokenData | undefined => {
-
   try {
     return jwtDecode(getAuthData().access_token) as TokenData;
   } catch (error) {
     return undefined;
   }
-}
+};
 
-export const isAuthenticated = () : boolean => {
+export const isAuthenticated = (): boolean => {
   const tokenData = getTokenData();
 
-  return (tokenData && tokenData.exp * 1000 > Date.now()) ? true : false;
-}
+  return tokenData && tokenData.exp * 1000 > Date.now() ? true : false;
+};
+
+export const hasAnyRoles = (roles: Role[]): boolean => {
+  if (roles.length === 0) {
+    return true;
+  }
+
+  const tokenData = getTokenData();
+
+  if (tokenData !== undefined) {
+    for (var i = 0; i < roles.length; i++) {
+      if (tokenData.authorities.includes(roles[i])) {
+        return true;
+      }
+    }
+    //return roles.some((role) => tokenData.authorities.includes(role));
+  }
+  return false;
+};
