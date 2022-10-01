@@ -1,25 +1,32 @@
 import { Redirect, Route } from 'react-router-dom';
-import { isAuthenticated } from 'util/requests';
- 
+import { hasAnyRoles, isAuthenticated, Role } from 'util/requests';
+
 type Props = {
   children: JSX.Element;
   path: string;
-}
- 
-const PrivateRoute = ({ children, path }: Props ) => {
- 
+  roles?: Role[];
+};
+
+const PrivateRoute = ({ children, path, roles = [] }: Props) => {
   return (
     <Route
       path={path}
-      render={({location}) =>
-        isAuthenticated() ? children : <Redirect to={{
-          pathname: "/admin/auth/login",
-          state: { from: location}
-        }} />
+      render={({ location }) =>
+        !isAuthenticated() ? (
+          <Redirect
+            to={{
+              pathname: '/admin/auth/login',
+              state: { from: location },
+            }}
+          />
+        ) : !hasAnyRoles(roles) ? (
+          <Redirect to="/admin/messages" />
+        ) : (
+          children
+        )
       }
     />
   );
-}
- 
+};
+
 export default PrivateRoute;
- 
