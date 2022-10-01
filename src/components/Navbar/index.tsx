@@ -1,8 +1,42 @@
 import './styles.css';
 import 'bootstrap/js/src/collapse.js';
 import { Link, NavLink } from 'react-router-dom';
+import {
+  getTokenData,
+  isAuthenticated,
+  removeAuthData  
+} from 'util/requests';
+import { useContext, useEffect } from 'react';
+import history from 'util/history';
+import { AuthContext } from 'AuthContext';
+
+
 
 const Navbar = () => {
+  const { authContextData, setAuthContextData } = useContext(AuthContext);
+
+  useEffect(() => {
+    if (isAuthenticated()) {
+      setAuthContextData({
+        authenticated: true,
+        tokenData: getTokenData(),
+      });
+    } else {
+      setAuthContextData({
+        authenticated: false,
+      });
+    }
+  }, [setAuthContextData]);
+
+  const handleLogoutClick = (event: React.MouseEvent<HTMLAnchorElement>) => {
+    event.preventDefault();
+    removeAuthData();
+    setAuthContextData({
+      authenticated: false,
+    });
+    history.replace('/');
+  };
+
   return (
     <nav className="navbar navbar-expand-lg navbar-dark main-nav">
       <div className="container-fluid">
@@ -24,19 +58,38 @@ const Navbar = () => {
         <div className="collapse navbar-collapse" id="searadev-navbar">
           <ul className="navbar-nav offset-md-2 main-menu">
             <li>
-              <NavLink to="/message" activeClassName="active" exact>MENSAGENS MOTIVACIONAIS</NavLink>
+              <NavLink to="/message" activeClassName="active" exact>
+                MENSAGENS MOTIVACIONAIS
+              </NavLink>
             </li>
             <li>
-              <NavLink to="/psychography" activeClassName="active">PSICOGRAFIAS</NavLink>
+              <NavLink to="/psychography" activeClassName="active">
+                PSICOGRAFIAS
+              </NavLink>
             </li>
             <li>
-              <NavLink to="/lecture" activeClassName="active">PALESTRAS</NavLink>
+              <NavLink to="/lecture" activeClassName="active">
+                PALESTRAS
+              </NavLink>
             </li>
             <li>
-              <NavLink to="/classroom" activeClassName="active">AULAS</NavLink>
+              <NavLink to="/classroom" activeClassName="active">
+                AULAS
+              </NavLink>
             </li>
             <li>
-              <NavLink to="/admin" activeClassName="active">ADMIN</NavLink>
+              <NavLink to="/admin" activeClassName="active">
+                ADMIN
+              </NavLink>
+            </li>
+            <li>
+              {authContextData.authenticated ? (
+                <a href="#logout" onClick={handleLogoutClick}>
+                  LOGOUT
+                </a>
+              ) : (
+                <Link to="/admin/auth">LOGIN</Link>
+              )}
             </li>
           </ul>
         </div>
