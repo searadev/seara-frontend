@@ -3,6 +3,13 @@ import { useEffect, useState } from 'react';
 import { User } from 'types/user';
 import { SpringPage } from 'types/vendor/spring';
 import { requestBackend } from 'util/requests';
+import { Route, Switch } from 'react-router-dom';
+import Form from './Form';
+import List from './List';
+
+import './styles.css';
+
+
  
 const Users = () => {
   const [page, setPage] = useState<SpringPage<User>>();

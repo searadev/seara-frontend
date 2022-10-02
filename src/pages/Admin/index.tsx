@@ -1,9 +1,15 @@
 
 import PrivateRoute from 'components/PrivateRoute';
 import { Switch } from 'react-router-dom';
+import Classes from './Classes';
+import Lectures from './Lectures';
+import Mediuns from './Mediuns';
+import Messages from './Messages';
+import Modules from './Modules';
 import Navbar from './Navbar';
+import Psychographies from './Psychographies';
 import './styles.css';
-import Users from './User';
+import Users from './Users';
 
 const Admin = () => {
     
@@ -14,19 +20,22 @@ const Admin = () => {
             <div className="admin-content">
                 <Switch>
                     <PrivateRoute path="/admin/classes">
-                        <h1>Aulas</h1>
+                        <Classes />
                     </PrivateRoute>
                     <PrivateRoute path="/admin/lectures">
-                        <h1>Palestras</h1>
+                        <Lectures />
                     </PrivateRoute>
                     <PrivateRoute path="/admin/messages">
-                        <h1>Mensagens</h1>
+                        <Messages />
                     </PrivateRoute>
                     <PrivateRoute path="/admin/psychographies">
-                        <h1>Psicografias</h1>
+                        <Psychographies />
+                    </PrivateRoute>
+                    <PrivateRoute path="/admin/modules">
+                        <Modules />
                     </PrivateRoute>
                     <PrivateRoute path="/admin/mediuns" roles={['ROLE_ADMIN']}>
-                        <h1>Médiuns</h1>
+                        <Mediuns />
                     </PrivateRoute>
                     <PrivateRoute path="/admin/users" roles={['ROLE_ADMIN']}>
                         <Users />
