@@ -28,6 +28,11 @@ const Navbar = () => {
               <p>Psicografias</p>
             </NavLink>
           </li>
+          <li>
+            <NavLink to="/admin/modules" className="admin-nav-item">
+              <p>Módulos</p>
+            </NavLink>
+          </li>
           {hasAnyRoles(['ROLE_ADMIN']) && (
             <>
               <li>
