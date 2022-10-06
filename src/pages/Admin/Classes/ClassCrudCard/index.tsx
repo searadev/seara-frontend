@@ -8,12 +8,12 @@ type Props = {
 const ClassCrudCard = ({ classRoom } : Props) => {
 
     return (
-        <div className="base-card class-card">
-            <div className="class-top-container">
+        <div className="base-card class-crud-card">
+            <div className="class-crud-top-container">
                 <p>{classRoom.title}</p>
             </div>
-            <div className="class-container">
-                <p>{classRoom.date}</p>
+            <div className="class-crud-container">
+                <p>{classRoom.date}</p>                
                 <span>{classRoom.module.name}</span>
             </div>
         </div>

@@ -1,4 +1,4 @@
-import ClassCrudCard from 'components/ClassCrudCard';
+import ClassCrudCard from 'pages/Admin/Classes/ClassCrudCard';
 import { Link } from 'react-router-dom';
 import './styles.css';
 
@@ -26,8 +26,9 @@ const List = () => {
           <button className="btn btn-primary text-white btn-crud-add">
             ADICIONAR
           </button>
+          
         </Link>
-        <div className="base-card class-filter-container">Search Bar</div>
+        <div className="class-filter-container">Search Bar</div>
       </div>
       <div className="row">
         <div className="col-sm-6 col-md-12">
