@@ -23,12 +23,67 @@
   padding: 0px 20px;
   margin: 20px;
   background-color: #c4c4c4;
-  align-items: center; /*Deixar o texto centralizado*/  
+  align-items: center; /*Deixar o texto centralizado*/
   text-align: center;
 }
 
+.class-crud-buttons-container {
+  padding: 0 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.class-crud-card-button {
+  font-weight: bold;
+  font-size: 14px;
+  letter-spacing: -0.015em;
+  width: 100px;
+  height: 40px;
+}
+
+.class-crud-card-button-first {
+  margin-right: 10px;
+}
+
 @media (min-width: 768px) {
-    .class-crud-container {
-        display: flex;
-    }
+  .class-crud-card {
+    display: flex;
+    justify-content: space-between;
+    padding: 0;
+  }
+
+  .class-crud-container {
+    flex-direction: column-reverse;    
+  }
+
+  .class-crud-container p {
+    height: 40px;
+    padding: 10px;
+  }
+
+  .class-crud-buttons-container {
+    flex-direction: column-reverse;
+    justify-content: center;
+  }
+
+  .class-crud-card-button-first {
+    margin-right: 0;
+    margin-top: 22px;
+  }
+
+  .class-crud-card-button {
+    width: 140px;
+  }
+  
+}
+
+@media (min-width: 992px) {
+
+  .class-crud-container {
+    width: 220px;
+  }
+
+  .class-crud-card-button {
+    width: 220px;
+  }
 }
