@@ -14,7 +14,7 @@ const ClassCrudCard = ({ classRoom } : Props) => {
             </div>
             <div className="class-crud-container">
                 <p>{classRoom.date}</p>                
-                <span>{classRoom.module.name}</span>
+                <p>{classRoom.module.name}</p>
             </div>
         </div>
     );

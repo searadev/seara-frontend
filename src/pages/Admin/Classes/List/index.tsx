@@ -25,10 +25,9 @@ const List = () => {
         <Link to="/admin/classes/create">
           <button className="btn btn-primary text-white btn-crud-add">
             ADICIONAR
-          </button>
-          
+          </button>          
         </Link>
-        <div className="class-filter-container">Search Bar</div>
+        <div className="base-card class-filter-container">Search Bar</div>
       </div>
       <div className="row">
         <div className="col-sm-6 col-md-12">
