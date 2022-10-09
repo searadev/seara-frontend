@@ -16,6 +16,14 @@ const ClassCrudCard = ({ classRoom } : Props) => {
                 <p>{classRoom.date}</p>                
                 <p>{classRoom.module.name}</p>
             </div>
+            <div className='class-crud-buttons-container'>
+                <button className='btn btn-danger class-crud-card-button class-crud-card-button-first'>
+                    EXCLUIR
+                </button>
+                <button className='btn btn-secondary class-crud-card-button'>
+                    EDITAR
+                </button>
+            </div>
         </div>
     );
 }

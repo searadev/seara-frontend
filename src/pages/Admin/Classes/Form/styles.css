@@ -1,0 +1,51 @@
+.class-crud-form-card {
+    padding: 20px;
+}
+
+.class-crud-form-title {
+    font-weight: bold;
+    font-size: 22px;
+    letter-spacing: -0.015em;
+    color: #263238;
+    margin-bottom: 30px;
+}
+
+.margin-botton-30 {
+    margin-bottom: 30px;
+}
+
+.class-crud-inputs-container {
+    margin-bottom: 30px;
+}
+
+.class-crud-inputs-left-container {
+    margin-bottom: 30px;
+}
+
+.xpto-agora-vai {
+    display: flex;
+    justify-content: space-between;
+}
+
+.xpto-button {
+    height: 50px;
+    width: 110px;
+    font-weight: bold;
+}
+
+@media (min-width: 576px) {
+    .xpto-agora-vai {
+        justify-content:flex-end;
+    }
+
+    .xpto-button {
+        margin-left: 30px;
+        width: 250px;
+    }
+}
+
+@media (min-width: 992px) {
+    .class-crud-inputs-left-container {
+        margin-bottom: 0;
+    }
+}
