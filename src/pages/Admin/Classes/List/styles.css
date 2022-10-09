@@ -1,5 +1,6 @@
-.class-crud-bar-container {
-  
+.class-crud-content {
+  max-width: 1200px;
+  justify-content: center;
 }
 
 .btn-crud-add {
