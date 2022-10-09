@@ -20,12 +20,12 @@ const List = () => {
   };
 
   return (
-    <>
+    <div className='class-crud-content'>
       <div className="class-crud-bar-container">
         <Link to="/admin/classes/create">
           <button className="btn btn-primary text-white btn-crud-add">
             ADICIONAR
-          </button>          
+          </button>
         </Link>
         <div className="base-card class-filter-container">Search Bar</div>
       </div>
@@ -43,7 +43,7 @@ const List = () => {
           <ClassCrudCard classRoom={aula} />
         </div>
       </div>
-    </>
+    </div>
   );
 };
 
