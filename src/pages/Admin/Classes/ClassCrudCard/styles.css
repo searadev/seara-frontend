@@ -13,9 +13,6 @@
   font-weight: 700;
 }
 
-.class-crud-container {
-}
-
 .class-crud-container p {
   font-size: 15px;
   color: #263238;
@@ -39,7 +36,6 @@
   letter-spacing: -0.015em;
   width: 100px;
   height: 40px;
-  color: #FFF;
 }
 
 .class-crud-card-button-first {
@@ -51,15 +47,17 @@
     display: flex;
     justify-content: space-between;
     padding: 0;
-  }
+  } 
 
   .class-crud-container {
-    flex-direction: column-reverse;    
+    display: flex;
+    justify-content: flex-start;    
   }
 
   .class-crud-container p {
     height: 40px;
     padding: 10px;
+    
   }
 
   .class-crud-buttons-container {
@@ -75,16 +73,12 @@
   .class-crud-card-button {
     width: 140px;
   }
-  
 }
 
 @media (min-width: 992px) {
-
   .class-crud-container {
-    width: 220px;
   }
 
   .class-crud-card-button {
-    width: 220px;
   }
 }

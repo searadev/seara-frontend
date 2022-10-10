@@ -23,8 +23,8 @@ const Class = () => {
       params: {
         page: 0,
         size: 12
-      },
-    }
+      }
+    };
 
     setIsLoading(true);
       axios(params)
