@@ -25,9 +25,5 @@
 }
 
 .main-menu a.active {
-    color: rgba(56, 53, 53, 0.911);
-}
-
-.navbar-toggler {
-    background-color:  #b8860b;
+    color: #b8860b;
 }
