@@ -35,11 +35,11 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="navbar navbar-expand-lg navbar-dark main-nav">
+    <nav className="navbar navbar-expand-lg navbar-light bg-light main-nav">
       <div className="container-fluid">
         <Link to="/" className="nav-logo-text">
           <h4>SEARA DE JESUS</h4>
-        </Link>
+        </Link> 
         <button
           className="navbar-toggler"
           type="button"
