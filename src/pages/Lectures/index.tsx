@@ -46,7 +46,7 @@ const Lectures = () => {
               page?.content.map((lecture) => {
               return (
                 <div className="col-sm-6 col-lg-4 col-xl-3" key={lecture.id}>
-                  <Link to="/lecture/1">
+                  <Link to={`/lecture/${lecture.id}`}>
                     <LectureCard lecture={lecture}/>
                   </Link>
                 </div>

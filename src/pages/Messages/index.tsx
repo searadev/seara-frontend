@@ -45,7 +45,7 @@ const Messages = () => {
         page?.content.map((message) => {
           return (
             <div className="row" key={message.id}>
-              <Link to="/message/1">
+              <Link to={`/message/${message.id}`}>
                 <MessageCard message={message} />
               </Link>
             </div>
