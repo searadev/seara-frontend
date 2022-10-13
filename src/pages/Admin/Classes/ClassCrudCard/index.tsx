@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { ClassRoom } from 'types/classroom';
 import './styles.css';
 
@@ -22,9 +23,11 @@ const ClassCrudCard = ({ classRoom }: Props) => {
         <button className="btn btn-outline-danger class-crud-card-button class-crud-card-button-first">
           EXCLUIR
         </button>
-        <button className="btn btn-outline-secondary class-crud-card-button">
-          EDITAR
-        </button>
+        <Link to={`/admin/classes/${classRoom.id}`}>
+          <button className="btn btn-outline-secondary class-crud-card-button">
+            EDITAR
+          </button>
+        </Link>
       </div>
     </div>
   );
