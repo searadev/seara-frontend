@@ -45,7 +45,7 @@ const Psychographies = () => {
             page?.content.map((psychography) => {
             return (
               <div className="row" key={psychography.id}>
-                <Link to="/psychography/1">
+                <Link to={`/psychography/${psychography.id}`}>
                   <PsychographyCard psychographyDto={psychography}/>
                 </Link>
               </div>
