@@ -11,6 +11,10 @@ const List = () => {
   const [page, setPage] = useState<SpringPage<ClassRoom>>();
 
   useEffect(() => {
+    getClasses();
+  }, []);
+
+  const getClasses = () => {
     const config: AxiosRequestConfig = {
       method: 'GET',
       url: '/classes',
@@ -24,7 +28,7 @@ const List = () => {
     axios(config).then((response) => {
       setPage(response.data);
     });
-  }, []);
+  };
 
   return (
     <div className="class-crud-content">
@@ -39,7 +43,7 @@ const List = () => {
       <div className="row">
         {page?.content.map((aula) => (
           <div className="col-sm-6 col-md-12" key={aula.id}>
-            <ClassCrudCard classRoom={aula} />
+            <ClassCrudCard classRoom={aula} onDelete={() => getClasses()} />
           </div>
         ))}
       </div>
