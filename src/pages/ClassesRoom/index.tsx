@@ -46,7 +46,7 @@ const Class = () => {
             page?.content.map((classroom) => {
             return (
               <div className="col-sm-6 col-lg-4 col-xl-3" key={classroom.id}>
-                <Link to={`/classroom/${classroom.id}`}>
+                <Link to={`/classroom/${classroom.id}`}> 
                   <ClassCard classRoom={classroom}/>
                 </Link>
               </div>
