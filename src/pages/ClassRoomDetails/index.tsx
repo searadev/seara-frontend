@@ -17,6 +17,7 @@ const ClassRoomDetails = () => {
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
+    console.log(classroomId);
     setIsLoading(true);
     axios
       .get(`${BASE_URL}/classes/${classroomId}`)

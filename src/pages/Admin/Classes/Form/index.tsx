@@ -1,25 +1,47 @@
 import { AxiosRequestConfig } from 'axios';
+import { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
-import { useHistory } from 'react-router-dom';
+import { useHistory, useParams } from 'react-router-dom';
 import { ClassRoom } from 'types/classroom';
 import { BASE_URL, requestBackend } from 'util/requests';
 import './styles.css';
 
-const Form = () => {
-  const history = useHistory();
+type UrlParams = {
+  classesId: string;
+};
 
+const Form = () => {
+  const { classesId } = useParams<UrlParams>();
+  const isEditing = classesId !== 'create';
+  const history = useHistory();
   const {
     register,
     handleSubmit,
     formState: { errors },
+    setValue,
   } = useForm<ClassRoom>();
-
+  useEffect(() => {
+    console.log(classesId);
+    if (isEditing) {
+      requestBackend({ url: `/classes/${classesId}` }).then((response) => {
+        const classRoom = response.data as ClassRoom;
+        setValue('title', classRoom.title);
+        setValue('url', classRoom.url);
+        setValue('date', classRoom.date);
+        setValue('medium.id', classRoom.medium.id);
+        setValue('module.id', classRoom.module.id);
+      });
+    }
+  }, [isEditing, classesId, setValue]);
   const onSubmit = (formData: ClassRoom) => {
-    const data = { ...formData, module: { id: 1 }, medium: { id: 1 } };
-
+    const data = {
+      ...formData,
+      module: isEditing ? formData.module : { id: 1 },
+      medium: isEditing ? formData.medium : { id: 1 },
+    };
     const config: AxiosRequestConfig = {
-      method: 'POST',
-      url: '/classes',
+      method: isEditing ? 'PUT' : 'POST',
+      url: isEditing ? `/classes/${classesId}` : '/classes',
       baseURL: BASE_URL,
       data: data,
       withCredentials: true,
