@@ -1,6 +1,6 @@
 import { AxiosRequestConfig } from 'axios';
 import { useEffect, useState } from 'react';
-import { useForm } from 'react-hook-form';
+import { useForm, Controller } from 'react-hook-form';
 import { useHistory, useParams } from 'react-router-dom';
 import Select from 'react-select';
 import { ClassRoom } from 'types/classroom';
@@ -26,20 +26,23 @@ const Form = () => {
     handleSubmit,
     formState: { errors },
     setValue,
+    control,
   } = useForm<ClassRoom>();
 
   useEffect(() => {
-    requestBackend({url: '/modules', withCredentials: true})
-    .then(response => {
-      setSelectModules(response.data.content);
-    })
+    requestBackend({ url: '/modules', withCredentials: true }).then(
+      (response) => {
+        setSelectModules(response.data.content);
+      }
+    );
   }, []);
 
   useEffect(() => {
-    requestBackend({url: '/mediuns', withCredentials: true})
-    .then(response => {
-      setSelectMediuns(response.data.content);
-    })
+    requestBackend({ url: '/mediuns', withCredentials: true }).then(
+      (response) => {
+        setSelectMediuns(response.data.content);
+      }
+    );
   }, []);
 
   useEffect(() => {
@@ -50,8 +53,8 @@ const Form = () => {
         setValue('title', classRoom.title);
         setValue('url', classRoom.url);
         setValue('date', classRoom.date);
-        setValue('medium.id', classRoom.medium.id);
-        setValue('module.id', classRoom.module.id);
+        setValue('medium', classRoom.medium);
+        setValue('module', classRoom.module);
       });
     }
   }, [isEditing, classesId, setValue]);
@@ -136,22 +139,48 @@ const Form = () => {
                 </div>
               </div>
               <div className="margin-botton-30">
-                <Select 
-                  options={selectModules} 
-                  classNamePrefix="class-crud-select"
-                  getOptionLabel={(module: Module) => module.name}
-                  getOptionValue={(module: Module) => String(module.id)}
-                  />
+                <Controller
+                  name="module"
+                  rules={{ required: true }}
+                  control={control}
+                  render={({ field }) => (
+                    <Select
+                      {...field}
+                      options={selectModules}
+                      classNamePrefix="class-crud-select"
+                      getOptionLabel={(module: Module) => module.name}
+                      getOptionValue={(module: Module) => String(module.id)}
+                    />
+                  )}
+                />
+                {errors.module && (
+                  <div className="invalid-feedback d-block">
+                    Campo obrigatório
+                  </div>
+                )}
               </div>
             </div>
             <div className="col-lg-6">
               <div className="margin-botton-30">
-                <Select 
-                  options={selectMediuns} 
-                  classNamePrefix="class-crud-select" 
-                  getOptionLabel={(medium: Medium) => medium.fullName}
-                  getOptionValue={(medium: Medium) => String(medium.id)}                  
-                  />
+                <Controller
+                  name="medium"
+                  rules={{ required: true }}
+                  control={control}
+                  render={({ field }) => (
+                    <Select
+                      {...field}
+                      options={selectMediuns}
+                      classNamePrefix="class-crud-select"
+                      getOptionLabel={(medium: Medium) => medium.fullName}
+                      getOptionValue={(medium: Medium) => String(medium.id)}
+                    />
+                  )}
+                />
+                {errors.medium && (
+                  <div className="invalid-feedback d-block">
+                    Campo obrigatório
+                  </div>
+                )}
               </div>
             </div>
           </div>
