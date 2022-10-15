@@ -1,9 +1,11 @@
 import { AxiosRequestConfig } from 'axios';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useHistory, useParams } from 'react-router-dom';
 import Select from 'react-select';
 import { ClassRoom } from 'types/classroom';
+import { Medium } from 'types/medium';
+import { Module } from 'types/module';
 import { BASE_URL, requestBackend } from 'util/requests';
 import './styles.css';
 
@@ -12,23 +14,34 @@ type UrlParams = {
 };
 
 const Form = () => {
-
-  const options = [
-    { value: 'chocolate', label: 'Chocolate' },
-    { value: 'strawberry', label: 'Strawberry' },
-    { value: 'vanilla', label: 'Vanilla' }
-  ]
-
-
   const { classesId } = useParams<UrlParams>();
   const isEditing = classesId !== 'create';
   const history = useHistory();
+
+  const [selectModules, setSelectModules] = useState<Module[]>([]);
+  const [selectMediuns, setSelectMediuns] = useState<Medium[]>([]);
+
   const {
     register,
     handleSubmit,
     formState: { errors },
     setValue,
   } = useForm<ClassRoom>();
+
+  useEffect(() => {
+    requestBackend({url: '/modules', withCredentials: true})
+    .then(response => {
+      setSelectModules(response.data.content);
+    })
+  }, []);
+
+  useEffect(() => {
+    requestBackend({url: '/mediuns', withCredentials: true})
+    .then(response => {
+      setSelectMediuns(response.data.content);
+    })
+  }, []);
+
   useEffect(() => {
     console.log(classesId);
     if (isEditing) {
@@ -124,17 +137,21 @@ const Form = () => {
               </div>
               <div className="margin-botton-30">
                 <Select 
-                  options={options}
-                  classNamePrefix="class-crud-select"                
-                />
+                  options={selectModules} 
+                  classNamePrefix="class-crud-select"
+                  getOptionLabel={(module: Module) => module.name}
+                  getOptionValue={(module: Module) => String(module.id)}
+                  />
               </div>
             </div>
             <div className="col-lg-6">
               <div className="margin-botton-30">
-              <Select 
-                  options={options}
-                  classNamePrefix="class-crud-select"                
-                />
+                <Select 
+                  options={selectMediuns} 
+                  classNamePrefix="class-crud-select" 
+                  getOptionLabel={(medium: Medium) => medium.fullName}
+                  getOptionValue={(medium: Medium) => String(medium.id)}                  
+                  />
               </div>
             </div>
           </div>
