@@ -2,6 +2,7 @@ import { AxiosRequestConfig } from 'axios';
 import { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { useHistory, useParams } from 'react-router-dom';
+import Select from 'react-select';
 import { ClassRoom } from 'types/classroom';
 import { BASE_URL, requestBackend } from 'util/requests';
 import './styles.css';
@@ -11,6 +12,14 @@ type UrlParams = {
 };
 
 const Form = () => {
+
+  const options = [
+    { value: 'chocolate', label: 'Chocolate' },
+    { value: 'strawberry', label: 'Strawberry' },
+    { value: 'vanilla', label: 'Vanilla' }
+  ]
+
+
   const { classesId } = useParams<UrlParams>();
   const isEditing = classesId !== 'create';
   const history = useHistory();
@@ -114,38 +123,18 @@ const Form = () => {
                 </div>
               </div>
               <div className="margin-botton-30">
-                <input
-                  {...register('medium', {
-                    required: 'Campo obrigatório',
-                  })}
-                  type="text"
-                  className={`form-control base-input ${
-                    errors.date ? 'is-invalid' : ''
-                  }`}
-                  placeholder="Médium"
-                  name="medium"
+                <Select 
+                  options={options}
+                  classNamePrefix="class-crud-select"                
                 />
-                <div className="invalid-feedback d-block">
-                  {errors.date?.message}
-                </div>
               </div>
             </div>
             <div className="col-lg-6">
               <div className="margin-botton-30">
-                <input
-                  {...register('module', {
-                    required: 'Campo obrigatório',
-                  })}
-                  type="text"
-                  className={`form-control base-input ${
-                    errors.module ? 'is-invalid' : ''
-                  }`}
-                  placeholder="Módulo"
-                  name="module"
+              <Select 
+                  options={options}
+                  classNamePrefix="class-crud-select"                
                 />
-                <div className="invalid-feedback d-block">
-                  {errors.module?.message}
-                </div>
               </div>
             </div>
           </div>
