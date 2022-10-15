@@ -1,8 +1,11 @@
 import { AxiosRequestConfig } from 'axios';
-import { useEffect } from 'react';
-import { useForm } from 'react-hook-form';
+import { useEffect, useState } from 'react';
+import { useForm, Controller } from 'react-hook-form';
 import { useHistory, useParams } from 'react-router-dom';
+import Select from 'react-select';
 import { ClassRoom } from 'types/classroom';
+import { Medium } from 'types/medium';
+import { Module } from 'types/module';
 import { BASE_URL, requestBackend } from 'util/requests';
 import './styles.css';
 
@@ -14,12 +17,34 @@ const Form = () => {
   const { classesId } = useParams<UrlParams>();
   const isEditing = classesId !== 'create';
   const history = useHistory();
+
+  const [selectModules, setSelectModules] = useState<Module[]>([]);
+  const [selectMediuns, setSelectMediuns] = useState<Medium[]>([]);
+
   const {
     register,
     handleSubmit,
     formState: { errors },
     setValue,
+    control,
   } = useForm<ClassRoom>();
+
+  useEffect(() => {
+    requestBackend({ url: '/modules', withCredentials: true }).then(
+      (response) => {
+        setSelectModules(response.data.content);
+      }
+    );
+  }, []);
+
+  useEffect(() => {
+    requestBackend({ url: '/mediuns', withCredentials: true }).then(
+      (response) => {
+        setSelectMediuns(response.data.content);
+      }
+    );
+  }, []);
+
   useEffect(() => {
     console.log(classesId);
     if (isEditing) {
@@ -28,8 +53,8 @@ const Form = () => {
         setValue('title', classRoom.title);
         setValue('url', classRoom.url);
         setValue('date', classRoom.date);
-        setValue('medium.id', classRoom.medium.id);
-        setValue('module.id', classRoom.module.id);
+        setValue('medium', classRoom.medium);
+        setValue('module', classRoom.module);
       });
     }
   }, [isEditing, classesId, setValue]);
@@ -114,38 +139,48 @@ const Form = () => {
                 </div>
               </div>
               <div className="margin-botton-30">
-                <input
-                  {...register('medium', {
-                    required: 'Campo obrigatório',
-                  })}
-                  type="text"
-                  className={`form-control base-input ${
-                    errors.date ? 'is-invalid' : ''
-                  }`}
-                  placeholder="Médium"
-                  name="medium"
+                <Controller
+                  name="module"
+                  rules={{ required: true }}
+                  control={control}
+                  render={({ field }) => (
+                    <Select
+                      {...field}
+                      options={selectModules}
+                      classNamePrefix="class-crud-select"
+                      getOptionLabel={(module: Module) => module.name}
+                      getOptionValue={(module: Module) => String(module.id)}
+                    />
+                  )}
                 />
-                <div className="invalid-feedback d-block">
-                  {errors.date?.message}
-                </div>
+                {errors.module && (
+                  <div className="invalid-feedback d-block">
+                    Campo obrigatório
+                  </div>
+                )}
               </div>
             </div>
             <div className="col-lg-6">
               <div className="margin-botton-30">
-                <input
-                  {...register('module', {
-                    required: 'Campo obrigatório',
-                  })}
-                  type="text"
-                  className={`form-control base-input ${
-                    errors.module ? 'is-invalid' : ''
-                  }`}
-                  placeholder="Módulo"
-                  name="module"
+                <Controller
+                  name="medium"
+                  rules={{ required: true }}
+                  control={control}
+                  render={({ field }) => (
+                    <Select
+                      {...field}
+                      options={selectMediuns}
+                      classNamePrefix="class-crud-select"
+                      getOptionLabel={(medium: Medium) => medium.fullName}
+                      getOptionValue={(medium: Medium) => String(medium.id)}
+                    />
+                  )}
                 />
-                <div className="invalid-feedback d-block">
-                  {errors.module?.message}
-                </div>
+                {errors.medium && (
+                  <div className="invalid-feedback d-block">
+                    Campo obrigatório
+                  </div>
+                )}
               </div>
             </div>
           </div>

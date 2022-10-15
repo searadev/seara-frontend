@@ -33,6 +33,18 @@
     font-weight: bold;
 }
 
+.class-crud-select__control {
+    border-radius: 10px !important;
+    font-size: 1em;
+    letter-spacing: -0.015em;
+    background-color: #F2F2F2 !important;
+    height: 50px;
+}
+
+.class-crud-select__placeholder {
+    color: #9E9E9E!important;
+}
+
 @media (min-width: 576px) {
     .xpto-agora-vai {
         justify-content:flex-end;
