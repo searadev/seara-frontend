@@ -1,0 +1,85 @@
+.message-crud-card {
+    align-items: center;
+  }
+  
+  .message-crud-top-container {
+    padding: 5px 20px;
+  }
+  
+  .message-crud-top-container p {
+    font-size: 15px;
+    color: #263238;
+    text-align: left;
+    font-weight: 700;
+  }
+  
+  .message-crud-container p {
+    font-size: 15px;
+    color: #263238;
+    font-weight: 700px;
+    padding: 0px 20px;
+    margin: 20px;
+    background-color: #c4c4c4;
+    align-items: center; /*Deixar o texto centralizado*/
+    text-align: center;
+  }
+  
+  .message-crud-buttons-container {
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .message-crud-card-button {
+    font-weight: bold;
+    font-size: 14px;
+    letter-spacing: -0.015em;
+    width: 100px;
+    height: 40px;
+  }
+  
+  .message-crud-card-button-first {
+    margin-right: 10px;
+  }
+  
+  @media (min-width: 768px) {
+    .message-crud-card {
+      display: flex;
+      justify-content: space-between;
+      padding: 0;
+    } 
+  
+    .message-crud-container {
+      display: flex;
+      justify-content: flex-start;    
+    }
+  
+    .message-crud-container p {
+      height: 40px;
+      padding: 10px;
+      
+    }
+  
+    .message-crud-buttons-container {
+      flex-direction: column-reverse;
+      justify-content: center;
+    }
+  
+    .message-crud-card-button-first {
+      margin-right: 0;
+      margin-top: 22px;
+    }
+  
+    .message-crud-card-button {
+      width: 140px;
+    }
+  }
+  
+  @media (min-width: 992px) {
+    .message-crud-container {
+    }
+  
+    .message-crud-card-button {
+    }
+  }
+  

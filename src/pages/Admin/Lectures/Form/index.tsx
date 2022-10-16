@@ -5,7 +5,6 @@ import { useHistory, useParams } from 'react-router-dom';
 import Select from 'react-select';
 import { Lecture } from 'types/lecture';
 import { Medium } from 'types/medium';
-import { Module } from 'types/module';
 import { BASE_URL, requestBackend } from 'util/requests';
 import './styles.css';
 
