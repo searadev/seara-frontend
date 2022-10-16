@@ -1,0 +1,41 @@
+.lecture-crud-content {
+    max-width: 1200px;
+    justify-content: center;
+  }
+  
+  .btn-crud-add {
+    width: 100%;
+    height: 50px;
+    font-size: 16px;
+    letter-spacing: -0.015em;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  
+  .lecture-filter-container {    
+  /*PRESTA ATENÇÃO. AQUI TEMOS O EXEMPLO DE COMO CENTRALIZAR UM TEXTO E RETIRAR OS ESPAÇOS. SOFRI DEMAIS COM ISSO*/ 
+    display: flex;
+    align-items: center; /*Deixar o texto centralizado*/
+    margin-bottom: 20; /*Retirar os espaços de baixo, centralizando ainda mais o texto*/
+    flex: 1;  /*Pegar todo o comprimento horizontal da tela*/
+    width: 100%;
+  }
+  
+  @media (min-width: 768px) {
+    .lecture-crud-bar-container {
+      display: flex;
+      margin-bottom: 30px;
+    }
+  
+    .btn-crud-add {
+      margin-bottom: 0;
+      height: 60px;
+    }
+  
+    .lecture-filter-container {
+      margin-bottom: 0;
+      margin-left: 20px;
+      height: 60px;
+    }
+  }
+  
