@@ -146,6 +146,25 @@ const Form = () => {
                   </div>
                 )}
               </div>
+              <div className="margin-botton-30">
+                <label htmlFor="status">
+                  <input
+                    {...register('status', {
+                      required: 'Campo obrigatório',
+                    })}
+                    type="radio"
+                    name="status"
+                    value="true"
+                    className={'form-check-input'}
+                    placeholder="status"
+                    id="status"
+                  />{' '}
+                  Ativado
+                </label>
+                <div className="invalid-feedback d-block">
+                  {errors.status?.message}
+                </div>
+              </div>
             </div>
             <div className="col-lg-6">
               <div className="margin-botton-30">

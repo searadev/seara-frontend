@@ -11,10 +11,10 @@ const List = () => {
   const [page, setPage] = useState<SpringPage<Message>>();
 
   useEffect(() => {
-    getmessages();
+    getMessages();
   }, []);
 
-  const getmessages = () => {
+  const getMessages = () => {
     const config: AxiosRequestConfig = {
       method: 'GET',
       url: '/messages',
@@ -41,9 +41,9 @@ const List = () => {
         <div className="base-card message-filter-container">Search Bar</div>
       </div>
       <div className="row">
-        {page?.content.map((palestras) => (
-          <div className="col-sm-6 col-md-12" key={palestras.id}>
-            <MessageCrudCard message={palestras} onDelete={() => getmessages()} />
+        {page?.content.map((mensagens) => (
+          <div className="col-sm-6 col-md-12" key={mensagens.id}>
+            <MessageCrudCard message={mensagens} onDelete={() => getMessages()} />
           </div>
         ))}
       </div>
