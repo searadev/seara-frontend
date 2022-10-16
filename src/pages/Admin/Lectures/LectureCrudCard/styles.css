@@ -1,0 +1,85 @@
+.lecture-crud-card {
+    align-items: center;
+  }
+  
+  .lecture-crud-top-container {
+    padding: 5px 20px;
+  }
+  
+  .lecture-crud-top-container p {
+    font-size: 15px;
+    color: #263238;
+    text-align: left;
+    font-weight: 700;
+  }
+  
+  .lecture-crud-container p {
+    font-size: 15px;
+    color: #263238;
+    font-weight: 700px;
+    padding: 0px 20px;
+    margin: 20px;
+    background-color: #c4c4c4;
+    align-items: center; /*Deixar o texto centralizado*/
+    text-align: center;
+  }
+  
+  .lecture-crud-buttons-container {
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .lecture-crud-card-button {
+    font-weight: bold;
+    font-size: 14px;
+    letter-spacing: -0.015em;
+    width: 100px;
+    height: 40px;
+  }
+  
+  .lecture-crud-card-button-first {
+    margin-right: 10px;
+  }
+  
+  @media (min-width: 768px) {
+    .lecture-crud-card {
+      display: flex;
+      justify-content: space-between;
+      padding: 0;
+    } 
+  
+    .lecture-crud-container {
+      display: flex;
+      justify-content: flex-start;    
+    }
+  
+    .lecture-crud-container p {
+      height: 40px;
+      padding: 10px;
+      
+    }
+  
+    .lecture-crud-buttons-container {
+      flex-direction: column-reverse;
+      justify-content: center;
+    }
+  
+    .lecture-crud-card-button-first {
+      margin-right: 0;
+      margin-top: 22px;
+    }
+  
+    .lecture-crud-card-button {
+      width: 140px;
+    }
+  }
+  
+  @media (min-width: 992px) {
+    .lecture-crud-container {
+    }
+  
+    .lecture-crud-card-button {
+    }
+  }
+  
