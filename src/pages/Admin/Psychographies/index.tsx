@@ -10,7 +10,7 @@ const Psychographies = () => {
       <Route path="/admin/psychographies" exact>
         <List />
       </Route>
-      <Route path="/admin/psychographies/:psychographiesId">
+      <Route path="/admin/psychographies/:psychographyId">
         <Form />
       </Route>
     </Switch>

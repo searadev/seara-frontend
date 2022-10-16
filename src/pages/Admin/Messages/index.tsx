@@ -10,7 +10,7 @@ const Messages = () => {
       <Route path="/admin/messages" exact>
         <List />
       </Route>
-      <Route path="/admin/messages/:messagesId">
+      <Route path="/admin/messages/:messageId">
         <Form />
       </Route>
     </Switch>
