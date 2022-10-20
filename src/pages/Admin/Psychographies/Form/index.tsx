@@ -18,6 +18,7 @@ const Form = () => {
   const history = useHistory();
 
   const [selectMediuns, setSelectMediuns] = useState<Medium[]>([]);
+  const [isChecked, setIsChecked] = useState<boolean>();
 
   const {
     register,
@@ -47,6 +48,7 @@ const Form = () => {
           setValue('fullName', psychography.fullName);
           setValue('medium', psychography.medium);
           setValue('status', psychography.status);
+          setIsChecked(psychography.status);
         }
       );
     }
@@ -54,7 +56,7 @@ const Form = () => {
   const onSubmit = (formData: Psychography) => {
     const data = {
       ...formData,
-      medium: isEditing ? formData.medium : { id: 1 },      
+      medium: isEditing ? formData.medium : { id: 1 },
     };
     const config: AxiosRequestConfig = {
       method: isEditing ? 'PUT' : 'POST',
@@ -71,6 +73,10 @@ const Form = () => {
 
   const handleCancel = () => {
     history.push('/admin/psychographies');
+  };
+
+  const handleOnChange = (bool: boolean) => {
+    setIsChecked(bool);
   };
 
   return (
@@ -150,20 +156,17 @@ const Form = () => {
                 )}
               </div>
               <div className="margin-botton-30">
-                <label htmlFor="status">
-                  <input
-                    {...register('status', {
-                      required: 'Campo obrigatório',
-                    })}
-                    type="radio"
-                    name="status"
-                    value="true"
-                    className={"form-check-input"}
-                    placeholder="status"
-                    id="status"
-                  />{' '}
-                  Ativado
-                </label>
+                <input
+                  {...register('status')}
+                  type="checkbox"
+                  name="status"
+                  value="true"
+                  className={'form-check-input'}
+                  id="status"
+                  checked={isChecked}
+                  onChange={(e) => handleOnChange(e.target.checked)}
+                />
+                Ativo
                 <div className="invalid-feedback d-block">
                   {errors.status?.message}
                 </div>
