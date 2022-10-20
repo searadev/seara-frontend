@@ -6,5 +6,5 @@ export type PsychographyDto = {
     fullName: string;
     date: string;
     medium: Medium;
-    status: true;
+    status: boolean;
 }
