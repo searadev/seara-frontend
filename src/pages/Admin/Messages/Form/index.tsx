@@ -18,6 +18,7 @@ const Form = () => {
   const history = useHistory();
 
   const [selectMediuns, setSelectMediuns] = useState<Medium[]>([]);
+  const [isChecked, setIsChecked] = useState<boolean>();
 
   const {
     register,
@@ -45,6 +46,7 @@ const Form = () => {
         setValue('date', message.date);
         setValue('fullName', message.fullName);
         setValue('medium', message.medium);
+        setIsChecked(message.status);
       });
     }
   }, [isEditing, messageId, setValue]);
@@ -68,6 +70,10 @@ const Form = () => {
 
   const handleCancel = () => {
     history.push('/admin/messages');
+  };
+
+  const handleOnChange = (bool: boolean) => {
+    setIsChecked(bool);
   };
 
   return (
@@ -147,20 +153,17 @@ const Form = () => {
                 )}
               </div>
               <div className="margin-botton-30">
-                <label htmlFor="status">
-                  <input
-                    {...register('status', {
-                      required: 'Campo obrigatório',
-                    })}
-                    type="radio"
-                    name="status"
-                    value="true"
-                    className={'form-check-input'}
-                    placeholder="status"
-                    id="status"
-                  />{' '}
-                  Ativado
-                </label>
+              <input
+                  {...register('status')}
+                  type="checkbox"
+                  name="status"
+                  value="true"
+                  className={'form-check-input'}
+                  id="status"
+                  checked={isChecked}
+                  onChange={(e) => handleOnChange(e.target.checked)}
+                />
+                Ativo
                 <div className="invalid-feedback d-block">
                   {errors.status?.message}
                 </div>
