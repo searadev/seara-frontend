@@ -32,9 +32,10 @@ const MessageCrudCard = ({ message, onDelete }: Props) => {
           <p>{message.title}</p>
           <p>{message.fullName}</p>
         </div>
-        <div className="message-crud-container">
+        <div className="message-crud-container">          
           <p>{message.date}</p>
           <p>{message.medium.fullName}</p>
+          <p>{message.status}</p>
         </div>
       </div>
 

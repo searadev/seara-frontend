@@ -35,6 +35,7 @@ const PsychographyCrudCard = ({ psychography, onDelete }: Props) => {
         <div className="psychography-crud-container">
           <p>{psychography.date}</p>
           <p>{psychography.medium.fullName}</p>
+          <p>{psychography.status}</p>
         </div>
       </div>
 
