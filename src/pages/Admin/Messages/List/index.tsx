@@ -17,7 +17,7 @@ const List = () => {
   const getMessages = () => {
     const config: AxiosRequestConfig = {
       method: 'GET',
-      url: '/messages',
+      url: '/messages/all',
       baseURL: BASE_URL,
       params: {
         page: 0,
