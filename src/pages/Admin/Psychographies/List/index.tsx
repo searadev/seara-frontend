@@ -17,7 +17,7 @@ const List = () => {
   const getPsychographies = () => {
     const config: AxiosRequestConfig = {
       method: 'GET',
-      url: '/psychographies',
+      url: '/psychographies/all',
       baseURL: BASE_URL,
       params: {
         page: 0,
