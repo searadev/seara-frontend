@@ -48,7 +48,7 @@ const List = () => {
             <PsychographyCrudCard
               psychography={psicografias}
               onDelete={() => getPsychographies()}
-              status={psicografias.status === true ? 'Ativado' : 'Desativado'}
+              status={psicografias.status === true ? 'Ativo' : 'Inativo'}
             />
           </div>
         ))}
