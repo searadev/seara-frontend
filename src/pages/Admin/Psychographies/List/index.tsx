@@ -38,12 +38,18 @@ const List = () => {
             ADICIONAR
           </button>
         </Link>
-        <div className="base-card psychography-filter-container">Search Bar</div>
+        <div className="base-card psychography-filter-container">
+          Search Bar
+        </div>
       </div>
       <div className="row">
         {page?.content.map((psicografias) => (
           <div className="col-sm-6 col-md-12" key={psicografias.id}>
-            <PsychographyCrudCard psychography={psicografias} onDelete={() => getPsychographies()} />
+            <PsychographyCrudCard
+              psychography={psicografias}
+              onDelete={() => getPsychographies()}
+              status={psicografias.status === true ? 'Ativado' : 'Desativado'}
+            />
           </div>
         ))}
       </div>

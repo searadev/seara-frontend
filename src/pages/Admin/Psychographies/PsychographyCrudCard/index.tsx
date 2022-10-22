@@ -7,9 +7,10 @@ import './styles.css';
 type Props = {
   psychography: Psychography;
   onDelete: Function;
+  status: string;
 };
 
-const PsychographyCrudCard = ({ psychography, onDelete }: Props) => {
+const PsychographyCrudCard = ({ psychography, onDelete, status }: Props) => {
   const handleDelete = (psychographyId: number) => {
     if (!window.confirm('Tem certeza que deseja deletar?')) {
       return;
@@ -35,7 +36,7 @@ const PsychographyCrudCard = ({ psychography, onDelete }: Props) => {
         <div className="psychography-crud-container">
           <p>{psychography.date}</p>
           <p>{psychography.medium.fullName}</p>
-          <p>{psychography.status}</p>
+          <p>{status}</p>
         </div>
       </div>
 
