@@ -7,9 +7,10 @@ import './styles.css';
 type Props = {
   message: Message;
   onDelete: Function;
+  status: string;
 };
 
-const MessageCrudCard = ({ message, onDelete }: Props) => {
+const MessageCrudCard = ({ message, onDelete, status }: Props) => {
   const handleDelete = (messageId: number) => {
     if (!window.confirm('Tem certeza que deseja deletar?')) {
       return;
@@ -35,7 +36,7 @@ const MessageCrudCard = ({ message, onDelete }: Props) => {
         <div className="message-crud-container">          
           <p>{message.date}</p>
           <p>{message.medium.fullName}</p>
-          <p>{message.status}</p>
+          <p>{status}</p>
         </div>
       </div>
 

@@ -43,7 +43,11 @@ const List = () => {
       <div className="row">
         {page?.content.map((mensagens) => (
           <div className="col-sm-6 col-md-12" key={mensagens.id}>
-            <MessageCrudCard message={mensagens} onDelete={() => getMessages()} />
+            <MessageCrudCard
+              message={mensagens}
+              onDelete={() => getMessages()}
+              status={mensagens.status === true ? 'Ativado' : 'Desativado'}
+            />
           </div>
         ))}
       </div>
