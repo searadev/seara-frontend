@@ -2,7 +2,7 @@ import { Route, Switch } from 'react-router-dom';
 import Form from './Form';
 import List from './List';
 
-import './styles.css';
+import './styles.css'; 
 
 const Modules = () => {
   return (
@@ -10,7 +10,7 @@ const Modules = () => {
       <Route path="/admin/modules" exact>
         <List />
       </Route>
-      <Route path="/admin/modules/:modulesId">
+      <Route path="/admin/modules/:moduleId">
         <Form />
       </Route>
     </Switch>

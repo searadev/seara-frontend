@@ -10,7 +10,7 @@ const Mediuns = () => {
       <Route path="/admin/mediuns" exact>
         <List />
       </Route>
-      <Route path="/admin/mediuns/:mediunsId">
+      <Route path="/admin/mediuns/:mediumId">
         <Form />
       </Route>
     </Switch>

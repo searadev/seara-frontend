@@ -46,7 +46,7 @@ const List = () => {
             <MessageCrudCard
               message={mensagens}
               onDelete={() => getMessages()}
-              status={mensagens.status === true ? 'Ativado' : 'Desativado'}
+              status={mensagens.status === true ? 'Ativo' : 'Inativo'}
             />
           </div>
         ))}
