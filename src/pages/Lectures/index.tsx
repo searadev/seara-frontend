@@ -41,11 +41,11 @@ const Lectures = () => {
           <div className="row lecture-title-container">
             <h1>Palestras</h1>
           </div>
-          <div className="row">
+          <div>
             {isLoading ? <CardLoader /> : (
               page?.content.map((lecture) => {
-              return (
-                <div className="col-sm-6 col-lg-4 col-xl-3" key={lecture.id}>
+              return ( 
+                <div className="row" key={lecture.id}>
                   <Link to={`/lecture/${lecture.id}`}>
                     <LectureCard lecture={lecture}/>
                   </Link>

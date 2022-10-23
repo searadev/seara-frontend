@@ -41,11 +41,11 @@ const Class = () => {
           <div className="row classroom-title-container">
             <h1>Aulas</h1>
           </div>
-          <div className="row">
+          <div>
           {isLoading ? <CardLoader /> :  (
             page?.content.map((classroom) => {
             return (
-              <div className="col-sm-6 col-lg-4 col-xl-3" key={classroom.id}>
+              <div  className="row" key={classroom.id}>
                 <Link to={`/classroom/${classroom.id}`}> 
                   <ClassCard classRoom={classroom}/>
                 </Link>
