@@ -16,7 +16,7 @@ const Form = () => {
   const { lecturesId } = useParams<UrlParams>();
   const isEditing = lecturesId !== 'create';
   const history = useHistory();
-  
+
   const [selectMediuns, setSelectMediuns] = useState<Medium[]>([]);
 
   const {
@@ -25,7 +25,7 @@ const Form = () => {
     formState: { errors },
     setValue,
     control,
-  } = useForm<Lecture>();  
+  } = useForm<Lecture>();
 
   useEffect(() => {
     requestBackend({ url: '/mediuns', withCredentials: true }).then(
@@ -48,15 +48,11 @@ const Form = () => {
     }
   }, [isEditing, lecturesId, setValue]);
   const onSubmit = (formData: Lecture) => {
-    const data = {
-      ...formData,
-      medium: isEditing ? formData.medium : { id: 1 },
-    };
     const config: AxiosRequestConfig = {
       method: isEditing ? 'PUT' : 'POST',
       url: isEditing ? `/lectures/${lecturesId}` : '/lectures',
       baseURL: BASE_URL,
-      data: data,
+      data: formData,
       withCredentials: true,
     };
 
@@ -95,6 +91,10 @@ const Form = () => {
               <input
                 {...register('url', {
                   required: 'Campo obrigatório',
+                  pattern: {
+                    value: /^(https?|chrome):\/\/[^\s$.?#].[^\s]*$/gm,
+                    message: 'Deve ser uma URL válida',
+                  },
                 })}
                 type="text"
                 className={`form-control base-input ${
@@ -125,7 +125,7 @@ const Form = () => {
                 <div className="invalid-feedback d-block">
                   {errors.date?.message}
                 </div>
-              </div>              
+              </div>
             </div>
             <div className="col-lg-6">
               <div className="margin-botton-30">
@@ -169,4 +169,3 @@ const Form = () => {
 };
 
 export default Form;
-

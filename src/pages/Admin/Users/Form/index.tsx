@@ -25,23 +25,22 @@ const Form = () => {
   useEffect(() => {
     console.log(userId);
     if (isEditing) {
-      requestBackend({ url: `/users/${userId}`, withCredentials: true }).then((response) => {
-        const user = response.data as User;
-        setValue('firstName', user.firstName);
-        setValue('lastName', user.lastName);
-        setValue('email', user.email);
-      });
+      requestBackend({ url: `/users/${userId}`, withCredentials: true }).then(
+        (response) => {
+          const user = response.data as User;
+          setValue('firstName', user.firstName);
+          setValue('lastName', user.lastName);
+          setValue('email', user.email);
+        }
+      );
     }
   }, [isEditing, userId, setValue]);
   const onSubmit = (formData: User) => {
-    const data = {
-      ...formData,
-    };
     const config: AxiosRequestConfig = {
       method: isEditing ? 'PUT' : 'POST',
       url: isEditing ? `/users/${userId}` : '/users',
       baseURL: BASE_URL,
-      data: data,
+      data: formData,
       withCredentials: true,
     };
 

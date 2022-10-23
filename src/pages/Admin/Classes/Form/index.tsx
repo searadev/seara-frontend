@@ -59,16 +59,12 @@ const Form = () => {
     }
   }, [isEditing, classesId, setValue]);
   const onSubmit = (formData: ClassRoom) => {
-    const data = {
-      ...formData,
-      module: isEditing ? formData.module : { id: 1 },
-      medium: isEditing ? formData.medium : { id: 1 },
-    };
+    
     const config: AxiosRequestConfig = {
       method: isEditing ? 'PUT' : 'POST',
       url: isEditing ? `/classes/${classesId}` : '/classes',
       baseURL: BASE_URL,
-      data: data,
+      data: formData,
       withCredentials: true,
     };
 
@@ -107,6 +103,10 @@ const Form = () => {
               <input
                 {...register('url', {
                   required: 'Campo obrigatório',
+                  pattern: {
+                    value: /^(https?|chrome):\/\/[^\s$.?#].[^\s]*$/gm,
+                    message: 'Deve ser uma URL válida',
+                  },
                 })}
                 type="text"
                 className={`form-control base-input ${
