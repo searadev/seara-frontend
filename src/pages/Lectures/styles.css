@@ -9,13 +9,34 @@
 
 .lecture-title-container h1 {
     font-size: 1em;
-    letter-spacing: -0.015em;
+    letter-spacing: -0.015em; 
     color: #263238;       
     text-align: center;
 }
 
-@media (min-width: 576px) {
-    .lecture-container {
-        font-size: 30px;    
+@media (min-width: 768px) {
+
+    .lecture-container { 
+        padding: 40px 100px;
+        font-size: 30px;
     }
+
+}
+
+@media (min-width: 992px) {
+
+    .lecture-container {
+        padding: 38px 200px;
+        font-size: 30px;
+    }
+
+}
+
+@media (min-width: 1200px) {
+
+    .lecture-container {
+        padding: 40px 290px;
+        font-size: 30px;
+    }
+
 }
