@@ -51,15 +51,11 @@ const Form = () => {
     }
   }, [isEditing, messageId, setValue]);
   const onSubmit = (formData: Message) => {
-    const data = {
-      ...formData,
-      medium: isEditing ? formData.medium : { id: 1 },
-    };
     const config: AxiosRequestConfig = {
       method: isEditing ? 'PUT' : 'POST',
       url: isEditing ? `/messages/${messageId}` : '/messages',
       baseURL: BASE_URL,
-      data: data,
+      data: formData,
       withCredentials: true,
     };
 
@@ -153,7 +149,7 @@ const Form = () => {
                 )}
               </div>
               <div className="margin-botton-30">
-              <input
+                <input
                   {...register('status')}
                   type="checkbox"
                   name="status"

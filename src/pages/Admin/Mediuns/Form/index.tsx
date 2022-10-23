@@ -25,21 +25,21 @@ const Form = () => {
   useEffect(() => {
     console.log(mediumId);
     if (isEditing) {
-      requestBackend({ url: `/mediuns/${mediumId}`, withCredentials: true }).then((response) => {
+      requestBackend({
+        url: `/mediuns/${mediumId}`,
+        withCredentials: true,
+      }).then((response) => {
         const medium = response.data as Medium;
         setValue('fullName', medium.fullName);
       });
     }
   }, [isEditing, mediumId, setValue]);
   const onSubmit = (formData: Medium) => {
-    const data = {
-      ...formData,
-    };
     const config: AxiosRequestConfig = {
       method: isEditing ? 'PUT' : 'POST',
       url: isEditing ? `/mediuns/${mediumId}` : '/mediuns',
       baseURL: BASE_URL,
-      data: data,
+      data: formData,
       withCredentials: true,
     };
 
