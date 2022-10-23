@@ -54,15 +54,11 @@ const Form = () => {
     }
   }, [isEditing, psychographyId, setValue]);
   const onSubmit = (formData: Psychography) => {
-    const data = {
-      ...formData,
-      medium: isEditing ? formData.medium : { id: 1 },
-    };
     const config: AxiosRequestConfig = {
       method: isEditing ? 'PUT' : 'POST',
       url: isEditing ? `/psychographies/${psychographyId}` : '/psychographies',
       baseURL: BASE_URL,
-      data: data,
+      data: formData,
       withCredentials: true,
     };
 

@@ -25,21 +25,21 @@ const Form = () => {
   useEffect(() => {
     console.log(moduleId);
     if (isEditing) {
-      requestBackend({ url: `/modules/${moduleId}`, withCredentials: true }).then((response) => {
+      requestBackend({
+        url: `/modules/${moduleId}`,
+        withCredentials: true,
+      }).then((response) => {
         const module = response.data as Module;
         setValue('name', module.name);
       });
     }
   }, [isEditing, moduleId, setValue]);
   const onSubmit = (formData: Module) => {
-    const data = {
-      ...formData,
-    };
     const config: AxiosRequestConfig = {
       method: isEditing ? 'PUT' : 'POST',
       url: isEditing ? `/modules/${moduleId}` : '/modules',
       baseURL: BASE_URL,
-      data: data,
+      data: formData,
       withCredentials: true,
     };
 
