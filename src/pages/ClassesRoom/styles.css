@@ -14,8 +14,29 @@
     text-align: center;
 }
 
-@media (min-width: 576px) {
-    .classroom-container {
-        font-size: 30px;    
+@media (min-width: 768px) {
+
+    .classroom-container { 
+        padding: 40px 100px;
+        font-size: 30px;
     }
+
+}
+
+@media (min-width: 992px) {
+
+    .classroom-container {
+        padding: 38px 200px;
+        font-size: 30px;
+    }
+
+}
+
+@media (min-width: 1200px) {
+
+    .classroom-container {
+        padding: 40px 290px;
+        font-size: 30px;
+    }
+
 }
