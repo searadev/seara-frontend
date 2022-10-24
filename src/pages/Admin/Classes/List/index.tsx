@@ -1,5 +1,4 @@
 import axios, { AxiosRequestConfig } from 'axios';
-import Pagination from 'components/Pagination';
 import ClassCrudCard from 'pages/Admin/Classes/ClassCrudCard';
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
