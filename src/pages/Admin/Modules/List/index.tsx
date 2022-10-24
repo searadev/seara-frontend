@@ -1,4 +1,5 @@
 import { AxiosRequestConfig } from 'axios';
+import Pagination from 'components/Pagination';
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Module } from 'types/module';
@@ -11,17 +12,17 @@ const List = () => {
   const [page, setPage] = useState<SpringPage<Module>>();
 
   useEffect(() => {
-    getModules();
+    getModules(0);
   }, []);
 
-  const getModules = () => {
+  const getModules = (pageNumber: number) => {
     const config: AxiosRequestConfig = {
       method: 'GET',
       url: '/modules',
       baseURL: BASE_URL,
       withCredentials: true,
       params: {
-        page: 0,
+        page: pageNumber,
         size: 12,
       },
     };
@@ -44,9 +45,12 @@ const List = () => {
       <div className="row">
         {page?.content.map((module) => (
           <div key={module.id}>
-            <ModuleCrudCard module={module} onDelete={() => getModules()} />
+            <ModuleCrudCard module={module} onDelete={() => getModules(page.number)} />
           </div>
         ))}
+      </div>
+      <div className="row">
+        <Pagination pageCount={page ? page.totalPages : 0} range={3} onChange={getModules} />
       </div>
     </div>
   );

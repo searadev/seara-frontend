@@ -1,4 +1,5 @@
 import { AxiosRequestConfig } from 'axios';
+import Pagination from 'components/Pagination';
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Medium } from 'types/medium';
@@ -11,16 +12,16 @@ const List = () => {
   const [page, setPage] = useState<SpringPage<Medium>>();
 
   useEffect(() => {
-    getMediuns();
+    getMediuns(0);
   }, []);
 
-  const getMediuns = () => {
+  const getMediuns = (pageNumber: number) => {
     const config: AxiosRequestConfig = {
       method: 'GET',
       url: '/mediuns',
       baseURL: BASE_URL,
       params: {
-        page: 0,
+        page: pageNumber,
         size: 12,
       },
       withCredentials: true,
@@ -44,9 +45,12 @@ const List = () => {
       <div className="row">
         {page?.content.map((mediuns) => (
           <div key={mediuns.id}>
-            <MediumCrudCard medium={mediuns} onDelete={() => getMediuns()} />
+            <MediumCrudCard medium={mediuns} onDelete={() => getMediuns(page.number)} />
           </div>
         ))}
+      </div>
+      <div className="row">
+        <Pagination pageCount={page ? page.totalPages : 0} range={3} onChange={getMediuns} />
       </div>
     </div>
   );

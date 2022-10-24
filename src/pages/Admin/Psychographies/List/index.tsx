@@ -1,4 +1,5 @@
 import axios, { AxiosRequestConfig } from 'axios';
+import Pagination from 'components/Pagination';
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Psychography } from 'types/psychography';
@@ -11,16 +12,16 @@ const List = () => {
   const [page, setPage] = useState<SpringPage<Psychography>>();
 
   useEffect(() => {
-    getPsychographies();
+    getPsychographies(0);
   }, []);
 
-  const getPsychographies = () => {
+  const getPsychographies = (pageNumber: number) => {
     const config: AxiosRequestConfig = {
       method: 'GET',
       url: '/psychographies/all',
       baseURL: BASE_URL,
       params: {
-        page: 0,
+        page: pageNumber,
         size: 12,
       },
     };
@@ -47,11 +48,14 @@ const List = () => {
           <div className="col-sm-6 col-md-12" key={psicografias.id}>
             <PsychographyCrudCard
               psychography={psicografias}
-              onDelete={() => getPsychographies()}
+              onDelete={() => getPsychographies(page.number)}
               status={psicografias.status === true ? 'Ativo' : 'Inativo'}
             />
           </div>
         ))}
+      </div>
+      <div className="row">
+        <Pagination pageCount={page ? page.totalPages : 0} range={3} onChange={getPsychographies} />
       </div>
     </div>
   );

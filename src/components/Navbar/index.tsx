@@ -56,7 +56,7 @@ const Navbar = () => {
           <ul className="navbar-nav offset-md-2 main-menu">
             <li>
               <NavLink to="/message" activeClassName="active" exact>
-                MENSAGENS MOTIVACIONAIS
+                MOTIVACIONAIS
               </NavLink>
             </li>
             <li>

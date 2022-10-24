@@ -1,4 +1,5 @@
 import axios, { AxiosRequestConfig } from 'axios';
+import Pagination from 'components/Pagination';
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Lecture } from 'types/lecture';
@@ -11,16 +12,16 @@ const List = () => {
   const [page, setPage] = useState<SpringPage<Lecture>>();
 
   useEffect(() => {
-    getLectures();
+    getLectures(0);
   }, []);
 
-  const getLectures = () => {
+  const getLectures = (pageNumber: number) => {
     const config: AxiosRequestConfig = {
       method: 'GET',
       url: '/lectures',
       baseURL: BASE_URL,
       params: {
-        page: 0,
+        page: pageNumber,
         size: 12,
       },
     };
@@ -43,9 +44,15 @@ const List = () => {
       <div className="row">
         {page?.content.map((palestras) => (
           <div className="col-sm-6 col-md-12" key={palestras.id}>
-            <LectureCrudCard lecture={palestras} onDelete={() => getLectures()} />
+            <LectureCrudCard
+              lecture={palestras}
+              onDelete={() => getLectures(page.number)}
+            />
           </div>
         ))}
+      </div>
+      <div className="row">
+        <Pagination pageCount={page ? page.totalPages : 0} range={3} onChange={getLectures} />
       </div>
     </div>
   );
