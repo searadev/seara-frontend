@@ -2,24 +2,35 @@ import { AxiosRequestConfig } from 'axios';
 import CardLoader from 'components/CardLoader';
 import MessageCard from 'components/MessageCard';
 import Pagination from 'components/Pagination';
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Message } from 'types/message';
 import { SpringPage } from 'types/vendor/spring';
 import { requestBackend } from 'util/requests';
-
 import './styles.css';
+
+type ControlComponentsData = {
+  activePage: number;
+};
 
 const Messages = () => {
   const [page, setPage] = useState<SpringPage<Message>>();
   const [isLoading, setIsLoading] = useState(false);
+  const [controlComponentsData, setControlComponentsData] =
+    useState<ControlComponentsData>({
+      activePage: 0,
+    });
 
-  const getMessage = (pageNumber: number) => {
+  const handlePageChange = (pageNumber: number) => {
+    setControlComponentsData({ activePage: pageNumber });
+  };
+
+  const getMessage = useCallback(() => {
     const params: AxiosRequestConfig = {
       method: 'GET',
       url: '/messages',
       params: {
-        page: pageNumber,
+        page: controlComponentsData.activePage,
         size: 12,
       },
     };
@@ -32,11 +43,11 @@ const Messages = () => {
       .finally(() => {
         setIsLoading(false);
       });
-  };
+  }, [controlComponentsData]);
 
   useEffect(() => {
-    getMessage(0);
-  }, []);
+    getMessage();
+  }, [getMessage]);
 
   return (
     <div className="container my-4 message-container">
@@ -60,7 +71,7 @@ const Messages = () => {
         <Pagination
           pageCount={page ? page.totalPages : 0}
           range={3}
-          onChange={getMessage}
+          onChange={handlePageChange}
         />
       </div>
     </div>
