@@ -1,4 +1,4 @@
-ul {
+.admin-nav-items-container {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -36,7 +36,7 @@ ul {
 
 @media (min-width: 992px) {
 
-    ul {
+    .admin-nav-items-container {
         justify-content: unset;
         flex-direction: column;
     }
