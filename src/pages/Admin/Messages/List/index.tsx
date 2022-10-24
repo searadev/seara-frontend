@@ -1,4 +1,5 @@
 import axios, { AxiosRequestConfig } from 'axios';
+import Pagination from 'components/Pagination';
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Message } from 'types/message';
@@ -11,16 +12,16 @@ const List = () => {
   const [page, setPage] = useState<SpringPage<Message>>();
 
   useEffect(() => {
-    getMessages();
+    getMessages(0);
   }, []);
 
-  const getMessages = () => {
+  const getMessages = (pageNumber: number) => {
     const config: AxiosRequestConfig = {
       method: 'GET',
       url: '/messages/all',
       baseURL: BASE_URL,
       params: {
-        page: 0,
+        page: pageNumber,
         size: 12,
       },
     };
@@ -45,11 +46,14 @@ const List = () => {
           <div className="col-sm-6 col-md-12" key={mensagens.id}>
             <MessageCrudCard
               message={mensagens}
-              onDelete={() => getMessages()}
+              onDelete={() => getMessages(page.number)}
               status={mensagens.status === true ? 'Ativo' : 'Inativo'}
             />
           </div>
         ))}
+      </div>
+      <div className="row">
+        <Pagination pageCount={page ? page.totalPages : 0} range={3} onChange={getMessages} />
       </div>
     </div>
   );

@@ -7,7 +7,7 @@ const Navbar = () => {
   return (
     <nav className="admin-nav-container">
       <div className="admin-nav-content">
-        <ul>
+        <ul className='admin-nav-items-container'>
           <li>
             <NavLink to="/admin/classes" className="admin-nav-item">
               <p>Aulas</p>

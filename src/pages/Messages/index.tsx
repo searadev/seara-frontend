@@ -14,12 +14,12 @@ const Messages = () => {
   const [page, setPage] = useState<SpringPage<Message>>();
   const [isLoading, setIsLoading] = useState(false);
 
-  useEffect(() => {
+  const getMessage = (pageNumber: number) => {
     const params: AxiosRequestConfig = {
       method: 'GET',
-      url: "/messages",
+      url: '/messages',
       params: {
-        page: 0,
+        page: pageNumber,
         size: 12,
       },
     };
@@ -32,6 +32,10 @@ const Messages = () => {
       .finally(() => {
         setIsLoading(false);
       });
+  };
+
+  useEffect(() => {
+    getMessage(0);
   }, []);
 
   return (
@@ -53,7 +57,11 @@ const Messages = () => {
         })
       )}
       <div className="row">
-        <Pagination />
+        <Pagination
+          pageCount={page ? page.totalPages : 0}
+          range={3}
+          onChange={getMessage}
+        />
       </div>
     </div>
   );
