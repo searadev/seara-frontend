@@ -1,4 +1,5 @@
 import { AxiosRequestConfig } from 'axios';
+import Pagination from 'components/Pagination';
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { User } from 'types/user';
@@ -11,16 +12,16 @@ const List = () => {
   const [page, setPage] = useState<SpringPage<User>>();
 
   useEffect(() => {
-    getusers();
+    getusers(0);
   }, []);
 
-  const getusers = () => {
+  const getusers = (pageNumber: number) => {
     const config: AxiosRequestConfig = {
       method: 'GET',
       url: '/users',
       baseURL: BASE_URL,
       params: {
-        page: 0,
+        page: pageNumber,
         size: 12,
       },
       withCredentials: true,
@@ -44,9 +45,12 @@ const List = () => {
       <div className="row">
         {page?.content.map((user) => (
           <div key={user.id}>
-            <UserCrudCard user={user} onDelete={() => getusers()} />
+            <UserCrudCard user={user} onDelete={() => getusers(page.number)} />
           </div>
         ))}
+      </div>
+      <div className="row">
+        <Pagination pageCount={page ? page.totalPages : 0} range={3} onChange={getusers} />
       </div>
     </div>
   );
