@@ -1,6 +1,6 @@
 import axios, { AxiosRequestConfig } from 'axios';
 import Pagination from 'components/Pagination';
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Psychography } from 'types/psychography';
 import { SpringPage } from 'types/vendor/spring';
@@ -8,20 +8,28 @@ import { BASE_URL } from 'util/requests';
 import PsychographyCrudCard from '../PsychographyCrudCard';
 import './styles.css';
 
+type ControlComponentsData = {
+  activePage: number;
+};
+
 const List = () => {
   const [page, setPage] = useState<SpringPage<Psychography>>();
+  const [controlComponentsData, setControlComponentsData] =
+    useState<ControlComponentsData>({
+      activePage: 0,
+    });
 
-  useEffect(() => {
-    getPsychographies(0);
-  }, []);
+  const handlePageChange = (pageNumber: number) => {
+    setControlComponentsData({ activePage: pageNumber });
+  };
 
-  const getPsychographies = (pageNumber: number) => {
+  const getPsychographies = useCallback(() => {
     const config: AxiosRequestConfig = {
       method: 'GET',
       url: '/psychographies/all',
       baseURL: BASE_URL,
       params: {
-        page: pageNumber,
+        page: controlComponentsData.activePage,
         size: 12,
       },
     };
@@ -29,7 +37,11 @@ const List = () => {
     axios(config).then((response) => {
       setPage(response.data);
     });
-  };
+  }, [controlComponentsData]);
+
+  useEffect(() => {
+    getPsychographies();
+  }, [getPsychographies]);
 
   return (
     <div className="psychography-crud-content">
@@ -48,14 +60,18 @@ const List = () => {
           <div className="col-sm-6 col-md-12" key={psicografias.id}>
             <PsychographyCrudCard
               psychography={psicografias}
-              onDelete={() => getPsychographies(page.number)}
+              onDelete={getPsychographies}
               status={psicografias.status === true ? 'Ativo' : 'Inativo'}
             />
           </div>
         ))}
       </div>
       <div className="row">
-        <Pagination pageCount={page ? page.totalPages : 0} range={3} onChange={getPsychographies} />
+        <Pagination
+          pageCount={page ? page.totalPages : 0}
+          range={3}
+          onChange={handlePageChange}
+        />
       </div>
     </div>
   );
