@@ -1,4 +1,6 @@
 .class-filter-container {
+  padding: 15px;
+  margin-bottom: 20px;
 }
 
 .class-filter-name-container {
@@ -6,6 +8,7 @@
   align-items: center;
   border-bottom: 1px solid #e1e1e1;
   margin-bottom: 10px;
+  margin-right: 10px;
 }
 
 .class-filter-name-container input {
@@ -70,9 +73,40 @@
 }
 
 @media (min-width: 768px) {
+
+  .btn-class-filter-word {
+    display: none;
+  }
+
   .class-filter-container {
     margin-left: 20px;
     flex: 1;  /*Pegar todo o comprimento horizontal da tela*/
     margin-bottom: 0;
+    padding: 10px 15px;
+  }
+
+  .class-filter-form {
+    display: flex;
+  }
+
+  .class-filter-name-container {
+    flex: 1;
+    align-items: center;
+  }
+
+  .class-filter-bottom-container {
+    flex: 1;
+  }
+
+  .class-filter-name-container { 
+    margin-bottom: 0;
+  } 
+  
+}
+
+@media (min-width: 992px) {
+
+  .btn-class-filter-word {
+    display: unset;
   }
 }
