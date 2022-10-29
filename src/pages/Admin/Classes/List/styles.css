@@ -3,6 +3,10 @@
   justify-content: center;
 }
 
+.class-crud-bar-container {
+  margin-bottom: 20px;
+}
+
 .btn-crud-add {
   width: 100%;
   height: 50px;
@@ -12,29 +16,13 @@
   margin-bottom: 20px;
 }
 
-.class-filter-container {    
-/*PRESTA ATENÇÃO. AQUI TEMOS O EXEMPLO DE COMO CENTRALIZAR UM TEXTO E RETIRAR OS ESPAÇOS. SOFRI DEMAIS COM ISSO*/ 
-  display: flex;
-  align-items: center; /*Deixar o texto centralizado*/
-  margin-bottom: 20; /*Retirar os espaços de baixo, centralizando ainda mais o texto*/
-  flex: 1;  /*Pegar todo o comprimento horizontal da tela*/
-  width: 100%;
-}
-
 @media (min-width: 768px) {
   .class-crud-bar-container {
     display: flex;
-    margin-bottom: 30px;
   }
 
   .btn-crud-add {
     margin-bottom: 0;
-    height: 60px;
-  }
-
-  .class-filter-container {
-    margin-bottom: 0;
-    margin-left: 20px;
     height: 60px;
   }
 }
