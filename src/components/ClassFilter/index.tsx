@@ -6,17 +6,21 @@ import { Module } from 'types/module';
 import { requestBackend } from 'util/requests';
 import './styles.css';
 
-type ClassFilterData = {
+export type ClassFilterData = {
   title: string;
   module: Module | null;
 };
 
-const ClassFilter = () => {
+type Props = {
+  onSubmitFilter : (data: ClassFilterData) => void;
+}
+
+const ClassFilter = ({ onSubmitFilter }: Props) => {
   const [selectModules, setSelectModules] = useState<Module[]>([]);
   const { register, handleSubmit, setValue, getValues, control } = useForm<ClassFilterData>();
 
   const onSubmit = (formData: ClassFilterData) => {
-    console.log('ENVIOU', formData);
+    onSubmitFilter(formData); 
   };
 
   const handleFormClear = () => {
@@ -31,7 +35,7 @@ const ClassFilter = () => {
       title: getValues('title'),
       module: getValues('module')
     }
-    console.log('ENVIOU', obj);
+    onSubmitFilter(obj);
   }
 
   useEffect(() => {

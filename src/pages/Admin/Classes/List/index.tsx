@@ -1,5 +1,5 @@
 import axios, { AxiosRequestConfig } from 'axios';
-import ClassFilter from 'components/ClassFilter';
+import ClassFilter, { ClassFilterData } from 'components/ClassFilter';
 import Pagination from 'components/Pagination';
 import ClassCrudCard from 'pages/Admin/Classes/ClassCrudCard';
 import { useCallback, useEffect, useState } from 'react';
@@ -11,6 +11,7 @@ import './styles.css';
 
 type ControlComponentsData = {
   activePage: number;
+  filterData: ClassFilterData;
 };
 
 const List = () => {
@@ -18,11 +19,16 @@ const List = () => {
   const [controlComponentsData, setControlComponentsData] =
     useState<ControlComponentsData>({
       activePage: 0,
+      filterData: {title: "", module: null},  
     });
 
   const handlePageChange = (pageNumber: number) => {
-    setControlComponentsData({ activePage: pageNumber });
+    setControlComponentsData({ activePage: pageNumber, filterData: controlComponentsData.filterData });
   };
+
+  const handleSubmitFilter = (data: ClassFilterData) => {
+    setControlComponentsData({ activePage: 0, filterData: data });
+  }
 
   const getClasses = useCallback(() => {
     const config: AxiosRequestConfig = {
@@ -32,6 +38,8 @@ const List = () => {
       params: {
         page: controlComponentsData.activePage,
         size: 12,
+        title: controlComponentsData.filterData.title,
+        module: controlComponentsData.filterData.module?.id
       },
     };
 
@@ -52,7 +60,7 @@ const List = () => {
             ADICIONAR
           </button>
         </Link>
-        <ClassFilter />
+        <ClassFilter onSubmitFilter={handleSubmitFilter} />
       </div>
       <div className="row">
         {page?.content.map((aula) => (
@@ -63,6 +71,7 @@ const List = () => {
       </div>
       <div className="row">
         <Pagination
+          forcePage={page?.number}
           pageCount={page ? page.totalPages : 0}
           range={3}
           onChange={handlePageChange}
