@@ -1,0 +1,29 @@
+.class-filter-container {
+}
+
+.class-filter-name-container {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #e1e1e1;
+}
+
+.class-filter-name-container input {
+  border: none;
+  background-color: #fff;
+}
+
+.class-filter-name-container input:focus {
+  box-shadow: none;
+}
+
+.class-filter-name-container input::placeholder {
+  color: #9e9e9e;
+}
+
+@media (min-width: 768px) {
+  .class-filter-container {
+    margin-bottom: 0;
+    margin-left: 20px;
+    height: 60px;
+  }
+}

@@ -1,4 +1,5 @@
 import axios, { AxiosRequestConfig } from 'axios';
+import ClassFilter from 'components/ClassFilter';
 import Pagination from 'components/Pagination';
 import ClassCrudCard from 'pages/Admin/Classes/ClassCrudCard';
 import { useCallback, useEffect, useState } from 'react';
@@ -51,7 +52,7 @@ const List = () => {
             ADICIONAR
           </button>
         </Link>
-        <div className="base-card class-filter-container">Search Bar</div>
+        <ClassFilter />
       </div>
       <div className="row">
         {page?.content.map((aula) => (
