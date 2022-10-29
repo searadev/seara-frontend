@@ -15,7 +15,6 @@
 @media (min-width: 768px) {
   .class-crud-bar-container {
     display: flex;
-    margin-bottom: 30px;
   }
 
   .btn-crud-add {

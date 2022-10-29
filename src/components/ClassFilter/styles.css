@@ -22,8 +22,7 @@
 
 @media (min-width: 768px) {
   .class-filter-container {
-    margin-bottom: 0;
-    margin-left: 20px;
-    height: 60px;
+    flex: 1;  /*Pegar todo o comprimento horizontal da tela*/
+    width: 100%;
   }
 }
