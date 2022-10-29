@@ -8,20 +8,31 @@ import './styles.css';
 
 type ClassFilterData = {
   title: string;
-  module: Module;
+  module: Module | null;
 };
 
 const ClassFilter = () => {
   const [selectModules, setSelectModules] = useState<Module[]>([]);
-  const {
-    register,
-    handleSubmit,
-    control,
-  } = useForm<ClassFilterData>();
+  const { register, handleSubmit, setValue, getValues, control } = useForm<ClassFilterData>();
 
   const onSubmit = (formData: ClassFilterData) => {
     console.log('ENVIOU', formData);
   };
+
+  const handleFormClear = () => {
+    setValue('title', '');
+    setValue('module', null);
+  }
+
+  const handleChangeModule = (value: Module) => {
+    setValue('module', value);
+
+    const obj : ClassFilterData = {
+      title: getValues('title'),
+      module: getValues('module')
+    }
+    console.log('ENVIOU', obj);
+  }
 
   useEffect(() => {
     requestBackend({ url: '/modules', withCredentials: true }).then(
@@ -58,13 +69,14 @@ const ClassFilter = () => {
                   isClearable
                   placeholder="Módulo"
                   classNamePrefix="class-filter-select"
+                  onChange={value => handleChangeModule(value as Module)}
                   getOptionLabel={(module: Module) => module.name}
                   getOptionValue={(module: Module) => String(module.id)}
                 />
               )}
             />
           </div>
-          <button className="btn btn-outline-secondary btn-class-filter-clear">LIMPAR <span className='btn-class-filter-word'>FILTRO</span></button>
+          <button onClick={handleFormClear} className="btn btn-outline-secondary btn-class-filter-clear">LIMPAR <span className='btn-class-filter-word'>FILTRO</span></button>
         </div>
       </form>
     </div>
