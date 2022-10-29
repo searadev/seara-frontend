@@ -42,7 +42,7 @@ const ClassFilter = () => {
             placeholder="Título"
             name="title"
           />
-          <button>
+          <button className='class-filter-search-icon'>
             <SearchIcon />
           </button>
         </div>
@@ -56,14 +56,15 @@ const ClassFilter = () => {
                   {...field}
                   options={selectModules}
                   isClearable
-                  classNamePrefix="class-crud-select"
+                  placeholder="Módulo"
+                  classNamePrefix="class-filter-select"
                   getOptionLabel={(module: Module) => module.name}
                   getOptionValue={(module: Module) => String(module.id)}
                 />
               )}
             />
           </div>
-          <button className="btn btn-outline-secondary">LIMPAR</button>
+          <button className="btn btn-outline-secondary btn-class-filter-clear">LIMPAR <span className='btn-class-filter-word'>FILTRO</span></button>
         </div>
       </form>
     </div>
