@@ -43,6 +43,8 @@ const List = () => {
       },
     };
 
+    
+
     axios(config).then((response) => {
       setPage(response.data);
     });
