@@ -37,13 +37,9 @@ const List = () => {
       baseURL: BASE_URL,
       params: {
         page: controlComponentsData.activePage,
-        size: 12,
-        title: controlComponentsData.filterData.title,
-        module: controlComponentsData.filterData.module?.id
+        size: 12
       },
     };
-
-    
 
     axios(config).then((response) => {
       setPage(response.data);
