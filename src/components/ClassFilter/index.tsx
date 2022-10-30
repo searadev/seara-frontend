@@ -1,9 +1,6 @@
 import { ReactComponent as SearchIcon } from 'assets/images/search-icon.svg';
-import { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 //import Select from 'react-select';
-import { Module } from 'types/module';
-import { requestBackend } from 'util/requests';
 import './styles.css';
 
 export type ClassFilterData = {
@@ -16,8 +13,7 @@ type Props = {
 }
 
 const ClassFilter = ({ onSubmitFilter }: Props) => {
-  const [setSelectModules] = useState<Module[]>([]);
-  const { register, handleSubmit, setValue, getValues } = useForm<ClassFilterData>();
+  const { register, handleSubmit, setValue } = useForm<ClassFilterData>();
 
   const onSubmit = (formData: ClassFilterData) => {
     onSubmitFilter(formData); 
