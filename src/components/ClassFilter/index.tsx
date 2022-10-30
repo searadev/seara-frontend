@@ -1,11 +1,14 @@
 import { ReactComponent as SearchIcon } from 'assets/images/search-icon.svg';
-import { useForm } from 'react-hook-form';
-//import Select from 'react-select';
+import { useEffect, useState } from 'react';
+import { Controller, useForm } from 'react-hook-form';
+import Select from 'react-select';
+import { Module } from 'types/module';
+import { requestBackend } from 'util/requests';
 import './styles.css';
 
 export type ClassFilterData = {
   title: string;
-  //module: Module | null;
+  module: Module | null;
 };
 
 type Props = {
@@ -13,7 +16,8 @@ type Props = {
 }
 
 const ClassFilter = ({ onSubmitFilter }: Props) => {
-  const { register, handleSubmit, setValue } = useForm<ClassFilterData>();
+  const [selectModules, setSelectModules] = useState<Module[]>([]);
+  const { register, handleSubmit, setValue, getValues, control } = useForm<ClassFilterData>();
 
   const onSubmit = (formData: ClassFilterData) => {
     onSubmitFilter(formData); 
@@ -21,12 +25,26 @@ const ClassFilter = ({ onSubmitFilter }: Props) => {
 
   const handleFormClear = () => {
     setValue('title', '');
-    //setValue('module', null);
+    setValue('module', null);
   }
 
-  
+  const handleChangeModule = (value: Module) => {
+    setValue('module', value);
 
+    const obj : ClassFilterData = {
+      title: getValues('title'),
+      module: getValues('module')
+    }
+    onSubmitFilter(obj);
+  }
 
+  useEffect(() => {
+    requestBackend({ url: '/modules', withCredentials: true }).then(
+      (response) => {
+        setSelectModules(response.data.content);
+      }
+    );
+  }, []);
 
   return (
     <div className="base-card class-filter-container">
@@ -45,7 +63,7 @@ const ClassFilter = ({ onSubmitFilter }: Props) => {
         </div>
         <div className="class-filter-bottom-container">
           <div className="class-filter-module-container">
-            {/*<Controller
+            <Controller
               name="module"
               control={control}
               render={({ field }) => (
@@ -60,7 +78,7 @@ const ClassFilter = ({ onSubmitFilter }: Props) => {
                   getOptionValue={(module: Module) => String(module.id)}
                 />
               )}
-              />*/}
+            />
           </div>
           <button onClick={handleFormClear} className="btn btn-outline-secondary btn-class-filter-clear">LIMPAR <span className='btn-class-filter-word'>FILTRO</span></button>
         </div>

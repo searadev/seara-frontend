@@ -19,7 +19,7 @@ const List = () => {
   const [controlComponentsData, setControlComponentsData] =
     useState<ControlComponentsData>({
       activePage: 0,
-      filterData: {title: ""},  
+      filterData: {title: "", module: null},  
     });
 
   const handlePageChange = (pageNumber: number) => {
@@ -38,7 +38,8 @@ const List = () => {
       params: {
         page: controlComponentsData.activePage,
         size: 12,
-        title: controlComponentsData.filterData.title
+        title: controlComponentsData.filterData.title,
+        module: controlComponentsData.filterData.module?.id
       },
     };
 
