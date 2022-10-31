@@ -54,7 +54,7 @@ const ClassFilter = ({ onSubmitFilter }: Props) => {
             {...register('title')}
             type="text"
             className="form-control"
-            placeholder="Título"
+            placeholder="Resumo"
             name="title"
           />
           <button className='class-filter-search-icon'>
