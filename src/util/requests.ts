@@ -4,11 +4,9 @@ import history from './history';
 import { getAuthData } from './storage';
 
 /*export const BASE_URL = process.env.REACT_APP_BACKEND_URL ?? 'http://192.168.5.242:8080';*/
-export const BASE_URL =
-  process.env.REACT_APP_BACKEND_URL ?? 'https://searadev.herokuapp.com';
-
-const CLIENT_ID = process.env.REACT_APP_CLIENT_ID ?? 'searadev';
-const CLIENT_SECRET = process.env.REACT_APP_CLIENT_SECRET ?? 'searadev123';
+export const BASE_URL = process.env.REACT_APP_BACKEND_URL;
+const CLIENT_ID = process.env.REACT_APP_CLIENT_ID;
+const CLIENT_SECRET = process.env.REACT_APP_CLIENT_SECRET;
 
 type LoginData = {
   username: string;
