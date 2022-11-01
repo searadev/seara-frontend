@@ -22,9 +22,9 @@ const LectureFilter = ({ onSubmitFilter }: Props) => {
   }   
 
   return (
-    <div className="base-card lecture-filter-container">
-      <form onSubmit={handleSubmit(onSubmit)} className="lecture-filter-form">
-        <div className="lecture-filter-name-container">
+    <div className="base-card lecture2-filter">
+      <form onSubmit={handleSubmit(onSubmit)} className='lecture2-filter-form' >
+        <div className='lecture2-filter-name-container'>
           <input
             {...register('title')}
             type="text"
@@ -32,13 +32,12 @@ const LectureFilter = ({ onSubmitFilter }: Props) => {
             placeholder="Título"
             name="title"
           />
-          <button className='lecture-filter-search-icon'>
+          <button className='lecture2-filter-search-icon'>
             <SearchIcon />
           </button>
         </div>
-        <div className="lecture-filter-bottom-container">
-          
-          <button onClick={handleFormClear} className="btn btn-outline-secondary btn-lecture-filter-clear">LIMPAR <span className='btn-lecture-filter-word'>FILTRO</span></button>
+        <div className='lecture2-filter-botton-container'>          
+          <button onClick={handleFormClear} className="btn btn-outline-secondary btn-lecture2-clear">LIMPAR FILTRO</button>
         </div>
       </form>
     </div>
