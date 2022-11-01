@@ -5,8 +5,7 @@
 
 .class-filter-name-container {
   display: flex;
-  align-items: center;
-  border-bottom: 1px solid #e1e1e1;
+  align-items: center;  
   margin-bottom: 10px;
   margin-right: 10px;
 }
@@ -14,6 +13,7 @@
 .class-filter-name-container input {
   border: none;
   background-color: unset;
+  border-bottom: 1px solid #e1e1e1;
 }
 
 .class-filter-name-container input:focus {
@@ -55,7 +55,7 @@
   letter-spacing: -0.015em;
   background-color: #FFF !important;
   border: none !important;
-  border-bottom: 1px solid #E1E1E1 !important;
+  border-bottom: 1px solid #E1E1E1 !important; 
 }
 
 .class-filter-select__placeholder {
