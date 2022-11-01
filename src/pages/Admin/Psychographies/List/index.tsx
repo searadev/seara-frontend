@@ -1,5 +1,6 @@
 import axios, { AxiosRequestConfig } from 'axios';
 import Pagination from 'components/Pagination';
+import PsychographyFilter, { PsychographyFilterData } from 'components/PsychographyFilter';
 import { useCallback, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Psychography } from 'types/psychography';
@@ -10,6 +11,7 @@ import './styles.css';
 
 type ControlComponentsData = {
   activePage: number;
+  filterData: PsychographyFilterData;
 };
 
 const List = () => {
@@ -17,13 +19,18 @@ const List = () => {
   const [controlComponentsData, setControlComponentsData] =
     useState<ControlComponentsData>({
       activePage: 0,
+      filterData: {text: "", fullName: ""},
     });
 
   const handlePageChange = (pageNumber: number) => {
-    setControlComponentsData({ activePage: pageNumber });
+    setControlComponentsData({ activePage: pageNumber, filterData: controlComponentsData.filterData });
   };
 
-  const getPsychographies = useCallback(() => {
+  const handleSubmitFilter = (data: PsychographyFilterData) => {
+    setControlComponentsData({ activePage: 0, filterData: data });
+  }
+
+  const getPsychographies = useCallback(() => { 
     const config: AxiosRequestConfig = {
       method: 'GET',
       url: '/psychographies/all',
@@ -31,6 +38,8 @@ const List = () => {
       params: {
         page: controlComponentsData.activePage,
         size: 12,
+        fullName: controlComponentsData.filterData.fullName,
+        text: controlComponentsData.filterData.text,
       },
     };
 
@@ -51,9 +60,7 @@ const List = () => {
             ADICIONAR
           </button>
         </Link>
-        <div className="base-card psychography-filter-container">
-          Search Bar
-        </div>
+        <PsychographyFilter onSubmitFilter={handleSubmitFilter} /> 
       </div>
       <div className="row">
         {page?.content.map((psicografias) => (

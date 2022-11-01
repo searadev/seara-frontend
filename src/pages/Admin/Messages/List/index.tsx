@@ -1,4 +1,5 @@
 import axios, { AxiosRequestConfig } from 'axios';
+import MessageFilter, { MessageFilterData } from 'components/MessageFilter';
 import Pagination from 'components/Pagination';
 import { useCallback, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
@@ -10,6 +11,7 @@ import './styles.css';
 
 type ControlComponentsData = {
   activePage: number;
+  filterData: MessageFilterData;
 };
 
 const List = () => {
@@ -17,11 +19,16 @@ const List = () => {
   const [controlComponentsData, setControlComponentsData] =
     useState<ControlComponentsData>({
       activePage: 0,
+      filterData: {title: "", fullName: ""},
     });
 
   const handlePageChange = (pageNumber: number) => {
-    setControlComponentsData({ activePage: pageNumber });
+    setControlComponentsData({ activePage: pageNumber, filterData: controlComponentsData.filterData });
   };
+
+  const handleSubmitFilter = (data: MessageFilterData) => {
+    setControlComponentsData({ activePage: 0, filterData: data });
+  }
 
   const getMessages = useCallback(() => {
     const config: AxiosRequestConfig = {
@@ -31,6 +38,8 @@ const List = () => {
       params: {
         page: controlComponentsData.activePage,
         size: 12,
+        text: controlComponentsData.filterData.fullName,
+        title: controlComponentsData.filterData.title,        
       },
     };
 
@@ -51,7 +60,7 @@ const List = () => {
             ADICIONAR
           </button>
         </Link>
-        <div className="base-card message-filter-container">Search Bar</div>
+        <MessageFilter onSubmitFilter={handleSubmitFilter} />
       </div>
       <div className="row">
         {page?.content.map((mensagens) => (
