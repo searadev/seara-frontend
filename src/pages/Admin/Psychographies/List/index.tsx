@@ -57,7 +57,7 @@ const List = () => {
       </div>
       <div className="row">
         {page?.content.map((psicografias) => (
-          <div className="col-sm-6 col-md-12" key={psicografias.id}>
+          <div key={psicografias.id}>
             <PsychographyCrudCard
               psychography={psicografias}
               onDelete={getPsychographies}

@@ -55,7 +55,7 @@ const List = () => {
       </div>
       <div className="row">
         {page?.content.map((mensagens) => (
-          <div className="col-sm-6 col-md-12" key={mensagens.id}>
+          <div key={mensagens.id}>
             <MessageCrudCard
               message={mensagens}
               onDelete={getMessages}

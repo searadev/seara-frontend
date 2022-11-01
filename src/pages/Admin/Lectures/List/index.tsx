@@ -1,4 +1,5 @@
 import axios, { AxiosRequestConfig } from 'axios';
+import LectureFilter, { LectureFilterData } from 'components/LectureFilter';
 import Pagination from 'components/Pagination';
 import { useCallback, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
@@ -10,6 +11,7 @@ import './styles.css';
 
 type ControlComponentsData = {
   activePage: number;
+  filterData: LectureFilterData;
 };
 
 const List = () => {
@@ -17,11 +19,16 @@ const List = () => {
   const [controlComponentsData, setControlComponentsData] =
     useState<ControlComponentsData>({
       activePage: 0,
+      filterData: {title: ""},
     });
 
   const handlePageChange = (pageNumber: number) => {
-    setControlComponentsData({ activePage: pageNumber });
+    setControlComponentsData({ activePage: pageNumber, filterData: controlComponentsData.filterData });
   };
+
+  const handleSubmitFilter = (data: LectureFilterData) => {
+    setControlComponentsData({ activePage: 0, filterData: data });
+  }
 
   const getLectures = useCallback(() => {
     const config: AxiosRequestConfig = {
@@ -31,6 +38,7 @@ const List = () => {
       params: {
         page: controlComponentsData.activePage,
         size: 12,
+        title: controlComponentsData.filterData.title,
       },
     };
 
@@ -51,11 +59,11 @@ const List = () => {
             ADICIONAR
           </button>
         </Link>
-        <div className="base-card lecture-filter-container">Search Bar</div>
+        <LectureFilter onSubmitFilter={handleSubmitFilter} />
       </div>
       <div className="row">
         {page?.content.map((palestras) => (
-          <div className="col-sm-6 col-md-12" key={palestras.id}>
+          <div key={palestras.id}>
             <LectureCrudCard lecture={palestras} onDelete={getLectures} />
           </div>
         ))}
