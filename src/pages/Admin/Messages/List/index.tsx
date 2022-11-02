@@ -1,5 +1,5 @@
 import axios, { AxiosRequestConfig } from 'axios';
-import MessageFilter, { MessageFilterData } from 'components/MessageFilter';
+import MessageFilterAdm, { MessageFilterData } from 'components/MessageFilterAdm';
 import Pagination from 'components/Pagination';
 import { useCallback, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
@@ -60,7 +60,7 @@ const List = () => {
             ADICIONAR
           </button>
         </Link>
-        <MessageFilter onSubmitFilter={handleSubmitFilter} />
+        <MessageFilterAdm onSubmitFilter={handleSubmitFilter} />
       </div>
       <div className="row">
         {page?.content.map((mensagens) => (

@@ -60,7 +60,7 @@ const Class = () => {
   }, [getClasses]);
 
   return (
-    <div className="container my-4 classroom-container">
+    <div className="container classroom-container">
       <div className="row classroom-title-container">
       <ClassFilter onSubmitFilter={handleSubmitFilter} />
       </div>

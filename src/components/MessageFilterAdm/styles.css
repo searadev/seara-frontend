@@ -1,48 +1,57 @@
-.psychography2-filter {
+.messageadm-filter {
     padding: 15px;
     margin-bottom: 20px;
 }
 
-.psychography2-filter-name-container {
+.messageadm-filter-name-container {
     display: flex;
     align-items: center;    
     margin-bottom: 10px;
 }
 
-.psychography2-filter-name-container input {
+.messageadm-filter-name-container input {
     border: none;
     background-color: #FFF;
     border-bottom: 1px solid #E1E1E1;
     margin-right: 10px;
 }
 
-.psychography2-filter-name-container input:focus {
+.messageadm-filter-name-container input:focus {
     box-shadow: none;
     background-color: #FFF;
 }
 
-.psychography2-filter-name-container input::placeholder {
+.messageadm-filter-name-container input::placeholder {
     color: #9E9E9E;
 }
 
-.psychography2-filter-search-icon {
+.messageadm-filter-search-icon {
     border: none;
     background-color: unset;
 }
 
-.btn-psychography2-clear {
+.btn-messageadm-clear {
     font-weight: bold;
     border-radius: 10px;
 }
 
 @media (min-width: 576px) {
-    .psychography2-filter-form {
+    .messageadm-filter-form {
         display: flex;
     }
 
-    .psychography2-filter-name-container {
+    .messageadm-filter-name-container {
         flex: 1;
         margin-right: 20px;
         margin-bottom: 0;
     }
+}
+
+@media (min-width: 768px) {
+    .messageadm-filter {
+        margin-left: 20px;
+        flex: 1;
+        margin-bottom: 0;
+        padding: 10px 15px;
+    }   
 }

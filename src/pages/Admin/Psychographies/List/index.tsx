@@ -1,6 +1,6 @@
 import axios, { AxiosRequestConfig } from 'axios';
 import Pagination from 'components/Pagination';
-import PsychographyFilter, { PsychographyFilterData } from 'components/PsychographyFilter';
+import PsychographyFilterAdm, { PsychographyFilterDataAdm } from 'components/PsychographyFilterAdm';
 import { useCallback, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Psychography } from 'types/psychography';
@@ -11,7 +11,7 @@ import './styles.css';
 
 type ControlComponentsData = {
   activePage: number;
-  filterData: PsychographyFilterData;
+  filterData: PsychographyFilterDataAdm;
 };
 
 const List = () => {
@@ -26,7 +26,7 @@ const List = () => {
     setControlComponentsData({ activePage: pageNumber, filterData: controlComponentsData.filterData });
   };
 
-  const handleSubmitFilter = (data: PsychographyFilterData) => {
+  const handleSubmitFilter = (data: PsychographyFilterDataAdm) => {
     setControlComponentsData({ activePage: 0, filterData: data });
   }
 
@@ -60,7 +60,7 @@ const List = () => {
             ADICIONAR
           </button>
         </Link>
-        <PsychographyFilter onSubmitFilter={handleSubmitFilter} /> 
+        <PsychographyFilterAdm onSubmitFilter={handleSubmitFilter} /> 
       </div>
       <div className="row">
         {page?.content.map((psicografias) => (
