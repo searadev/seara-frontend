@@ -1,6 +1,7 @@
 import { AxiosRequestConfig } from 'axios';
 import CardLoader from 'components/CardLoader';
 import MessageCard from 'components/MessageCard';
+import MessageFilter, { MessageFilterData } from 'components/MessageFilter';
 import Pagination from 'components/Pagination';
 import { useCallback, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
@@ -11,6 +12,7 @@ import './styles.css';
 
 type ControlComponentsData = {
   activePage: number;
+  filterData: MessageFilterData;
 };
 
 const Messages = () => {
@@ -19,10 +21,18 @@ const Messages = () => {
   const [controlComponentsData, setControlComponentsData] =
     useState<ControlComponentsData>({
       activePage: 0,
+      filterData: { title: '', fullName: '' },
     });
 
   const handlePageChange = (pageNumber: number) => {
-    setControlComponentsData({ activePage: pageNumber });
+    setControlComponentsData({
+      activePage: pageNumber,
+      filterData: controlComponentsData.filterData,
+    });
+  };
+
+  const handleSubmitFilter = (data: MessageFilterData) => {
+    setControlComponentsData({ activePage: 0, filterData: data });
   };
 
   const getMessage = useCallback(() => {
@@ -32,6 +42,8 @@ const Messages = () => {
       params: {
         page: controlComponentsData.activePage,
         size: 12,
+        text: controlComponentsData.filterData.fullName,
+        title: controlComponentsData.filterData.title,
       },
     };
 
@@ -51,8 +63,8 @@ const Messages = () => {
 
   return (
     <div className="container my-4 message-container">
-      <div className="row message-title-container">
-        <h1>Mensagens</h1>
+      <div className="row message-src-container">
+        <MessageFilter onSubmitFilter={handleSubmitFilter} />
       </div>
       {isLoading ? (
         <CardLoader />

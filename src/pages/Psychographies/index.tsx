@@ -2,6 +2,7 @@ import axios, { AxiosRequestConfig } from 'axios';
 import CardLoader from 'components/CardLoader';
 import Pagination from 'components/Pagination';
 import PsychographyCard from 'components/PsychographyCard';
+import PsychographyFilter, { PsychographyFilterData } from 'components/PsychographyFilter';
 import { useCallback, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Psychography } from 'types/psychography';
@@ -11,6 +12,7 @@ import './styles.css';
 
 type ControlComponentsData = {
   activePage: number;
+  filterData: PsychographyFilterData;
 };
 
 const Psychographies = () => {
@@ -19,11 +21,16 @@ const Psychographies = () => {
   const [controlComponentsData, setControlComponentsData] =
     useState<ControlComponentsData>({
       activePage: 0,
+      filterData: {text: "", fullName: ""},
     });
 
   const handlePageChange = (pageNumber: number) => {
-    setControlComponentsData({ activePage: pageNumber });
+    setControlComponentsData({ activePage: pageNumber, filterData: controlComponentsData.filterData });
   };
+
+  const handleSubmitFilter = (data: PsychographyFilterData) => {
+    setControlComponentsData({ activePage: 0, filterData: data });
+  }
 
   const getPsychography = useCallback(() => {
     const params: AxiosRequestConfig = {
@@ -33,6 +40,8 @@ const Psychographies = () => {
       params: {
         page: controlComponentsData.activePage,
         size: 12,
+        fullName: controlComponentsData.filterData.fullName,
+        text: controlComponentsData.filterData.text,
       },
     };
 
@@ -53,7 +62,7 @@ const Psychographies = () => {
   return (
     <div className="container my-4 psychography-container">
       <div className="row psychography-title-container">
-        <h1>Psicografias</h1>
+      <PsychographyFilter onSubmitFilter={handleSubmitFilter} />
       </div>
       {isLoading ? (
         <CardLoader />

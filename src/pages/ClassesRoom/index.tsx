@@ -1,6 +1,7 @@
 import axios, { AxiosRequestConfig } from 'axios';
 import CardLoader from 'components/CardLoader';
 import ClassCard from 'components/ClassCard';
+import ClassFilter, { ClassFilterData } from 'components/ClassFilter';
 import Pagination from 'components/Pagination';
 import { useCallback, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
@@ -11,6 +12,7 @@ import './styles.css';
 
 type ControlComponentsData = {
   activePage: number;
+  filterData: ClassFilterData;
 };
 
 const Class = () => {
@@ -19,11 +21,16 @@ const Class = () => {
   const [controlComponentsData, setControlComponentsData] =
     useState<ControlComponentsData>({
       activePage: 0,
+      filterData: {title: "", module: null},
     });
 
   const handlePageChange = (pageNumber: number) => {
-    setControlComponentsData({ activePage: pageNumber });
+    setControlComponentsData({ activePage: pageNumber, filterData: controlComponentsData.filterData });
   };
+
+  const handleSubmitFilter = (data: ClassFilterData) => {
+    setControlComponentsData({ activePage: 0, filterData: data });
+  }
 
   const getClasses = useCallback(() => {
     const params: AxiosRequestConfig = {
@@ -33,6 +40,8 @@ const Class = () => {
       params: {
         page: controlComponentsData.activePage,
         size: 12,
+        title: controlComponentsData.filterData.title,
+        module: controlComponentsData.filterData.module?.id
       },
     };
 
@@ -53,7 +62,7 @@ const Class = () => {
   return (
     <div className="container my-4 classroom-container">
       <div className="row classroom-title-container">
-        <h1>Aulas</h1>
+      <ClassFilter onSubmitFilter={handleSubmitFilter} />
       </div>
       <div>
         {isLoading ? (

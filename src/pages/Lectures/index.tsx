@@ -1,6 +1,7 @@
 import axios, { AxiosRequestConfig } from 'axios';
 import CardLoader from 'components/CardLoader';
 import LectureCard from 'components/LectureCard';
+import LectureFilter, { LectureFilterData } from 'components/LectureFilter';
 import Pagination from 'components/Pagination';
 import { useCallback, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
@@ -11,6 +12,7 @@ import './styles.css';
 
 type ControlComponentsData = {
   activePage: number;
+  filterData: LectureFilterData;
 };
 
 const Lectures = () => {
@@ -19,11 +21,16 @@ const Lectures = () => {
   const [controlComponentsData, setControlComponentsData] =
     useState<ControlComponentsData>({
       activePage: 0,
+      filterData: {title: ""},
     });
 
   const handlePageChange = (pageNumber: number) => {
-    setControlComponentsData({ activePage: pageNumber });
+    setControlComponentsData({ activePage: pageNumber, filterData: controlComponentsData.filterData });
   };
+
+  const handleSubmitFilter = (data: LectureFilterData) => {
+    setControlComponentsData({ activePage: 0, filterData: data });
+  }
 
   const getLecture = useCallback(() => {
     const params: AxiosRequestConfig = {
@@ -33,6 +40,7 @@ const Lectures = () => {
       params: {
         page: controlComponentsData.activePage,
         size: 12,
+        title: controlComponentsData.filterData.title,
       },
     };
 
@@ -53,7 +61,7 @@ const Lectures = () => {
   return (
     <div className="container my-4 lecture-container">
       <div className="row lecture-title-container">
-        <h1>Palestras</h1>
+      <LectureFilter onSubmitFilter={handleSubmitFilter} />
       </div>
       <div>
         {isLoading ? (
