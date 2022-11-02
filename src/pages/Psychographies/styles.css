@@ -1,12 +1,14 @@
 .psychography-container {
     font-size: 18px;
-    padding: 40px 40px;
     /*border: 1px solid rgb(25, 0, 255);*/
+    padding-top: 10px;
 }
 
 .psychography-title-container {
     margin-bottom: 20px; 
     align-content: center;   
+    margin-left: 0px;
+    margin-right: 0px;
 }
 
 .psychography-title-container h1 {
@@ -19,7 +21,6 @@
 @media (min-width: 768px) {
 
     .psychography-container {
-        padding: 40px 100px;
         font-size: 30px;
     }
 
@@ -28,7 +29,6 @@
 @media (min-width: 992px) {
 
     .psychography-container {
-        padding: 38px 200px;
         font-size: 30px;
     }
 
@@ -37,7 +37,6 @@
 @media (min-width: 1200px) {
 
     .psychography-container {
-        padding: 40px 290px;
         font-size: 30px;
     }
 

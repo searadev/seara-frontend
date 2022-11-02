@@ -59,7 +59,7 @@ const Lectures = () => {
   }, [getLecture]);
 
   return (
-    <div className="container my-4 lecture-container">
+    <div className="container lecture-container">
       <div className="row lecture-title-container">
       <LectureFilter onSubmitFilter={handleSubmitFilter} />
       </div>

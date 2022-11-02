@@ -1,0 +1,113 @@
+.class-filteradm-container {
+    padding: 15px;
+    margin-bottom: 20px;
+  }
+  
+  .class-filteradm-name-container {
+    display: flex;
+    align-items: center;  
+    margin-bottom: 10px;
+    margin-right: 10px;
+  }
+  
+  .class-filteradm-name-container input {
+    border: none;
+    background-color: unset;
+    border-bottom: 1px solid #e1e1e1;
+  }
+  
+  .class-filteradm-name-container input:focus {
+    box-shadow: none;
+  }
+  
+  .class-filteradm-name-container input::placeholder {
+    color: #9e9e9e;
+  }
+  
+  .class-filteradm-search-icon {
+    border: none;
+    background-color: unset;
+  }
+  
+  .class-filteradm-bottom-container {
+    display: flex;
+    align-items: center;
+    background-color: #FFF;
+    flex: 1;
+  }
+  
+  .class-filteradm-module-container {
+    flex: 1;
+    margin-right: 10px;
+  }
+  
+  .btn-class-filteradm-clear {
+    font-weight: bold;  
+    border-radius: 10px;
+  }
+  
+  .btn-class-filteradm-word {
+    display: none;
+  }
+  
+  .class-filteradm-select__control {
+    font-size: 1em;
+    letter-spacing: -0.015em;
+    background-color: #FFF !important;
+    border: none !important;
+    border-bottom: 1px solid #E1E1E1 !important; 
+  }
+  
+  .class-filteradm-select__placeholder {
+    color: #9E9E9E!important;
+  }
+  
+  .class-filteradm-select__indicator-separator {
+    display: none;
+  }
+  
+  @media (min-width: 576px) {
+    .btn-class-filteradm-word {
+      display: unset;
+    }
+  }
+  
+  @media (min-width: 768px) {
+  
+    .btn-class-filteradm-word {
+      display: none;
+    }
+  
+    .class-filteradm-container {
+      margin-left: 20px;
+      flex: 1;  /*Pegar todo o comprimento horizontal da tela*/
+      margin-bottom: 0;
+      padding: 10px 15px;
+    }
+  
+    .class-filteradm-form {
+      display: flex;
+    }
+  
+    .class-filteradm-name-container {
+      flex: 1;
+      align-items: center;
+    }
+  
+    .class-filteradm-bottom-container {
+      flex: 1;
+    }
+  
+    .class-filteradm-name-container { 
+      margin-bottom: 0;
+    } 
+    
+  }
+  
+  @media (min-width: 992px) {
+  
+    .btn-class-filteradm-word {
+      display: unset;
+    }
+  }
+  

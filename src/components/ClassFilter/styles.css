@@ -78,13 +78,6 @@
     display: none;
   }
 
-  .class-filter-container {
-    margin-left: 20px;
-    flex: 1;  /*Pegar todo o comprimento horizontal da tela*/
-    margin-bottom: 0;
-    padding: 10px 15px;
-  }
-
   .class-filter-form {
     display: flex;
   }
