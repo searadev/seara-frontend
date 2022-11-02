@@ -1,42 +1,18 @@
 .classroom-container {
-    font-size: 18px;    
-    padding-top: 10px;
+  font-size: 18px;
+  padding-top: 10px;
 }
 
 .classroom-title-container {
-    margin-bottom: 20px; 
-    align-content: center; 
-    margin-left: 0px;
-    margin-right: 0px;  
+  margin-bottom: 20px;
+  align-content: center;
+  margin-left: 0px;
+  margin-right: 0px;
 }
 
 .classroom-title-container h1 {
-    font-size: 1em;
-    letter-spacing: -0.015em;
-    color: #263238;       
-    text-align: center;
-}
-
-@media (min-width: 768px) {
-
-    .classroom-container { 
-        font-size: 30px;
-    }
-
-}
-
-@media (min-width: 992px) {
-
-    .classroom-container {
-        font-size: 30px;
-    }
-
-}
-
-@media (min-width: 1200px) {
-
-    .classroom-container {
-        font-size: 30px;
-    }
-
+  font-size: 1em;
+  letter-spacing: -0.015em;
+  color: #263238;
+  text-align: center;
 }

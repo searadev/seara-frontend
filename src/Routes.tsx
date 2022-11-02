@@ -1,3 +1,4 @@
+import Footer from 'components/Footer';
 import Navbar from 'components/Navbar';
 import Admin from 'pages/Admin';
 import Auth from 'pages/Admin/Auth';
@@ -52,6 +53,7 @@ const Routes = () => (
         <Admin />
       </Route>
     </Switch>
+    <Footer />
   </Router>
 );
 
