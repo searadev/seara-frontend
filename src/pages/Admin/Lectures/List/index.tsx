@@ -1,5 +1,5 @@
 import axios, { AxiosRequestConfig } from 'axios';
-import LectureFilter, { LectureFilterData } from 'components/LectureFilter';
+import LectureFilterAdm, { LectureFilterDataAdm } from 'components/LectureFilterAdm';
 import Pagination from 'components/Pagination';
 import { useCallback, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
@@ -11,7 +11,7 @@ import './styles.css';
 
 type ControlComponentsData = {
   activePage: number;
-  filterData: LectureFilterData;
+  filterData: LectureFilterDataAdm;
 };
 
 const List = () => {
@@ -26,7 +26,7 @@ const List = () => {
     setControlComponentsData({ activePage: pageNumber, filterData: controlComponentsData.filterData });
   };
 
-  const handleSubmitFilter = (data: LectureFilterData) => {
+  const handleSubmitFilter = (data: LectureFilterDataAdm) => {
     setControlComponentsData({ activePage: 0, filterData: data });
   }
 
@@ -59,7 +59,7 @@ const List = () => {
             ADICIONAR
           </button>
         </Link>
-        <LectureFilter onSubmitFilter={handleSubmitFilter} />
+        <LectureFilterAdm onSubmitFilter={handleSubmitFilter} />
       </div>
       <div className="row">
         {page?.content.map((palestras) => (

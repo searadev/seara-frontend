@@ -1,48 +1,56 @@
-.psychography2-filter {
+.lecture-filteradm {
     padding: 15px;
     margin-bottom: 20px;
 }
 
-.psychography2-filter-name-container {
+.lecture-filteradm-name-container {
     display: flex;
     align-items: center;    
     margin-bottom: 10px;
 }
 
-.psychography2-filter-name-container input {
+.lecture-filteradm-name-container input {
     border: none;
     background-color: #FFF;
     border-bottom: 1px solid #E1E1E1;
-    margin-right: 10px;
 }
 
-.psychography2-filter-name-container input:focus {
+.lecture-filteradm-name-container input:focus {
     box-shadow: none;
     background-color: #FFF;
 }
 
-.psychography2-filter-name-container input::placeholder {
+.lecture-filteradm-name-container input::placeholder {
     color: #9E9E9E;
 }
 
-.psychography2-filter-search-icon {
+.lecture-filteradm-search-icon {
     border: none;
     background-color: unset;
 }
 
-.btn-psychography2-clear {
+.btn-lecture2-clear {
     font-weight: bold;
     border-radius: 10px;
 }
 
 @media (min-width: 576px) {
-    .psychography2-filter-form {
+    .lecture-filteradm-form {
         display: flex;
     }
 
-    .psychography2-filter-name-container {
+    .lecture-filteradm-name-container {
         flex: 1;
         margin-right: 20px;
         margin-bottom: 0;
     }
+}
+
+@media (min-width: 768px) {
+    .lecture-filteradm {
+        margin-left: 20px;
+        flex: 1;
+        margin-bottom: 0;
+        padding: 10px 15px;
+    }   
 }

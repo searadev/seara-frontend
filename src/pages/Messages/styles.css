@@ -1,12 +1,14 @@
 .message-container {
     font-size: 18px;
-    padding: 10px 10px;
     /*border: 1px solid rgb(25, 0, 255);*/
+    padding-top: 10px;     
 }
 
 .message-src-container {
     margin-bottom: 20px; 
     align-content: center;   
+    margin-left: 0px;
+    margin-right: 0px;
 }
 
 .message-src-container h1 {
@@ -19,7 +21,6 @@
 @media (min-width: 768px) {
 
     .message-container {
-        padding: 40px 100px;
         font-size: 30px;
     }
 
@@ -28,7 +29,7 @@
 @media (min-width: 992px) {
 
     .message-container {
-        padding: 38px 200px;
+        
         font-size: 30px;
     }
 
@@ -37,7 +38,7 @@
 @media (min-width: 1200px) {
 
     .message-container {
-        padding: 40px 290px;
+        
         font-size: 30px;
     }
 

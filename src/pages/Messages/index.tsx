@@ -62,7 +62,7 @@ const Messages = () => {
   }, [getMessage]);
 
   return (
-    <div className="container my-4 message-container">
+    <div className="container message-container">
       <div className="row message-src-container">
         <MessageFilter onSubmitFilter={handleSubmitFilter} />
       </div>

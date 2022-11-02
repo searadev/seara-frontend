@@ -1,5 +1,5 @@
 import axios, { AxiosRequestConfig } from 'axios';
-import ClassFilter, { ClassFilterData } from 'components/ClassFilter';
+import ClassFilterAdm, { ClassFilterDataAdm } from 'components/ClassFilterAdm';
 import Pagination from 'components/Pagination';
 import ClassCrudCard from 'pages/Admin/Classes/ClassCrudCard';
 import { useCallback, useEffect, useState } from 'react';
@@ -11,7 +11,7 @@ import './styles.css';
 
 type ControlComponentsData = {
   activePage: number;
-  filterData: ClassFilterData;
+  filterData: ClassFilterDataAdm;
 };
 
 const List = () => {
@@ -26,7 +26,7 @@ const List = () => {
     setControlComponentsData({ activePage: pageNumber, filterData: controlComponentsData.filterData });
   };
 
-  const handleSubmitFilter = (data: ClassFilterData) => {
+  const handleSubmitFilter = (data: ClassFilterDataAdm) => {
     setControlComponentsData({ activePage: 0, filterData: data });
   }
 
@@ -60,7 +60,7 @@ const List = () => {
             ADICIONAR
           </button>
         </Link>
-        <ClassFilter onSubmitFilter={handleSubmitFilter} />
+        <ClassFilterAdm onSubmitFilter={handleSubmitFilter} />
       </div>
       <div className="row">
         {page?.content.map((aula) => (
