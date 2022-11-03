@@ -52,7 +52,6 @@ const List = () => {
             ADICIONAR
           </button>
         </Link>
-        <div className="base-card medium-filter-container">Search Bar</div>
       </div>
       <div className="row">
         {page?.content.map((mediuns) => (

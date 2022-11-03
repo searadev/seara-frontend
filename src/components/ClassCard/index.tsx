@@ -3,13 +3,14 @@ import './styles.css';
 
 type Props = {
   classRoom: ClassRoom;
+  url: string;
 };
 
-const ClassCard = ({ classRoom }: Props) => {
+const ClassCard = ({ classRoom, url }: Props) => {
   return (
     <div className="base-card class-card">
       <div className="ratio ratio-16x9 class-videooo-container">
-        <iframe src={classRoom?.url} title={classRoom?.title}></iframe>
+        <img src={url} alt="" />
       </div>
       <div>
         <div className="class-top-container">
