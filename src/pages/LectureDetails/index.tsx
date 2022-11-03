@@ -43,7 +43,7 @@ const LectureDetails = () => {
           ) : (
             <>
               <div className="ratio ratio-16x9 lecture-vide-container">
-                <iframe src={lecture?.url} title={lecture?.title}></iframe>
+                <iframe src={`https://www.youtube.com/embed/${lecture?.url}`} title={lecture?.title}></iframe>
               </div>
               <div>
                 <div className="lecture-data-container">

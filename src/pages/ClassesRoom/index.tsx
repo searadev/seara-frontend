@@ -72,7 +72,10 @@ const Class = () => {
             return (
               <div className="row" key={classroom.id}>
                 <Link to={`/classroom/${classroom.id}`}>
-                  <ClassCard classRoom={classroom} />
+                  <ClassCard 
+                    classRoom={classroom} 
+                    url={`http://img.youtube.com/vi/${classroom?.url}/0.jpg`} 
+                    />
                 </Link>
               </div>
             );
