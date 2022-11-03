@@ -3,7 +3,6 @@ import CardLoader from 'components/CardLoader';
 import LectureCard from 'components/LectureCard';
 import LectureFilter, { LectureFilterData } from 'components/LectureFilter';
 import Pagination from 'components/Pagination';
-import { url } from 'inspector';
 import { useCallback, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Lecture } from 'types/lecture';
