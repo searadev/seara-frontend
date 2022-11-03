@@ -1,19 +1,27 @@
 
 .lecture-card {  
-    align-items: center;    
-    /*border: 1px solid orange;*/
+    align-items: center;   
 }
 
 .lecture-top-container p {
     font-size: 15px;
     color: #263238;
-    text-align: left;
-    font-weight: 700;
 }
 
 .lecture-body-container p {
     font-size: 15px;
     color: #263238;
-    text-align: left;
-    font-weight: 700;
+}
+
+.lecture-videooo-container {
+    width: 250px;
+    height: 150px;
+    margin-right: 20px;
+    display:block;
+}
+
+@media (min-width: 768px) {
+    .lecture-card {  
+        display: flex;
+    }
 }
