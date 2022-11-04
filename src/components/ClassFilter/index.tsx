@@ -39,7 +39,7 @@ const ClassFilter = ({ onSubmitFilter }: Props) => {
   }
 
   useEffect(() => {
-    requestBackend({ url: '/modules', withCredentials: true }).then(
+    requestBackend({ url: '/modules' }).then(
       (response) => {
         setSelectModules(response.data.content);
       }

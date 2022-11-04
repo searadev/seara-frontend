@@ -27,7 +27,6 @@ const Form = () => {
     if (isEditing) {
       requestBackend({
         url: `/modules/${moduleId}`,
-        withCredentials: true,
       }).then((response) => {
         const module = response.data as Module;
         setValue('name', module.name);
