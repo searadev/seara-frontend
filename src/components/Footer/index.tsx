@@ -10,18 +10,18 @@ const Footer = () => {
             <span>Redes Sociais:</span>
           </div>
 
-          <div className="social-container">
+          <div className="social-container"> 
             <a
               href="https://www.youtube.com/channel/UCIessbLUBPCA9106K18V43w"
               className="youtube social"
             >
-              <FontAwesomeIcon icon={faYoutube} size="2x" />
+              <FontAwesomeIcon icon={faYoutube} color="#eb3223" size="2x" pull="left" />
             </a>
             <a
               href="https://pt-br.facebook.com/searadejesus/"
               className="facebook social"
             >
-              <FontAwesomeIcon icon={faFacebook} size="2x" />
+              <FontAwesomeIcon icon={faFacebook} color="#4968ad" size="2x" pull="right" />
             </a>
           </div>
         </section>
