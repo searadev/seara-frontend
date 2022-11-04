@@ -1,27 +1,23 @@
-.footer1 {
-    background-color:#3b5998;
-}
+.social-container {
+    background: #eee;
+    padding: 25px 50px;
+  }
 
-.footer2 {
-    background-color:#55acee;
-}
+  a.social {
+    margin: 0 1rem;
+    transition: transform 250ms;
+    display: inline-block;
+  }
 
-.footer3 {
-    background-color:#dd4b39;
-}
+  a.social:hover {
+    transform: translateY(-2px);
+  }
 
-.footer4 {
-    background-color:#ac2bac;
-}
-
-.footer5 {
-    background-color:#0082ca;
-}
-
-.footer6 {
-    background-color:#333333;
-}
-
-.footer7 {
-    background-color:rgba(0, 0, 0, 0.2);
-}
+  a.youtube {
+    color: #eb3223;
+  }
+  
+  a.facebook {
+    color: #4968ad;
+  }
+  
