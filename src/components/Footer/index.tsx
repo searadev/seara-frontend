@@ -1,4 +1,5 @@
-import { Link } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faYoutube, faFacebook } from '@fortawesome/free-brands-svg-icons';
 
 const Footer = () => {
   return (
@@ -9,25 +10,19 @@ const Footer = () => {
             <span>Redes Sociais:</span>
           </div>
 
-          <div>
-            <Link to="" className="me-4 link-secondary">
-              <i className="fab fa-facebook-f"></i>
-            </Link>
-            <Link to="" className="me-4 link-secondary">
-              <i className="fab fa-twitter"></i>
-            </Link>
-            <Link to="" className="me-4 link-secondary">
-              <i className="fab fa-google"></i>
-            </Link>
-            <Link to="" className="me-4 link-secondary">
-              <i className="fab fa-instagram"></i>
-            </Link>
-            <Link to="" className="me-4 link-secondary">
-              <i className="fab fa-linkedin"></i>
-            </Link>
-            <Link to="" className="me-4 link-secondary">
-              <i className="fab fa-github"></i>
-            </Link>
+          <div className="social-container">
+            <a
+              href="https://www.youtube.com/channel/UCIessbLUBPCA9106K18V43w"
+              className="youtube social"
+            >
+              <FontAwesomeIcon icon={faYoutube} size="2x" />
+            </a>
+            <a
+              href="https://pt-br.facebook.com/searadejesus/"
+              className="facebook social"
+            >
+              <FontAwesomeIcon icon={faFacebook} size="2x" />
+            </a>
           </div>
         </section>
 
