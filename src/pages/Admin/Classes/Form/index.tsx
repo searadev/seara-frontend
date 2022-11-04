@@ -30,7 +30,7 @@ const Form = () => {
   } = useForm<ClassRoom>();
 
   useEffect(() => {
-    requestBackend({ url: '/modules', withCredentials: true }).then(
+    requestBackend({ url: '/modules' }).then(
       (response) => {
         setSelectModules(response.data.content);
       }

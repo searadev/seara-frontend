@@ -28,7 +28,6 @@ const List = () => {
       method: 'GET',
       url: '/modules',
       baseURL: BASE_URL,
-      withCredentials: true,
       params: {
         page: controlComponentsData.activePage,
         size: 12,
