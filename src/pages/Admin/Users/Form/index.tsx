@@ -1,7 +1,9 @@
 import { AxiosRequestConfig } from 'axios';
-import { useEffect } from 'react';
-import { useForm } from 'react-hook-form';
+import { useEffect, useState } from 'react';
+import { useForm, Controller } from 'react-hook-form';
 import { useHistory, useParams } from 'react-router-dom';
+import Select from 'react-select';
+import { Role } from 'types/role';
 import { User } from 'types/user';
 import { BASE_URL, requestBackend } from 'util/requests';
 import './styles.css';
@@ -11,6 +13,8 @@ type UrlParams = {
 };
 
 const Form = () => {
+  const [selectRoles, setSelectRoles] = useState<Role[]>([]);
+
   const { userId } = useParams<UrlParams>();
   const isEditing = userId !== 'create';
   const history = useHistory();
@@ -20,7 +24,14 @@ const Form = () => {
     handleSubmit,
     formState: { errors },
     setValue,
+    control,
   } = useForm<User>();
+
+  useEffect(() => {
+    requestBackend({ url: '/roles', withCredentials: true }).then((respose) => {
+      setSelectRoles(respose.data.content);
+    });
+  }, []);
 
   useEffect(() => {
     console.log(userId);
@@ -31,6 +42,7 @@ const Form = () => {
           setValue('firstName', user.firstName);
           setValue('lastName', user.lastName);
           setValue('email', user.email);
+          setValue('roles', user.roles);
         }
       );
     }
@@ -59,7 +71,7 @@ const Form = () => {
         <h1 className="user-crud-form-title">Usuário</h1>
         <form onSubmit={handleSubmit(onSubmit)}>
           <div className="row user-crud-inputs-container">
-            <div className="margin-botton-30">
+            <div className="user-crud-name-email">
               <input
                 {...register('firstName', {
                   required: 'Campo obrigatório',
@@ -88,20 +100,41 @@ const Form = () => {
               <div className="invalid-feedback d-block">
                 {errors.lastName?.message}
               </div>
+
               <input
                 {...register('email', {
                   required: 'Campo obrigatório',
                 })}
                 type="text"
-                className={`form-control base-input ${
+                className={`form-control base-input user-crud-email-container ${
                   errors.email ? 'is-invalid' : ''
                 }`}
-                placeholder="Sobrenome"
+                placeholder="Email"
                 name="email"
               />
               <div className="invalid-feedback d-block">
                 {errors.email?.message}
               </div>
+              <Controller
+                name="roles"
+                rules={{ required: true }}
+                control={control}
+                render={({ field }) => (
+                  <Select
+                    {...field}
+                    options={selectRoles}
+                    classNamePrefix="user-crud-select"
+                    isMulti
+                    getOptionLabel={(role: Role) => role.authority}
+                    getOptionValue={(role: Role) => String(role.id)}
+                  />
+                )}
+              />
+              {errors.roles && (
+                <div className="invalid-feedback d-block">
+                  Campo obrigatório
+                </div>
+              )}
             </div>
           </div>
           <div className="xpto-agora-vai">
