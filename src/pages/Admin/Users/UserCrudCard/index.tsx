@@ -2,6 +2,7 @@ import { AxiosRequestConfig } from 'axios';
 import { Link } from 'react-router-dom';
 import { User } from 'types/user';
 import { requestBackend } from 'util/requests';
+import RoleBadge from '../RoleBadge';
 import './styles.css';
 
 type Props = {
@@ -28,13 +29,19 @@ const UserCrudCard = ({ user, onDelete }: Props) => {
   return (
     <div className="base-card user-crud-card">
       <div>
-        <div className="user-crud-top-container">{user.firstName} {user.lastName}</div>
+        <div className="user-crud-top-container">
+          {user.firstName} {user.lastName}
+        </div>
+        <div className="user-crud-roles-container">  
+          {user.roles.map((role) => (
+            <RoleBadge authority={role.authority === 'ROLE_OPERATOR' ? 'OPERADOR' : 'ADMIN'} key={role.id} />
+          ))}
+        </div>
       </div>
-
       <div>
         <button
           onClick={() => handleDelete(user.id)}
-          className="btn btn-outline-danger"
+          className="btn btn-outline-danger user-crud-excl !important"
         >
           EXCLUIR
         </button>
