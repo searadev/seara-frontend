@@ -4,7 +4,7 @@ import { useForm, Controller } from 'react-hook-form';
 import { useHistory, useParams } from 'react-router-dom';
 import Select from 'react-select';
 import { Role } from 'types/role';
-import { User } from 'types/user';
+import { UserInsert } from 'types/userInsert';
 import { BASE_URL, requestBackend } from 'util/requests';
 import './styles.css';
 
@@ -25,7 +25,7 @@ const Form = () => {
     formState: { errors },
     setValue,
     control,
-  } = useForm<User>();
+  } = useForm<UserInsert>();
 
   useEffect(() => {
     requestBackend({ url: '/roles', withCredentials: true }).then((respose) => {
@@ -38,7 +38,7 @@ const Form = () => {
     if (isEditing) {
       requestBackend({ url: `/users/${userId}`, withCredentials: true }).then(
         (response) => {
-          const user = response.data as User;
+          const user = response.data as UserInsert;
           setValue('firstName', user.firstName);
           setValue('lastName', user.lastName);
           setValue('email', user.email);
@@ -47,7 +47,7 @@ const Form = () => {
       );
     }
   }, [isEditing, userId, setValue]);
-  const onSubmit = (formData: User) => {
+  const onSubmit = (formData: UserInsert) => {
     const config: AxiosRequestConfig = {
       method: isEditing ? 'PUT' : 'POST',
       url: isEditing ? `/users/${userId}` : '/users',
@@ -99,6 +99,20 @@ const Form = () => {
               />
               <div className="invalid-feedback d-block">
                 {errors.lastName?.message}
+              </div>
+              <input
+                {...register('password', {
+                  required: 'Campo obrigatório',
+                })}
+                type="text"
+                className={`form-control base-input ${
+                  errors.password ? 'is-invalid' : ''
+                }`}
+                placeholder="Senha"
+                name="password"
+              />
+              <div className="invalid-feedback d-block">
+                {errors.password?.message}
               </div>
 
               <input
