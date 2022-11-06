@@ -1,5 +1,5 @@
 import ButtonIcon from 'components/ButtonIcon';
-import { Link, useHistory, useLocation } from 'react-router-dom';
+import { useHistory, useLocation } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { requestBackendLogin } from 'util/requests';
 import { useContext, useState } from 'react';
