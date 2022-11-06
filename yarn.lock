@@ -8409,10 +8409,25 @@ react-scripts@5.0.1:
   optionalDependencies:
     fsevents "^2.3.2"
 
-react-select@*, react-select@^5.5.0:
+react-select@*:
   version "5.5.8"
   resolved "https://registry.yarnpkg.com/react-select/-/react-select-5.5.8.tgz#08d1b80986a9a08398987e0b365bffb9eb5164d8"
   integrity sha512-QcmenbkiqrL232E59pPAKKOdxYI2LaB8QpVHMgh78rVvcHABv2hLGVDF6jcNIzXX9knpyKFMNE6ssLFlZ/tGTQ==
+  dependencies:
+    "@babel/runtime" "^7.12.0"
+    "@emotion/cache" "^11.4.0"
+    "@emotion/react" "^11.8.1"
+    "@floating-ui/dom" "^1.0.1"
+    "@types/react-transition-group" "^4.4.0"
+    memoize-one "^6.0.0"
+    prop-types "^15.6.0"
+    react-transition-group "^4.3.0"
+    use-isomorphic-layout-effect "^1.1.2"
+
+react-select@^5.6.0:
+  version "5.6.0"
+  resolved "https://registry.yarnpkg.com/react-select/-/react-select-5.6.0.tgz#d987f4c86b3dcd32307a0104e503e4e8a9777a34"
+  integrity sha512-uUvP/72rA8NGhOL16RVBaeC12Wa4NUE0iXIa6hz0YRno9ZgxTmpuMeKzjR7vHcwmigpVCoe0prP+3NVb6Obq8Q==
   dependencies:
     "@babel/runtime" "^7.12.0"
     "@emotion/cache" "^11.4.0"
