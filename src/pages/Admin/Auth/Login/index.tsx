@@ -89,19 +89,10 @@ const Login = () => {
           <div className="invalid-feedback d-block">
             {errors.password?.message}
           </div>
-        </div>
-        <Link to="/admin/auth/recover" className="login-link-recover">
-          Esqueci a senha
-        </Link>
+        </div>        
         <div className="login-submit">
           <ButtonIcon text="Fazer o login" />
-        </div>
-        <div className="signup-container">
-          <span className="not-registered">Não tem Cadastro?</span>
-          <Link to="/admin/auth/register" className="login-link-register">
-            CADASTRAR
-          </Link>
-        </div>
+        </div>        
       </form>
     </div>
   );

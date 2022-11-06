@@ -1,25 +1,10 @@
-.btn-container {
-
-}
-
 .btn-container button {
-    width: 100%;
+  width: 100%;
 }
 
 .btn h6 {
-    color: #FFF;
-    font-size: 12px;
-    text-transform: uppercase;
-}
-
-@media (min-width: 576px) {
-    .btn h6 {
-        font-size: 18px;
-        padding: 10px;
-    }
-
-    .btn-container button {
-        width: 90%;
-        margin-left: 25px;
-    }
+  color: #fff;
+  font-size: 18px;
+  padding: 10px;
+  text-transform: uppercase;
 }
