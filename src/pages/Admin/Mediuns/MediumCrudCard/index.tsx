@@ -36,7 +36,7 @@ const MediumCrudCard = ({ medium, onDelete }: Props) => {
       <div>
         <button
           onClick={() => handleDelete(medium.id)}
-          className="btn btn-outline-danger"
+          className="btn btn-outline-danger medium-crud-excl !important"
         >
           EXCLUIR
         </button>

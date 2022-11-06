@@ -36,7 +36,7 @@ const ModuleCrudCard = ({ module, onDelete }: Props) => {
       <div>
         <button
           onClick={() => handleDelete(module.id)}
-          className="btn btn-outline-danger"
+          className="btn btn-outline-danger module-crud-excl !important"
         >
           EXCLUIR
         </button>

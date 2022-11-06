@@ -1,10 +1,7 @@
 .medium-crud-card {
     align-items: center;
-  }
-  
-  .medium-crud-top-container {
-    padding: 5px 20px;
-  }
+    padding: 10px 20px;
+  }  
   
   .medium-crud-top-container p {
     font-size: 15px;
@@ -25,7 +22,6 @@
   }
   
   .medium-crud-buttons-container {
-    padding: 0 20px;
     display: flex;
     justify-content: space-between;
   }
@@ -41,12 +37,15 @@
   .medium-crud-card-button-first {
     margin-right: 10px;
   }
+
+  .medium-crud-excl {
+    margin-right: 10px;
+  }
   
   @media (min-width: 768px) {
     .medium-crud-card {
       display: flex;
       justify-content: space-between;
-      padding: 0;
     } 
   
     .medium-crud-container {
@@ -74,11 +73,5 @@
     }
   }
   
-  @media (min-width: 992px) {
-    .medium-crud-container {
-    }
-  
-    .medium-crud-card-button {
-    }
-  }
+
   
