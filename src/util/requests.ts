@@ -4,8 +4,11 @@ import history from './history';
 import { getAuthData } from './storage';
 
 /*export const BASE_URL = process.env.REACT_APP_BACKEND_URL ?? 'http://192.168.5.242:8080';*/
-export const BASE_URL =
-  process.env.REACT_APP_BACKEND_URL ?? 'https://searadev.herokuapp.com';
+/*export const BASE_URL =
+  process.env.REACT_APP_BACKEND_URL ?? 'https://searadev.herokuapp.com';*/
+
+  export const BASE_URL =
+  process.env.REACT_APP_BACKEND_URL ?? 'http://ec2-34-239-109-63.compute-1.amazonaws.com';
 
 const CLIENT_ID = process.env.REACT_APP_CLIENT_ID ?? 'searadev';
 const CLIENT_SECRET = process.env.REACT_APP_CLIENT_SECRET ?? 'searadev123';
