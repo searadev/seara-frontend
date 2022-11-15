@@ -101,13 +101,7 @@ const Form = () => {
             </div>
             <div>
               <input
-                {...register('url', {
-                  required: 'Campo obrigatório',
-                  pattern: {
-                    value: /^(https?|chrome):\/\/[^\s$.?#].[^\s]*$/gm,
-                    message: 'Deve ser uma URL válida',
-                  },
-                })}
+                {...register('url', { required: 'Campo obrigatório' })}
                 type="text"
                 className={`form-control base-input ${
                   errors.title ? 'is-invalid' : ''
