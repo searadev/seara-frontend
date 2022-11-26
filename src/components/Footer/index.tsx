@@ -72,8 +72,8 @@ const Footer = () => {
 
         <div className="text-center p-4">
           © 2021 Copyright:
-          <a className="text-reset fw-bold" href="https://mdbootstrap.com/">
-            MDBootstrap.com
+          <a className="text-reset fw-bold" href="https://searadejesus.com.br/">
+            Seara de Jesus
           </a>
         </div>
       </footer>

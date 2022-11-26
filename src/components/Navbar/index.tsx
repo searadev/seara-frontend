@@ -40,6 +40,7 @@ const Navbar = () => {
       <div className="container-fluid">
         <Link to="/" className="nav-logo-text">
           <LogoImage />
+          <h4>SEARA DE JESUS</h4>
         </Link> 
         <button
           className="navbar-toggler"
