@@ -21,11 +21,8 @@ const Footer = () => {
               <FontAwesomeIcon icon={faFacebook} color="#4968ad" size="2x"  />
             </a>
         </div>
-        <div className="text-center p-1">
-          © 2021 Copyright:
-          <a className="text-reset fw-bold" href="https://searadejesus.com.br/">
-            Seara de Jesus
-          </a>
+        <div className="text-center p-8">
+            Rua Júpiter, 206 - jd. Novo Embu - Embu das Artes - SP
         </div>
       </footer>
     </>
