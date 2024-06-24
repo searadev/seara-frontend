@@ -10,6 +10,7 @@ import MessageDetails from 'pages/MessageDetails';
 import Messages from 'pages/Messages';
 import Psychographies from 'pages/Psychographies';
 import PsychographyDetails from 'pages/PsychographyDetails';
+import Home from 'pages/Home';
 import { Router, Redirect, Route, Switch } from 'react-router-dom';
 import history from 'util/history';
 
@@ -18,7 +19,10 @@ const Routes = () => (
     <Navbar />
     <Switch>
       <Route path="/" exact>
-        <Messages />
+        <Home />
+      </Route>
+      <Route path="/home">
+        <Home />
       </Route>
       <Route path="/message" exact>
         <Messages />

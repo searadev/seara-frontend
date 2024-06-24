@@ -3,7 +3,7 @@ import qs from 'qs';
 import history from './history';
 import { getAuthData } from './storage';
 
-export const BASE_URL = process.env.REACT_APP_BACKEND_URL ?? 'http://ec2-34-239-109-63.compute-1.amazonaws.com';
+export const BASE_URL = process.env.REACT_APP_BACKEND_URL ?? 'https://searadejesus.com.br/api';
 
 const CLIENT_ID = process.env.REACT_APP_CLIENT_ID ?? 'searadev';
 const CLIENT_SECRET = process.env.REACT_APP_CLIENT_SECRET ?? 'searadev123';
