@@ -3,15 +3,13 @@ import { ReactComponent as LogoImage} from 'assets/images/result.svg';
 import 'bootstrap/js/src/collapse.js';
 import { Link, NavLink } from 'react-router-dom';
 import { useContext, useEffect } from 'react';
-import history from 'util/history';
 import { AuthContext } from 'AuthContext';
 import { getTokenData, isAuthenticated } from 'util/auth';
-import { removeAuthData } from 'util/storage';
 
 
 
 const Navbar = () => {
-  const { authContextData, setAuthContextData } = useContext(AuthContext);
+  const { setAuthContextData } = useContext(AuthContext);
 
   useEffect(() => {
     if (isAuthenticated()) {
@@ -25,15 +23,6 @@ const Navbar = () => {
       });
     }
   }, [setAuthContextData]);
-
-  const handleLogoutClick = (event: React.MouseEvent<HTMLAnchorElement>) => {
-    event.preventDefault();
-    removeAuthData();
-    setAuthContextData({
-      authenticated: false,
-    });
-    history.replace('/');
-  };
 
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light main-nav">
@@ -57,6 +46,11 @@ const Navbar = () => {
         <div className="collapse navbar-collapse" id="searadev-navbar">
           <ul className="navbar-nav offset-md-2 main-menu">
             <li>
+              <NavLink to="/home" activeClassName="active" exact>
+                INÍCIO
+              </NavLink>              
+            </li>
+            {/*<li>
               <NavLink to="/message" activeClassName="active" exact>
                 MOTIVACIONAIS
               </NavLink>
@@ -65,7 +59,7 @@ const Navbar = () => {
               <NavLink to="/psychography" activeClassName="active">
                 PSICOGRAFIAS
               </NavLink>
-            </li>
+            </li>*/}
             <li>
               <NavLink to="/lecture" activeClassName="active">
                 PALESTRAS
@@ -76,7 +70,7 @@ const Navbar = () => {
                 AULAS
               </NavLink>
             </li>
-            <li>
+            {/*<li>
               <NavLink to="/admin" activeClassName="active">
                 ADMIN
               </NavLink>
@@ -89,7 +83,7 @@ const Navbar = () => {
               ) : (
                 <Link to="/admin/auth">LOGIN</Link>
               )}
-            </li>
+              </li>*/}
           </ul>
         </div>
       </div>

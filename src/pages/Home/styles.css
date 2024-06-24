@@ -1,0 +1,89 @@
+.home-container {
+    padding: 10px;
+    font-size: 20px;
+    text-align: center;
+}
+
+.home-container h1 {
+    font-size: 1em;
+}
+
+.home-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.home-name-container {
+    margin-top: 20px;
+}
+
+.home-name-container h1 {
+    width: 260px;
+    background-color:lightblue;
+}
+
+.home-phone-container {
+    font-size: 0.8em;    
+}
+
+.home-phone-container p {
+    width: 260px;
+    font-size: 0.6em;
+    background-color:lightblue;
+}
+
+.home-opening-container {
+    margin-top: 30px;
+    padding: 20px 0 0 0;
+    font-size: 0.8em;
+}
+
+.home-wednesday-container {
+    padding: 10px;
+    font-size: 0.9em;
+}
+
+.home-saturday-container {
+    padding: 10px;
+    font-size: 0.9em;
+}
+
+.home-lecture-container {
+    font-size: 0.7em;
+}
+
+.home-helpcare-container {
+    padding: 0 0 20px 0;
+    font-size: 0.7em;
+}
+
+@media (min-width: 576px) {
+
+    .home-container {
+        padding: 15px;
+        font-size: 40px;
+    }
+
+    .home-name-container h1 {
+        width: 506px;
+    }
+
+    .home-phone-container p {
+        width: 506px;
+    }
+}
+
+@media (min-width: 992px) {
+
+   
+
+    .home-name-container h1 {
+        width: 800px;
+    }
+
+    .home-phone-container p {
+        width: 800px;
+    }
+
+}
