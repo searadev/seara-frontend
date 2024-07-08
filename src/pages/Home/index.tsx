@@ -18,7 +18,7 @@ const Home = () => {
                     </div>
                     <div className="home-opening-container">
                         <p>
-                            Horário de funcionamento - <b>2023</b>
+                            Horário de funcionamento - <b>2024</b>
                         </p>
                     </div>
                     <div className="home-wednesday-container">
