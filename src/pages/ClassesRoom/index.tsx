@@ -64,13 +64,13 @@ const Class = () => {
       <div className="row classroom-title-container">
       <ClassFilter onSubmitFilter={handleSubmitFilter} />
       </div>
-      <div>
+      <div className="row">
         {isLoading ? (
           <CardLoader />
         ) : (
           page?.content.map((classroom) => {
             return (
-              <div className="row" key={classroom.id}>
+              <div className="col-sm-6 col-lg-4 col-xl-3"  key={classroom.id}>
                 <Link to={`/classroom/${classroom.id}`}>
                   <ClassCard 
                     classRoom={classroom} 
