@@ -3,13 +3,14 @@
     align-items: center;   
 }
 
-.lecture-top-container p {
-    font-size: 15px;
-    color: #263238;
+.lecture-container {
+    padding-top: 10px; 
 }
 
-.lecture-body-container p {
-    font-size: 15px;
+.lecture-top-container {
+    font-size: 10px;
+    font-family: "Roboto", "Arial", sans-serif;
+    font-weight: 700;
     color: #263238;
 }
 
@@ -18,10 +19,4 @@
     
     margin-right: 20px;
     display:block;
-}
-
-@media (min-width: 768px) {
-    .lecture-card {  
-        
-    }
 }

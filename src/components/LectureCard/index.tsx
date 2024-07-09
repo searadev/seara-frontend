@@ -9,16 +9,13 @@ type Props = {
 const LectureCard = ({ lecture, url }: Props) => {
   return (
     <div className="base-card ">
-      <div className="ratio ratio-16x9 lecture-videooo-container">
+      <div className="ratio ratio-4x3 lecture-videooo-container"> 
         <img src={url} alt="" />
       </div>
-      <div>
+      <div className="lecture-container">
         <div className="lecture-top-container">
-          <p>{lecture.title}</p>
-        </div>
-        <div className="lecture-body-container">
-          <p>{lecture.date}</p>
-        </div>
+          {lecture.title} - {lecture.date}
+        </div>        
       </div>
     </div>
   );
