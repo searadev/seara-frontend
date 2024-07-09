@@ -66,12 +66,13 @@ const Messages = () => {
       <div className="row message-src-container">
         <MessageFilter onSubmitFilter={handleSubmitFilter} />
       </div>
+      <div className="row">
       {isLoading ? (
         <CardLoader />
       ) : (
         page?.content.map((message) => {
           return (
-            <div className="row" key={message.id}>
+            <div className="col-sm-6 col-lg-4 col-xl-3" key={message.id}>
               <Link to={`/message/${message.id}`}>
                 <MessageCard message={message} />
               </Link>
@@ -79,6 +80,8 @@ const Messages = () => {
           );
         })
       )}
+      </div>
+      
       <div className="row">
         <Pagination
           pageCount={page ? page.totalPages : 0}
