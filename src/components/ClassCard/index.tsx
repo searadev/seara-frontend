@@ -8,7 +8,7 @@ type Props = {
 
 const ClassCard = ({ classRoom, url }: Props) => {
   return (
-    <div className="base-card class-card">
+    <div className="base-card ">
       <div className="ratio ratio-16x9 class-videooo-container">
         <img src={url} alt="" />
       </div>
