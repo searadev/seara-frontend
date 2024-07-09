@@ -59,17 +59,17 @@ const Lectures = () => {
   }, [getLecture]);
 
   return (
-    <div className="container lecture-container">
+    <div className="container my-4">
       <div className="row lecture-title-container">
       <LectureFilter onSubmitFilter={handleSubmitFilter} />
       </div>
-      <div>
+      <div className="row">
         {isLoading ? (
           <CardLoader />
         ) : (
           page?.content.map((lecture) => {
             return (
-              <div className="row" key={lecture.id}>
+              <div className="col-sm-6 col-lg-4 col-xl-3" key={lecture.id}>                
                 <Link to={`/lecture/${lecture.id}`}>
                   <LectureCard 
                     lecture={lecture} 

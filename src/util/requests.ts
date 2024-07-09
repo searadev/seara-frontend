@@ -4,9 +4,8 @@ import history from './history';
 import { getAuthData } from './storage';
 
 export const BASE_URL = process.env.BACKEND_URL ?? 'http://localhost';
-
 const CLIENT_ID = process.env.CLIENT_ID ?? 'default';
-const CLIENT_SECRET = process.env.CLIENT_SECRET ?? 'default';
+const CLIENT_SECRET = process.env.CLIENT_SECRET ?? 'default123';
 
 type LoginData = {
   username: string;
