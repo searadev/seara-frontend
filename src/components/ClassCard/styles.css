@@ -1,48 +1,29 @@
 
-.class-card {    
+.classcard-card {  
     align-items: center;   
 }
 
-.class-top-container {
-
-    padding: 5px 20px;
+.classcard-container {
+    padding-top: 10px; 
 }
 
-.class-top-container p {
-    font-size: 15px;
+.classcard-top-container {
+    font-size: 10px;
+    font-family: "Roboto", "Arial", sans-serif;
+    font-weight: 700;
     color: #263238;
-    text-align: left;
-    margin-right: 100px;
-    
 }
 
-.class-container {
-    display: flex;
-}
-
-.class-container p {
-    font-size: 15px;
+.classcard-body-container {
+    font-size: 10px;
+    font-family: "Roboto", "Arial", sans-serif;
+    font-weight: 700;
     color: #263238;
-    text-align: right;
-    padding: 0px 20px;
 }
 
-.class-container span {
-    font-size: 15px;
-    color: #263238;
-    text-align: right;
-    padding-left: 20px;
-}
-
-.class-videooo-container { 
+.classcard-videooo-container {
     text-align: center;
     
     margin-right: 20px;
     display:block;
-}
-
-@media (min-width: 768px) {
-    .class-card {  
-        
-    }
 }
