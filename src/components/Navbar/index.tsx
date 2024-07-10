@@ -1,6 +1,7 @@
 import './styles.css';
 import { ReactComponent as LogoImage} from 'assets/images/result.svg';
-import 'bootstrap/js/src/collapse.js';
+import '@popperjs/core';
+import 'bootstrap/js/src/collapse';
 import { Link, NavLink } from 'react-router-dom';
 import { useContext, useEffect } from 'react';
 import { AuthContext } from 'AuthContext';

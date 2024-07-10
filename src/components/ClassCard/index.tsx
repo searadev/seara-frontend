@@ -9,7 +9,7 @@ type Props = {
 const ClassCard = ({ classRoom, url }: Props) => {
   return (
     <div className="base-card ">
-      <div className="ratio ratio-4x3 classcard-videooo-container"> 
+      <div className="ratio ratio-4x3 classcard-videooo-container">
         <img src={url} alt="" />
       </div>
       <div className="classcard-container">
@@ -18,7 +18,7 @@ const ClassCard = ({ classRoom, url }: Props) => {
         </div>
         <div className="classcard-body-container">
           {classRoom.date} - {classRoom.module.name}
-          
+
         </div>
       </div>
     </div>
