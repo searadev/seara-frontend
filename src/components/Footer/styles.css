@@ -1,0 +1,11 @@
+.endereco-container {
+    font-size: 0.7em;
+}
+
+@media (min-width: 576px) {
+
+    .endereco-container {
+        font-size: 1.0em;
+    }
+
+}
