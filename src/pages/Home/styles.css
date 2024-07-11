@@ -2,6 +2,7 @@
     padding: 10px;
     font-size: 20px;
     text-align: center;
+    height: 580px;
 }
 
 .home-container h1 {
@@ -54,7 +55,7 @@
 }
 
 .home-helpcare-container {
-    padding: 0 0 20px 0;
+    padding: 0 0 100px 0;
     font-size: 0.7em;
 }
 
@@ -63,6 +64,7 @@
     .home-container {
         padding: 15px;
         font-size: 40px;
+        height: 630px;
     }
 
     .home-name-container h1 {
