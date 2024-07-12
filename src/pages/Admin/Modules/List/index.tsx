@@ -46,7 +46,7 @@ const List = () => {
   return (
     <div className="module-crud-content">
       <div className="module-crud-bar-container">
-        <Link to="/admin/medules/create">
+        <Link to="/admin/modules/create">
           <button className="btn btn-primary text-white btn-crud-add">
             ADICIONAR
           </button>
