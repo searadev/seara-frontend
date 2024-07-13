@@ -8,6 +8,9 @@ const Footer = () => {
     <>
       <footer className="text-center bg-white ">
         <div className="text-center p-3">
+
+        </div>
+        <div className="text-center p-3">
           <a
             href="https://www.youtube.com/channel/UCIessbLUBPCA9106K18V43w"
             className="youtube social mx-2"
@@ -24,13 +27,6 @@ const Footer = () => {
         <div className="text-center p-3">
           <div className="endereco-container">
             Rua Júpiter, 206 - jd. Novo Embu - Embu das Artes - SP
-          </div>
-          <div className="text-center p-3">
-
-          </div>
-
-          <div className="text-center p-3">
-
           </div>
         </div>
       </footer>
