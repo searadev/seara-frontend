@@ -23,15 +23,6 @@
     width: 260px;
 }
 
-.home-phone-container {
-    font-size: 0.8em;    
-}
-
-.home-phone-container p {
-    width: 260px;
-    font-size: 0.6em;
-}
-
 .home-opening-container {
     margin-top: 30px;
     padding: 20px 0 0 0;
@@ -52,9 +43,19 @@
     font-size: 0.7em;
 }
 
-.home-helpcare-container {
-    padding: 0 0 100px 0;
+.home-helpcare-container {    
     font-size: 0.7em;
+    padding: 0 0 5px 0; 
+}
+
+.home-phone-container {
+    font-size: 1.0em; 
+    padding: 0 0 100px 0;   
+}
+
+.home-phone-container p {
+    width: 260px;
+    font-size: 0.6em;
 }
 
 @media (min-width: 576px) {
