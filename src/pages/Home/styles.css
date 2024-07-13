@@ -21,7 +21,6 @@
 
 .home-name-container h1 {
     width: 260px;
-    background-color:lightblue;
 }
 
 .home-phone-container {
@@ -31,7 +30,6 @@
 .home-phone-container p {
     width: 260px;
     font-size: 0.6em;
-    background-color:lightblue;
 }
 
 .home-opening-container {

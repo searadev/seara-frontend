@@ -47,9 +47,8 @@ const LectureDetails = () => {
               </div>
               <div>
                 <div className="lecture-data-container">
+                <h1>{lecture?.title}</h1>
                   <h1>{lecture?.date}</h1>
-                  <h1>-</h1>
-                  <h1>{lecture?.title}</h1>
                 </div>
               </div>
             </>
