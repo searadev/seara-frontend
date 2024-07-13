@@ -1,5 +1,5 @@
 .classroom-details-container {
-    padding: 10px 10px 170px 10px;
+    padding: 10px 10px 180px 10px;
     font-size: 24px;
     /*border: 1px solid red;*/
 }
@@ -37,16 +37,16 @@
     /*border: 1px solid yellow;*/
 }
 
-.classroom-data-container {
-    display: flex;
+.classroom-data-container {    
     align-items: center;
-    padding: 20px;
+    padding: 5px;
 }
 
 .classroom-data-container h1 {
     font-size: 0.6em;
     color: #263238;
-    text-align: right;
+    font-size: 10px;
+    font-family: "Roboto", "Arial", sans-serif;
     font-weight: 700;
     padding-right: 30px;
 }
@@ -62,6 +62,10 @@
         padding: 20px;
     }
 
+    .classroom-data-container h1 {
+        font-size: 15px;
+    }
+
 }
 
 @media (min-width: 768px) {
@@ -75,6 +79,10 @@
         padding: 30px;
     }
 
+    .classroom-data-container h1 {
+        font-size: 20px;
+    }
+
 }
 
 @media (min-width: 992px) {
@@ -86,7 +94,7 @@
 
     .classroom-details-card {
         padding: 40px;
-    }
+    }   
 
 }
 

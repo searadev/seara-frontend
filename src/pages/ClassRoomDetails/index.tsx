@@ -47,9 +47,8 @@ const ClassRoomDetails = () => {
               <iframe src={`https://www.youtube.com/embed/${classroom?.url}`} title={classroom?.title}></iframe>
               </div>
               <div className="classroom-data-container">
-                <h1>{classroom?.date}</h1>
-                <h1>-</h1>
-                <h1>{classroom?.title}</h1>
+              <h1>{classroom?.title}</h1>
+                <h1>{classroom?.date}</h1>                
               </div>
             </>
           )}
