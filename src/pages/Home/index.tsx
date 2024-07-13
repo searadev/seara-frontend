@@ -11,11 +11,6 @@ const Home = () => {
                             ASSOCIAÇÃO ESPÍRITA SEARA DE JESUS
                         </h1>
                     </div>
-                    <div className="home-phone-container">
-                        <p>
-                            Cel.: (11) 9.9691-3012
-                        </p>
-                    </div>
                     <div className="home-opening-container">
                         <p>
                             Horário de funcionamento - <b>2024</b>
@@ -40,7 +35,12 @@ const Home = () => {
                         <p>
                             Tratamento médico-espiritual
                         </p>
-                    </div>                    
+                    </div>
+                    <div className="home-phone-container">
+                        <p>
+                            Cel.: (11) 9.9691-3012
+                        </p>
+                    </div>
                 </div>
             </div>
         </>
