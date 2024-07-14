@@ -54,7 +54,7 @@ const ClassFilter = ({ onSubmitFilter }: Props) => {
             {...register('title')}
             type="text"
             className="form-control"
-            placeholder="Título"
+            placeholder="Pesquisar por Título"
             name="title"
           />
           <button className='class-filter-search-icon'>
@@ -71,7 +71,7 @@ const ClassFilter = ({ onSubmitFilter }: Props) => {
                   {...field}
                   options={selectModules}
                   isClearable
-                  placeholder="Módulo"
+                  placeholder="Pesquisar por Módulo"
                   classNamePrefix="class-filter-select"
                   onChange={value => handleChangeModule(value as Module)}
                   getOptionLabel={(module: Module) => module.name}

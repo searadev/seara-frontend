@@ -8,7 +8,7 @@ type Props = {
 
 const LectureCard = ({ lecture, url }: Props) => {
   return (
-    <div className="base-card ">
+    <div className="base-card">
       <div className="ratio ratio-4x3 lecture-videooo-container"> 
         <img src={url} alt="" />
       </div>

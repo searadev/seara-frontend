@@ -13,17 +13,17 @@ const Home = () => {
                     </div>
                     <div className="home-opening-container">
                         <p>
-                            Horário de funcionamento - <b>2024</b>
+                            Horário de funcionamento - 2024
                         </p>
                     </div>
                     <div className="home-wednesday-container">
                         <p>
-                            <b>Quarta-feira:</b> das 19h às 20h30.
+                            Quarta-feira: das 19h às 20h30
                         </p>
                     </div>
                     <div className="home-saturday-container">
                         <p>
-                            <b>Sábado:</b> das 19h às 20h30.
+                            Sábado: das 19h às 20h30
                         </p>
                     </div>
                     <div className="home-lecture-container">
