@@ -8,6 +8,7 @@
   align-items: center;  
   margin-bottom: 10px;
   margin-right: 10px;
+  font-size: 0.8em;
 }
 
 .class-filter-name-container input {
@@ -38,6 +39,7 @@
 
 .class-filter-module-container {
   flex: 1;
+  font-size: 0.8em;
   margin-right: 10px;
 }
 
