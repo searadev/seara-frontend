@@ -29,7 +29,7 @@ const LectureFilter = ({ onSubmitFilter }: Props) => {
             {...register('title')}
             type="text"
             className="form-control"
-            placeholder="Título"
+            placeholder="Pesquisar por Título"
             name="title"
           />
           <button className='lecture2-filter-search-icon'>
