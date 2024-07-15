@@ -39,7 +39,7 @@ const List = () => {
         page: controlComponentsData.activePage,
         size: 12,
         title: controlComponentsData.filterData.title,
-        module: controlComponentsData.filterData.module?.id
+        moduleId: controlComponentsData.filterData.module?.id
       },
     };
 
