@@ -2,12 +2,10 @@
     font-size: 18px;   
 }
 
-.lecture-title-container {
-    margin-bottom: 20px; 
-    align-content: center;   
-    padding-top: 10px; 
-    margin-left: 0px;
-    margin-right: 0px;
+.lecture-title-container {    
+    align-content: center;
+    margin-left: 15px;
+    margin-right: 1px;
 }
 
 .lecture-title-container h1 {

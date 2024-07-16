@@ -4,10 +4,9 @@
 }
 
 .classroom-title-container {
-  margin-bottom: 20px;
   align-content: center;
-  margin-left: 0px;
-  margin-right: 0px;
+  margin-left: 10px;
+  margin-right: 1px;
 }
 
 .classroom-title-container h1 {
