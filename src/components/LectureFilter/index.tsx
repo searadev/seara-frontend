@@ -7,19 +7,17 @@ export type LectureFilterData = {
 };
 
 type Props = {
-  onSubmitFilter : (data: LectureFilterData) => void;
+  onSubmitFilter: (data: LectureFilterData) => void;
 }
 
 const LectureFilter = ({ onSubmitFilter }: Props) => {
-  const { register, handleSubmit, setValue } = useForm<LectureFilterData>();
+  const { register, handleSubmit } = useForm<LectureFilterData>();
 
   const onSubmit = (formData: LectureFilterData) => {
-    onSubmitFilter(formData); 
+    onSubmitFilter(formData);
   };
 
-  const handleFormClear = () => {
-    setValue('title', '');
-  }   
+
 
   return (
     <div className="base-card lecture2-filter">
@@ -35,9 +33,6 @@ const LectureFilter = ({ onSubmitFilter }: Props) => {
           <button className='lecture2-filter-search-icon'>
             <SearchIcon />
           </button>
-        </div>
-        <div className='lecture2-filter-botton-container'>          
-          <button onClick={handleFormClear} className="btn btn-outline-secondary btn-lecture2-clear">LIMPAR FILTRO</button>
         </div>
       </form>
     </div>

@@ -12,7 +12,7 @@ export type ClassFilterData = {
 };
 
 type Props = {
-  onSubmitFilter : (data: ClassFilterData) => void;
+  onSubmitFilter: (data: ClassFilterData) => void;
 }
 
 const ClassFilter = ({ onSubmitFilter }: Props) => {
@@ -20,18 +20,13 @@ const ClassFilter = ({ onSubmitFilter }: Props) => {
   const { register, handleSubmit, setValue, getValues, control } = useForm<ClassFilterData>();
 
   const onSubmit = (formData: ClassFilterData) => {
-    onSubmitFilter(formData); 
+    onSubmitFilter(formData);
   };
-
-  const handleFormClear = () => {
-    setValue('title', '');
-    setValue('module', null);
-  }
 
   const handleChangeModule = (value: Module) => {
     setValue('module', value);
 
-    const obj : ClassFilterData = {
+    const obj: ClassFilterData = {
       title: getValues('title'),
       module: getValues('module')
     }
@@ -80,7 +75,6 @@ const ClassFilter = ({ onSubmitFilter }: Props) => {
               )}
             />
           </div>
-          <button onClick={handleFormClear} className="btn btn-outline-secondary btn-class-filter-clear">LIMPAR <span className='btn-class-filter-word'>FILTRO</span></button>
         </div>
       </form>
     </div>
