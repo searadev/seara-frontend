@@ -72,7 +72,7 @@ const Messages = () => {
       ) : (
         page?.content.map((message) => {
           return (
-            <div className="col-sm-6 col-lg-4 col-xl-3" key={message.id}>
+            <div className="col-lg-4 col-xl-3" key={message.id}>
               <Link to={`/message/${message.id}`}>
                 <MessageCard message={message} />
               </Link>

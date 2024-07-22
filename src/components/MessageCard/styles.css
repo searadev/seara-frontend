@@ -1,7 +1,7 @@
-
 .message-card {  
     align-items: center;    
     /*border: 1px solid orange;*/
+    padding-bottom: 10px;
 }
 
 .message-top-container p {
@@ -12,13 +12,26 @@
 }
 
 .message-body-container p {
-    font-size: 15px;
+    font-size: 10px;
+    font-family: "Roboto", "Arial", sans-serif;
+    font-weight: 700;
     color: #263238;
-    text-align: left;
 }
 
 .message-botton-container h1 {
-    font-size: 18px;
+    font-size: 10px;
+    margin-bottom: 5px;
+    font-family: "Roboto", "Arial", sans-serif;
+    font-weight: 700;
     color: #263238;
-    text-align: right;
+
+}
+
+@media (min-width: 992px) {
+    .message-card {  
+        align-items: center;    
+        border: 1px solid #E1E1E1;
+        min-height: 200px;
+        max-height: 200px;
+    }
 }

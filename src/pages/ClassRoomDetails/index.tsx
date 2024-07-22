@@ -33,7 +33,7 @@ const ClassRoomDetails = () => {
     <div className="classroom-details-container">
       <div className="base-card classroom-details-card">
         <Link to="/classroom">
-          <div className="goback-container">
+          <div className="goback-container"> 
             <ArrowIcon />
             <h2>VOLTAR</h2>
           </div>

@@ -8,7 +8,7 @@ type Props = {
 const PsychographyCard = ({ psychographyDto } : Props) => {
 
     return (
-        <div className="base-card psychography-card">            
+        <div className="base-card2 psychography-card">            
             <div className="psychography-body-container">
                 <p>{psychographyDto.title}</p>
             </div>
