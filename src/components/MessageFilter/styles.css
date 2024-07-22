@@ -1,7 +1,12 @@
 .message2-filter {
-    padding: 15px;
+    padding: 0px 15px 0px 15px;
     margin-bottom: 20px;
 }
+
+.message2-filter-form {
+   padding-left: 10px;
+   padding-right: 10px;
+  }
 
 .message2-filter-name-container {
     display: flex;
@@ -25,6 +30,28 @@
     color: #9E9E9E;
 }
 
+.message2-filter-fullName-container {
+    display: flex;
+    align-items: center;    
+    margin-bottom: 10px;
+}
+
+.message2-filter-fullName-container input {
+    border: none;
+    background-color: #FFF;
+    border-bottom: 1px solid #E1E1E1;
+    margin-right: 10px;
+}
+
+.message2-filter-fullName-container input:focus {
+    box-shadow: none;
+    background-color: #FFF;
+}
+
+.message2-filter-fullName-container input::placeholder {
+    color: #9E9E9E;
+}
+
 .message2-filter-search-icon {
     border: none;
     background-color: unset;
@@ -36,14 +63,25 @@
 }
 
 @media (min-width: 576px) {
-    .message2-filter-form {
-        display: flex;
-    }
+    
 
     .message2-filter-name-container {
         flex: 1;
-        margin-right: 20px;
-        margin-bottom: 0;
+        padding: 10px;
+    } 
+
+    .message2-filter-fullName-container {
+        flex: 1;
+        padding: 10px;
     } 
 }
+
+@media (min-width: 768px) {
+    
+    .message2-filter-form {
+        display: flex;
+      }
+}
+
+
 

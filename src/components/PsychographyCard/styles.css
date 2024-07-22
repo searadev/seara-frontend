@@ -22,3 +22,19 @@
     color: #263238;
     text-align: left;
 }
+
+@media (min-width: 768px) {
+    .psychography-card {  
+        align-items: center;    
+        margin-left: 100px;
+        margin-right: 100px;
+    }
+  }
+
+  @media (min-width: 992px) {
+    .psychography-card {  
+        align-items: center;    
+        margin-left: 300px;
+        margin-right: 300px;
+    }
+  }

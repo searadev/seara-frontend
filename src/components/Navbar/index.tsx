@@ -48,19 +48,9 @@ const Navbar = () => {
           <ul className="navbar-nav offset-md-2 main-menu">
             <li>
               <NavLink to="/home" activeClassName="active" exact>
-                INÍCIO
+                ATENDIMENTO
               </NavLink>              
-            </li>
-            {/*<li>
-              <NavLink to="/message" activeClassName="active" exact>
-                MOTIVACIONAIS
-              </NavLink>
-            </li>
-            <li>
-              <NavLink to="/psychography" activeClassName="active">
-                PSICOGRAFIAS
-              </NavLink>
-            </li>*/}
+            </li>            
             <li>
               <NavLink to="/lecture" activeClassName="active">
                 PALESTRAS
@@ -70,8 +60,19 @@ const Navbar = () => {
               <NavLink to="/classroom" activeClassName="active">
                 AULAS
               </NavLink>
+            </li> 
+            <li>
+              <NavLink to="/message" activeClassName="active" exact>
+                MENSAGENS
+              </NavLink>
+            </li>                                  
+            {/*
+            <li>
+              <NavLink to="/psychography" activeClassName="active">
+                PSICOGRAFIAS
+              </NavLink>
             </li>
-            {/*<li>
+            <li>
               <NavLink to="/admin" activeClassName="active">
                 ADMIN
               </NavLink>
@@ -84,7 +85,8 @@ const Navbar = () => {
               ) : (
                 <Link to="/admin/auth">LOGIN</Link>
               )}
-              </li>*/}
+              </li>
+              */}
           </ul>
         </div>
       </div>
