@@ -8,15 +8,12 @@ type Props = {
 const MessageCard = ({ message } : Props) => {
 
     return (
-        <div className="base-card message-card">
+        <div className="base-card2 message-card"> 
             <div className="message-top-container">
                 <p>{message.title}</p>
-            </div>
-            <div className="message-body-container">
-                <p>{message.text}</p>
-            </div>
+            </div>            
             <div className="message-botton-container">
-                <h1>{message.fullName}</h1>
+                <h1>{message.fullName} - {message.date}</h1>
             </div>
         </div>
     );

@@ -12,16 +12,11 @@ type Props = {
 }
 
 const MessageFilter = ({ onSubmitFilter }: Props) => {
-  const { register, handleSubmit, setValue } = useForm<MessageFilterData>();
+  const { register, handleSubmit } = useForm<MessageFilterData>();
 
   const onSubmit = (formData: MessageFilterData) => {
     onSubmitFilter(formData); 
-  };
-
-  const handleFormClear = () => {
-    setValue('title', '');
-    setValue('fullName', '');
-  }   
+  }; 
 
   return (
     <div className="base-card message2-filter">
@@ -31,23 +26,22 @@ const MessageFilter = ({ onSubmitFilter }: Props) => {
             {...register('title')}
             type="text"
             className="form-control"
-            placeholder="Título"
+            placeholder="Texto"
             name="title" 
-          /> 
-          <input
+          />                   
+        </div>      
+        <div className='message2-filter-fullName-container'>
+        <input
             {...register('fullName')}
             type="text"
             className="form-control"
             placeholder="Nome"
             name="fullName"
           />
-          <button className='message2-filter-search-icon'>
+           <button className='message2-filter-search-icon'>
             <SearchIcon />
-          </button>
-        </div>
-        <div className='message2-filter-botton-container'>          
-          <button onClick={handleFormClear} className="btn btn-outline-secondary btn-message2-clear">LIMPAR FILTRO</button>
-        </div>
+          </button>             
+        </div>  
       </form>
     </div>
   );

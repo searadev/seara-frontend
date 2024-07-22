@@ -12,16 +12,11 @@ type Props = {
 }
 
 const PsychographyFilter = ({ onSubmitFilter }: Props) => {
-  const { register, handleSubmit, setValue } = useForm<PsychographyFilterData>();
+  const { register, handleSubmit } = useForm<PsychographyFilterData>();
 
   const onSubmit = (formData: PsychographyFilterData) => {
     onSubmitFilter(formData); 
   };
-
-  const handleFormClear = () => {
-    setValue('text', '');
-    setValue('fullName', '');
-  }   
 
   return (
     <div className="base-card psychography2-filter">
@@ -44,9 +39,6 @@ const PsychographyFilter = ({ onSubmitFilter }: Props) => {
           <button className='psychography2-filter-search-icon'>
             <SearchIcon />
           </button>
-        </div>
-        <div className='psychography2-filter-botton-container'>          
-          <button onClick={handleFormClear} className="btn btn-outline-secondary btn-psychography2-clear">LIMPAR FILTRO</button>
         </div>
       </form>
     </div>

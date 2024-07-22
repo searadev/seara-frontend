@@ -60,7 +60,7 @@ const Psychographies = () => {
   }, [getPsychography]);
 
   return (
-    <div className="container psychography-container">
+    <div className="base-card psychography-container">
       <div className="row psychography-title-container">
       <PsychographyFilter onSubmitFilter={handleSubmitFilter} />
       </div>

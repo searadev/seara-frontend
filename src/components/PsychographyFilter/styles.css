@@ -1,12 +1,10 @@
 .psychography2-filter {
     padding: 15px;
-    margin-bottom: 20px;
 }
 
 .psychography2-filter-name-container {
     display: flex;
-    align-items: center;    
-    margin-bottom: 10px;
+    align-items: center; 
 }
 
 .psychography2-filter-name-container input {
