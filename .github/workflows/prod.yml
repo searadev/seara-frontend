@@ -16,3 +16,13 @@ jobs:
               run: docker build -f Dockerfile -t searadejesus/searafront:latest .
             - name: Publish image to docker hub
               run: docker push searadejesus/searafront:latest 
+
+    deploy:
+        needs: build
+        runs-on: self-hosted
+        steps:
+            - name: Pull image from docker hub
+              run: docker pull searadejesus/searafront:latest
+            
+            - name: Run docker container
+              run: docker run -it -p 4001:3000 -e BACKEND_URL=${{secrets.BACKEND_URL}} -e CLIENT_ID=${{secrets.CLIENT_ID}} -e CLIENT_SECRET=${{secrets.CLIENT_SECRET}} --name searafront searadejesus/searafront:latest
