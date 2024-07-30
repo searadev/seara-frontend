@@ -13,10 +13,6 @@ jobs:
             - name: Login to Docker Hub
               run: docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
             - name: Build Docker Image
-              env:
-                BACKEND_URL: '${{secrets.BACKEND_URL}}'
-                CLIENT_ID: '${{secrets.CLIENT_ID}}'
-                CLIENT_SECRET: '${{secrets.CLIENT_SECRET}}'
               run: docker build -f Dockerfile -t searadejesus/searafront:latest .
             - name: Publish image to docker hub
               run: docker push searadejesus/searafront:latest 
@@ -26,10 +22,6 @@ jobs:
         runs-on: self-hosted
         steps:
             - name: Pull image from docker hub
-              env:
-                BACKEND_URL: '${{secrets.BACKEND_URL}}'
-                CLIENT_ID: '${{secrets.CLIENT_ID}}'
-                CLIENT_SECRET: '${{secrets.CLIENT_SECRET}}'
               run: docker pull searadejesus/searafront:latest
             
             
