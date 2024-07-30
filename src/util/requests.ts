@@ -3,9 +3,11 @@ import qs from 'qs';
 import history from './history';
 import { getAuthData } from './storage';
 
-export const BASE_URL = `${process.env.BACKEND_URL}`; 
-const CLIENT_ID = `${process.env.CLIENT_ID}`;
-const CLIENT_SECRET = `${process.env.CLIENT_SECRET}`;
+const dotenv = require('dotenv').config();
+
+export const BASE_URL = process.env.BACKEND_URL;
+const CLIENT_ID = process.env.CLIENT_ID;
+const CLIENT_SECRET = process.env.CLIENT_SECRET;
 
 type LoginData = {
   username: string;
