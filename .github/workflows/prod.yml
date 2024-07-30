@@ -26,6 +26,10 @@ jobs:
         runs-on: self-hosted
         steps:
             - name: Pull image from docker hub
+              env:
+                BACKEND_URL: '${{secrets.BACKEND_URL}}'
+                CLIENT_ID: '${{secrets.CLIENT_ID}}'
+                CLIENT_SECRET: '${{secrets.CLIENT_SECRET}}'
               run: docker pull searadejesus/searafront:latest
             
             
