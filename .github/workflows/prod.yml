@@ -20,9 +20,7 @@ jobs:
     deploy:
         needs: build
         runs-on: self-hosted
-        steps:
-            - name: Pull image from docker hub
-              run: docker pull searadejesus/searafront:latest
+        steps:            
             - name: Run docker container
               run: docker run -it -p 4001:3000 --name searafront searadejesus/searafront:latest
             
