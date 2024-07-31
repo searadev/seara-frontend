@@ -9,7 +9,7 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - name: Checkout code
-              uses: actions/checkout@v3
+              uses: actions/checkout@v4
             - name: Login to Docker Hub
               run: docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
             - name: Build Docker Image
@@ -17,11 +17,6 @@ jobs:
             - name: Publish image to docker hub
               run: docker push searadejesus/searafront:latest 
 
-    deploy:
-        needs: build
-        runs-on: self-hosted
-        steps:            
-            - name: Run docker container
-              run: docker run -it -p 4001:3000 --name searafront searadejesus/searafront:latest
+   
             
             
