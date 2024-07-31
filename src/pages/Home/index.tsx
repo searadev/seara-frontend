@@ -13,7 +13,7 @@ const Home = () => {
                     </div>
                     <div className="home-opening-container">
                         <p>
-                            Horário de funcionamento - 2024
+                            Horário de funcionamento: 2024
                         </p>
                     </div>
                     <div className="home-wednesday-container">
