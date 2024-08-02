@@ -21,7 +21,7 @@ const Messages = () => {
   const [controlComponentsData, setControlComponentsData] =
     useState<ControlComponentsData>({
       activePage: 0,
-      filterData: { title: '', fullName: '' },
+      filterData: { text: '', fullName: '' },
     });
 
   const handlePageChange = (pageNumber: number) => {
@@ -42,8 +42,8 @@ const Messages = () => {
       params: {
         page: controlComponentsData.activePage,
         size: 12,
-        text: controlComponentsData.filterData.fullName,
-        title: controlComponentsData.filterData.title,
+        fullName: controlComponentsData.filterData.fullName,
+        text: controlComponentsData.filterData.text,
       },
     };
 
