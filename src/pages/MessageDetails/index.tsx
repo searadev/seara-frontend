@@ -36,7 +36,7 @@ const MessageDetails = () => {
         <form>
           <div>
             <textarea
-              rows={50}
+              rows={40}
               value={message?.text}
               className="form-control message-details-card h-auto"
               name="text"

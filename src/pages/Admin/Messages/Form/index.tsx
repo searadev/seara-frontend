@@ -29,7 +29,7 @@ const Form = () => {
   } = useForm<Message>();
 
   useEffect(() => {
-    requestBackend({ url: '/mediuns', withCredentials: true }).then(
+    requestBackend({ url: '/mediuns/all', withCredentials: true }).then(
       (response) => {
         setSelectMediuns(response.data.content);
       }
