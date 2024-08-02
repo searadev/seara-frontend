@@ -3,7 +3,7 @@ import { useForm } from 'react-hook-form';
 import './styles.css';
 
 export type MessageFilterData = {
-  title: string;
+  text: string;
   fullName: string;
 };
 
@@ -23,11 +23,11 @@ const MessageFilter = ({ onSubmitFilter }: Props) => {
       <form onSubmit={handleSubmit(onSubmit)} className='message2-filter-form' >
         <div className='message2-filter-name-container'>
           <input
-            {...register('title')}
+            {...register('text')}
             type="text"
             className="form-control"
             placeholder="Texto"
-            name="title" 
+            name="text" 
           />                   
         </div>      
         <div className='message2-filter-fullName-container'>
