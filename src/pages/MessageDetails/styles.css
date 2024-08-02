@@ -1,5 +1,6 @@
 .message-details-container {
-    padding: 10px 10px 160px 10px;
+    padding: 20px 10px 10px 10px;
+    min-height: 205px;
     font-size: 24px; 
     /*border: 1px solid red;*/
 }
@@ -9,7 +10,10 @@
 }
 
 .message-details-card {
-    padding: 10px;
+    background-color: white;
+    border: 0px;
+    border-radius: 0%;
+    
     /*border: 1px solid green;*/
 }
 
@@ -59,7 +63,7 @@
 .message-data-container {
     display: flex;
     align-items: center;
-    padding: 20px;
+    padding: 20px 11px;
 }
 
 .message-data-container h1 {
@@ -74,11 +78,7 @@
     .message-details-container {
         padding: 30px 30px 250px 30px;
         font-size: 28px;
-    }
-
-    .message-details-card {
-        padding: 20px;
-    }
+    }   
 
 }
 
@@ -87,10 +87,6 @@
     .message-details-container {
         padding: 50px 50px 250px 50px;
         font-size: 30px;
-    }
-
-    .message-details-card {
-        padding: 30px;
     }
 
 }
@@ -102,10 +98,6 @@
         font-size: 30px;
     }
 
-    .message-details-card {
-        padding: 40px;
-    }
-
 }
 
 @media (min-width: 1200px) {
@@ -115,10 +107,6 @@
         font-size: 30px;
     }
 
-    .message-details-card {
-        padding: 50px;
-    }
-
 }
 
 @media (min-width: 1400px) {
@@ -126,10 +114,6 @@
     .message-details-container {
         padding: 100px 350px;
         font-size: 30px;
-    }
-
-    .message-details-card {
-        padding: 50px;
     }
 
 }
