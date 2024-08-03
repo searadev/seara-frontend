@@ -19,10 +19,10 @@
     align-items: center;
     margin-bottom: 20px;
     /*border: 1px solid blue;*/
+    padding-left: 1px;
 }
 
 .goback-container h2 {
-    margin-left: 15px;
     font-size: 0.6em;
     color: #263238;
     letter-spacing: -0.015em;
@@ -30,7 +30,7 @@
 }
 
 .goback-container svg {
-    margin-left: 5px;
+    margin-left: 0px;
     color: #b8860b;
     transform: rotate(-180deg);
 
