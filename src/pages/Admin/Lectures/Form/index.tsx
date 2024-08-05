@@ -109,7 +109,7 @@ const Form = () => {
                   {...register('date', {
                     required: 'Campo obrigatório',
                   })}
-                  type="text"
+                  type="date"
                   className={`form-control base-input ${
                     errors.date ? 'is-invalid' : ''
                   }`}
