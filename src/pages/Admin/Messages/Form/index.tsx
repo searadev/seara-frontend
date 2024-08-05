@@ -39,7 +39,7 @@ const Form = () => {
   useEffect(() => {
     console.log(messageId);
     if (isEditing) {
-      requestBackend({ url: `/messages/${messageId}` }).then((response) => {
+      requestBackend({ url: `/messages/admin/${messageId}` }).then((response) => {
         const message = response.data as Message;
         setValue('title', message.title);
         setValue('text', message.text);

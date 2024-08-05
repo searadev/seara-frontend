@@ -39,7 +39,7 @@ const Form = () => {
   useEffect(() => {
     console.log(psychographyId);
     if (isEditing) {
-      requestBackend({ url: `/psychographies/${psychographyId}` }).then(
+      requestBackend({ url: `/psychographies/admin/${psychographyId}` }).then(
         (response) => {
           const psychography = response.data as Psychography;
           setValue('title', psychography.title);
