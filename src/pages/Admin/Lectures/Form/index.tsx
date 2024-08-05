@@ -38,7 +38,7 @@ const Form = () => {
   useEffect(() => {
     console.log(lecturesId);
     if (isEditing) {
-      requestBackend({ url: `/lectures/${lecturesId}` }).then((response) => {
+      requestBackend({ url: `/lectures/admin/${lecturesId}` }).then((response) => {
         const classRoom = response.data as Lecture;
         setValue('title', classRoom.title);
         setValue('url', classRoom.url);
